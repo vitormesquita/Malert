@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Malert_Example' do
+  pod 'Malert', :path => '../'
+
+  target 'Malert_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
