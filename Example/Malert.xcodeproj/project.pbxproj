@@ -15,6 +15,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		91B0ACF67A1169A2D25CD6A1 /* Pods_Malert_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49C907BCD023639C4EE8F78 /* Pods_Malert_Tests.framework */; };
+		FCA49B801DC93C1D000890AA /* teste.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA49B7F1DC93C1D000890AA /* teste.xib */; };
+		FCA49B821DC93C2A000890AA /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA49B811DC93C2A000890AA /* teste.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		0DEFA3CF468AD2C89AC6F2A8 /* Pods_Malert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Malert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		21083D1D6390361B30853B37 /* Malert.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Malert.podspec; path = ../Malert.podspec; sourceTree = "<group>"; };
+		21083D1D6390361B30853B37 /* Malert.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Malert.podspec; path = ../Malert.podspec; sourceTree = "<group>"; };
 		356EC739D2854C14D4FE4A16 /* Pods-Malert_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Tests/Pods-Malert_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Malert_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Malert_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,11 +44,13 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		83E23EA6345EA39F3D02EEAE /* Pods-Malert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Example/Pods-Malert_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		98737553F911AA11740A107E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		A2A84EB05579A47CCBE9BFD2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		98737553F911AA11740A107E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A2A84EB05579A47CCBE9BFD2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A49C907BCD023639C4EE8F78 /* Pods_Malert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Malert_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20E16402CA0CDAB7FEB9383 /* Pods-Malert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Example/Pods-Malert_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F869482DEFE00CBEDB3AF8AA /* Pods-Malert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Tests/Pods-Malert_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		FCA49B7F1DC93C1D000890AA /* teste.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = teste.xib; sourceTree = "<group>"; };
+		FCA49B811DC93C2A000890AA /* teste.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = teste.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 		607FACD21AFB9204008FA782 /* Example for Malert */ = {
 			isa = PBXGroup;
 			children = (
+				FCA49B811DC93C2A000890AA /* teste.swift */,
+				FCA49B7F1DC93C1D000890AA /* teste.xib */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -215,9 +221,11 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -249,6 +257,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				FCA49B801DC93C1D000890AA /* teste.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		58EB663D3F8BC672F363158F /* [CP] Copy Pods Resources */ = {
@@ -334,7 +343,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9F1A9335C3FCF99282245E90 /* [CP] Embed Pods Frameworks */ = {
@@ -361,6 +370,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				FCA49B821DC93C2A000890AA /* teste.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +504,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -507,6 +518,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -526,6 +538,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -541,6 +554,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

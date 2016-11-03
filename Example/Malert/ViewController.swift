@@ -7,18 +7,33 @@
 //
 
 import UIKit
+import Malert
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func actionButton(_ sender: AnyObject) {
+        let malertButtonConfig = MalertButtonConfig(title: "teste", type: .normal, enable: true) { 
+            MalertManager.sharedInstance.dismiss()
+        }
+        
+        let malertButtonConfig2 = MalertButtonConfig(title: "teste2 ", type: .normal, enable: true) {
+            MalertManager.sharedInstance.dismiss()
+        }
+        
+        let malertButtonConfig3 = MalertButtonConfig(title: "teste3 ", type: .normal, enable: true) {
+            MalertManager.sharedInstance.dismiss()
+        }
+        
+        MalertManager.sharedInstance.show(with: "titulo", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2, malertButtonConfig3])
+    }
 }
 
