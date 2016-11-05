@@ -11,12 +11,12 @@ import UIKit
 public class MalertManager {
     public static var sharedInstance = MalertManager()
     
-    private var malertStyle: MalertStyle = MalertStyle()
-    private var mainWindow: UIWindow?
-    private var alertWindow: UIWindow?
-    private var alertQueue = [MalertView]()
+    fileprivate var malertStyle: MalertStyle = MalertStyle()
+    fileprivate var mainWindow: UIWindow?
+    fileprivate var alertWindow: UIWindow?
+    fileprivate var alertQueue = [MalertView]()
     
-    private func show(with malertView: MalertView) {
+    fileprivate func show(with malertView: MalertView, animationType:MalertAnimationType) {
         if alertWindow == nil {
             alertWindow = UIWindow(frame: UIScreen.main.bounds)
             mainWindow = UIApplication.shared.keyWindow
@@ -27,29 +27,60 @@ public class MalertManager {
                 alertWindow.windowLevel = UIWindowLevelAlert
                 alertWindow.makeKeyAndVisible()
                 
-                malertView.transform = CGAffineTransform.init(translationX: 9, y: alertWindow.bounds.size.height)
-                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: { () -> Void in
-                    malertViewController.view.backgroundColor = UIColor(white: 0, alpha: 0.5)
-                    malertView.transform = .identity
-                    }, completion: nil)
+                MalertAnimation.buildAnimation(with: MalertAnimationWrapper(animationType: animationType, malertView: malertView, malertViewController: malertViewController, malertWindow: alertWindow))
             }
         } else {
             alertQueue.append(malertView)
         }
     }
+}
+
+extension MalertManager {
+    
+    /**
+     * Malert's configurations (Example: Background color, tint color, etc...)
+     * Parameters:
+     *  - malertStyle: class contains all custom attributes that user can be custom
+     */
     
     public func setGlobalStyle(malertStyle: MalertStyle){
         self.malertStyle = malertStyle
     }
+}
+
+extension MalertManager {
     
-    public func show(with title: String, customView:UIView, buttons: [MalertButtonConfig] ) {
-        let alert = MalertView.buildAlert(with: title, customView: customView, buttons: buttons, malertStyle: malertStyle)
-        show(with: alert)
+    /**
+     * Malert's functions about show alert with title or just with custom view
+     * Parameters: 
+     *  - title: String that will put on top to alert
+     *  - customView: all UIView can be put here to appear in alert
+     *  - buttons: Struct that will create all buttons in stackView 
+     *  - animationType: the animation will apresent the alert in uiwindow
+     */
+    
+    public func show(customView: UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType = .modalBottom) {
+        let alert = MalertView.buildAlert(with: nil, customView: customView, buttons: buttons, malertStyle: malertStyle)
+        show(with: alert, animationType: animationType)
     }
+
+    public func show(title: String, customView:UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType = .modalBottom) {
+        let alert = MalertView.buildAlert(with: title, customView: customView, buttons: buttons, malertStyle: malertStyle)
+        show(with: alert, animationType: animationType)
+    }
+}
+
+extension MalertManager {
+    
+    /**
+     * Malert's functions to dismiss the current alert and show other or dismiss all alerts
+     * Parameters: 
+     *  - completion: Block with boolean that inform if animation is completed
+     */
     
     public func dismiss(with completion: ((_ finished: Bool) -> Void)? = nil) {
         guard let alertWindow = alertWindow else { return }
-
+        
         UIView.animate(withDuration: 0.25, animations: {
             alertWindow.alpha = 0
         }) {[weak self] (finished) in
@@ -59,7 +90,7 @@ public class MalertManager {
             strongSelf.alertWindow = nil
             
             if let alertToPresent = strongSelf.alertQueue.first {
-                strongSelf.show(with: alertToPresent)
+                strongSelf.show(with: alertToPresent, animationType: .modalLeft)
                 strongSelf.alertQueue.remove(at: 0)
             }
             

@@ -17,6 +17,7 @@ public class MalertStyle {
     var cornerRadius: CGFloat = 6
     var margin: CGFloat = 16
     var textColor: UIColor = .black
+    var textAlign: NSTextAlignment = .left
     
     //MARK: stack
     
@@ -33,7 +34,6 @@ public class MalertStyle {
 }
 
 public class MalertButtonStyle {
-    
     var backgroundColor: UIColor = .clear
     var tintColor: UIColor = .lightGray
     var separetorColor: UIColor = UIColor(white: 0.8, alpha: 1)

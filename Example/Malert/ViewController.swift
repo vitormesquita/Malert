@@ -31,9 +31,10 @@ class ViewController: UIViewController {
         
         let malertButtonConfig3 = MalertButtonConfig(title: "teste3 ", type: .normal, enable: true) {
             MalertManager.sharedInstance.dismiss()
+            MalertManager.sharedInstance.show(customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2], animationType: .modalLeft)
         }
         
-        MalertManager.sharedInstance.show(with: "titulo", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2, malertButtonConfig3])
+        MalertManager.sharedInstance.show(title: "titulo", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2, malertButtonConfig3], animationType: .modalLeft)
     }
 }
 

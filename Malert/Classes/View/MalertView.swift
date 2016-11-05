@@ -15,8 +15,17 @@ class MalertView: UIView {
     fileprivate var style: MalertStyle!
     
     fileprivate var buttonsStackView: OAStackView?
+    fileprivate var titleLabel: UILabel?
     fileprivate var buttons = [MalertButton]()
-    fileprivate lazy var titleLabel: UILabel = self.initializeTitleLabel()
+    
+    fileprivate var title: String? {
+        didSet {
+            guard let title = title else {
+                return
+            }
+            initializeTitleLabel(title: title)
+        }
+    }
     
     fileprivate var customView: UIView? {
         willSet {
@@ -64,27 +73,30 @@ class MalertView: UIView {
     }
     
     
-    class func buildAlert(with title: String, customView: UIView, buttons: [MalertButtonConfig], malertStyle:MalertStyle) -> MalertView {
+    class func buildAlert(with title: String?, customView: UIView, buttons: [MalertButtonConfig], malertStyle:MalertStyle) -> MalertView {
         let alert = MalertView(style: malertStyle)
-        alert.titleLabel.text = title
         alert.customView = customView
         alert.buttonsConfig = buttons
+        alert.title = title
         return alert
     }
 }
 
 extension MalertView {
     
-    fileprivate func initializeTitleLabel() -> UILabel {
-        let label = UILabel()
-        label.textColor = style.textColor
-        self.addSubview(label)
-        constrain(label, self) { (label, containerView) in
-            label.top == containerView.top + style.margin
-            label.right == containerView.right - style.margin
-            label.left == containerView.left + style.margin
+    fileprivate func initializeTitleLabel(title: String){
+        titleLabel = UILabel()
+        if let label = titleLabel {
+            label.text = title
+            label.textColor = style.textColor
+            label.textAlignment = style.textAlign
+            self.addSubview(label)
+            constrain(label, self) { (label, containerView) in
+                label.top == containerView.top + style.margin
+                label.right == containerView.right - style.margin
+                label.left == containerView.left + style.margin
+            }
         }
-        return label
     }
     
     fileprivate func configCustomView(){
@@ -92,11 +104,19 @@ extension MalertView {
             return
         }
         self.addSubview(customView)
-        constrain(customView, titleLabel, self, block: { (customView, titleLabel, containerView) in
-            customView.right == containerView.right - style.margin
-            customView.left == containerView.left + style.margin
-            customView.top == titleLabel.bottom + style.margin
-        })
+        if let titleLabel = titleLabel {
+            constrain(customView, titleLabel, self, block: { (customView, titleLabel, containerView) in
+                customView.right == containerView.right - style.margin
+                customView.left == containerView.left + style.margin
+                customView.top == titleLabel.bottom + style.margin
+            })
+        } else {
+            constrain(customView, self, block: { (customView, containerView) in
+                customView.top == containerView.top + style.margin
+                customView.right == containerView.right - style.margin
+                customView.left == containerView.left + style.margin
+            })
+        }
     }
     
     fileprivate func configStackViewOnAlert(buttons: [MalertButton]){
