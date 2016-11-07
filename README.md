@@ -5,11 +5,17 @@
 [![License](https://img.shields.io/cocoapods/l/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
 [![Platform](https://img.shields.io/cocoapods/p/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
 
-## Example
+## A simple iOS dialog View, customizable dialog View and written in Swift 
+
+Malert came to facilitate make custom alert views, introducing as `UIAlertViewController`. Malert allows you make some custom configurations to show your alert as your application layout.
+Malert can display on or a queue of alerts and has 3 
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+- Xcode 8.0+
+- Swift 3.0+
 
 ## Installation
 

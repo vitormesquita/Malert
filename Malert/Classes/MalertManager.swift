@@ -10,8 +10,7 @@ import UIKit
 
 public class MalertManager {
     public static var sharedInstance = MalertManager()
-    
-    fileprivate var malertStyle: MalertStyle = MalertStyle()
+
     fileprivate var mainWindow: UIWindow?
     fileprivate var alertWindow: UIWindow?
     fileprivate var alertQueue = [MalertView]()
@@ -38,19 +37,6 @@ public class MalertManager {
 extension MalertManager {
     
     /**
-     * Malert's configurations (Example: Background color, tint color, etc...)
-     * Parameters:
-     *  - malertStyle: class contains all custom attributes that user can be custom
-     */
-    
-    public func setGlobalStyle(malertStyle: MalertStyle){
-        self.malertStyle = malertStyle
-    }
-}
-
-extension MalertManager {
-    
-    /**
      * Malert's functions about show alert with title or just with custom view
      * Parameters: 
      *  - title: String that will put on top to alert
@@ -60,12 +46,12 @@ extension MalertManager {
      */
     
     public func show(customView: UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType = .modalBottom) {
-        let alert = MalertView.buildAlert(with: nil, customView: customView, buttons: buttons, malertStyle: malertStyle)
+        let alert = MalertView.buildAlert(with: nil, customView: customView, buttons: buttons)
         show(with: alert, animationType: animationType)
     }
 
     public func show(title: String, customView:UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType = .modalBottom) {
-        let alert = MalertView.buildAlert(with: title, customView: customView, buttons: buttons, malertStyle: malertStyle)
+        let alert = MalertView.buildAlert(with: title, customView: customView, buttons: buttons)
         show(with: alert, animationType: animationType)
     }
 }

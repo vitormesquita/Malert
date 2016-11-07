@@ -28,68 +28,52 @@ public struct MalertButtonConfig {
     }
 }
 
-class MalertButton: UIButton {
+public class MalertButton: UIButton {
     
-    private var actionBlock: (() -> ())?
-    private var style: MalertStyle?
-    private var index = 0
-    private var count = 0
+    fileprivate var actionBlock: (() -> ())?
+    fileprivate var index = 0
+    fileprivate var isHorizontalAxis = false
     
-    private var cornerRadius: CGFloat = 0
-    private var corners: UIRectCorner = .allCorners
+    // Button Height
     
-    func initializeMalertButton(malertButtonConfig: MalertButtonConfig, malertStyle: MalertStyle, index:Int, buttonsCount:Int) {
-        self.actionBlock = malertButtonConfig.actionBlock
-        self.style = malertStyle
-        self.index = index
-        self.count = buttonsCount
-        
-        constrain(self) { button in
-            button.height >= malertStyle.malertButtonStyle.buttonHeight
-        }
-        
-        configLayout()
-        self.setTitle(malertButtonConfig.title, for: .normal)
-        self.addTarget(self, action: #selector(MalertButton.buttonPressedAction(button:)), for: .touchUpInside)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.applyLayout()
-        }
-    }
-    
-    private func configLayout() {
-        if let style = style {
-            if style.buttonsAxis == .vertical {
-                if index == count-1 {
-                    cornerRadius = style.cornerRadius
-                    corners = [.bottomLeft, .bottomRight]
-                }
-            } else {
-                if index == 0 {
-                    cornerRadius = style.cornerRadius
-                    corners = [.bottomLeft]
-                }
-                
-                if index == count-1 {
-                    cornerRadius = style.cornerRadius
-                    corners = [.bottomRight]
-                }
+    public dynamic var height: CGFloat {
+        get { return bounds.size.height }
+        set {
+            constrain(self) { button in
+                button.height >= newValue
             }
         }
     }
     
-    private func applyLayout() {
-        if let style = style {
-            self.backgroundColor = style.malertButtonStyle.backgroundColor
-            self.tintColor = style.malertButtonStyle.tintColor
-            self.round(corners: corners, radius: cornerRadius, borderColor: style.malertButtonStyle.separetorColor, borderWidth: style.malertButtonStyle.separetorWidth)
+    // The separator color of this button
+    
+    public dynamic var separatorColor: UIColor? {
+        get { return separetor.backgroundColor }
+        set {
+            separetor.backgroundColor = newValue
+            leftSeparetor.backgroundColor = newValue
         }
     }
+    
+    // The separetor line on top button
+    
+    fileprivate lazy var separetor: UIView = {
+        let separetorLine = UIView(frame: .zero)
+        separetorLine.backgroundColor = UIColor(white: 0.8, alpha: 1)
+        separetorLine.translatesAutoresizingMaskIntoConstraints = false
+        return separetorLine
+    }()
+    
+    // The separetor line on left button
+    
+    fileprivate lazy var leftSeparetor: UIView = {
+        let leftSeparetorLine = UIView(frame: .zero)
+        leftSeparetorLine.translatesAutoresizingMaskIntoConstraints = false
+        leftSeparetorLine.backgroundColor = UIColor(white: 0.8, alpha: 1)
+        return leftSeparetorLine
+    }()
+
+    // Button action
     
     func buttonPressedAction(button: UIButton){
         if let actionBlock = actionBlock {
@@ -97,4 +81,50 @@ class MalertButton: UIButton {
         }
     }
 }
+
+extension MalertButton {
+    
+    /**
+     * Initializer Malert button
+     * Parameters:
+     *  - malertButtonConfig: Struct about simple configuraiton, like title and action block
+     *  - index: Button index in array of buttonsConfig. To make logics about separetor lines
+     *  - isHorizontalAxis: Boolean to know when show left separetor line
+     **/
+    
+    func initializeMalertButton(malertButtonConfig: MalertButtonConfig, index:Int, isHorizontalAxis:Bool) {
+        self.index = index
+        self.isHorizontalAxis = isHorizontalAxis
+        self.actionBlock = malertButtonConfig.actionBlock
+        
+        setUpViews()
+        setTitle(malertButtonConfig.title, for: .normal)
+        addTarget(self, action: #selector(MalertButton.buttonPressedAction(button:)), for: .touchUpInside)
+    }
+}
+
+extension MalertButton {
+    
+    fileprivate func setUpViews() {
+        addSubview(separetor)
+        addSubview(leftSeparetor)
+        
+        constrain(separetor, self) { (separetor, button) in
+            separetor.top == button.top
+            separetor.left == button.left
+            separetor.right == button.right
+            separetor.height == 1
+        }
+        
+        if isHorizontalAxis && index != 0 {
+            constrain(leftSeparetor, self, block: { (leftSeparetor, button) in
+                leftSeparetor.top == button.top
+                leftSeparetor.bottom == button.bottom
+                leftSeparetor.left == button.left
+                leftSeparetor.width == 1
+            })
+        }
+    }
+}
+
 
