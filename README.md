@@ -1,6 +1,6 @@
 # Malert
 
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/Malert_brand%20(1).svg?raw=true" width="300">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/Malert_brand%20(1).svg" width="300">
 
 [![CI Status](http://img.shields.io/travis/Vitor Mesquita/Malert.svg?style=flat)](https://travis-ci.org/Vitor Mesquita/Malert)
 [![Version](https://img.shields.io/cocoapods/v/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
