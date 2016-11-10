@@ -17,7 +17,7 @@ public class MalertView: UIView {
     
     fileprivate var buttons = [MalertButton]()
     fileprivate var title: String?
-
+    
     fileprivate var customView: UIView? {
         willSet {
             if let customView = customView {
@@ -91,10 +91,18 @@ public class MalertView: UIView {
     public dynamic var buttonsMargin: CGFloat = 0
     public dynamic var buttonsSpace: CGFloat = 0
     
-    init() {
+    init(title: String?, customView: UIView, buttons: [MalertButtonConfig]) {
         super.init(frame: .zero)
         backgroundColor = .white
         layer.cornerRadius = 6
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.title = title
+            strongSelf.customView = customView
+            strongSelf.buttonsConfig = buttons
+            strongSelf.setUpViews()
+        }
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -105,19 +113,15 @@ public class MalertView: UIView {
 extension MalertView {
     
     /**
-     * Malert's function to build alert
+     * Build and return MalertView
      * Parameters:
-     *  - title: it's the dialog title. Is optional and when is pass nil doesn't appear the title
-     *  - customView: Expect any UIView to put in dialog as content 
-     *  - buttons: Array of malert struct to build buttons in alert
+     *  - title: it's the dialog title. Whitout it wont appear the title
+     *  - customView: Expect any UIView to put in dialog as content
+     *  - buttons: Array of malert button struct to build buttons in alert
      */
     
-    class func buildAlert(with title: String?, customView: UIView, buttons: [MalertButtonConfig]) -> MalertView {
-        let alert = MalertView()
-        alert.title = title
-        alert.customView = customView
-        alert.buttonsConfig = buttons
-        alert.setUpViews()
+    class func buildAlert(with malertViewStruct: MalertViewStruct) -> MalertView {
+        let alert = MalertView(title: malertViewStruct.title, customView: malertViewStruct.customView, buttons: malertViewStruct.buttons)
         return alert
     }
 }
@@ -159,6 +163,10 @@ extension MalertView {
                 customView.top == containerView.top + margin
             }
         })
+        
+        if title == nil && margin == 0 {
+            customView.round(corners: [.topLeft, .topRight], radius: cornerRadius)
+        }
     }
     
     fileprivate func setUpButtonsStackView() {

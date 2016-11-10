@@ -1,5 +1,7 @@
 # Malert
 
+<img src="https://github.com/Orderella/PopupDialog/blob/master/Assets/PopupDialogLogo.png?raw=true" width="300">
+
 [![CI Status](http://img.shields.io/travis/Vitor Mesquita/Malert.svg?style=flat)](https://travis-ci.org/Vitor Mesquita/Malert)
 [![Version](https://img.shields.io/cocoapods/v/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
 [![License](https://img.shields.io/cocoapods/l/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)

@@ -9,26 +9,47 @@
 import UIKit
 import Cartography
 
+struct MalertViewStruct {
+    var title: String?
+    var customView: UIView
+    var buttons: [MalertButtonConfig]
+    
+    init(title: String?, customView: UIView, buttons: [MalertButtonConfig]) {
+        self.title = title
+        self.customView = customView
+        self.buttons = buttons
+    }
+}
+
 class MalertViewController: BaseMalertViewController {
     
-    private let bottomInsetConstraintGroup = ConstraintGroup()
-    private lazy var visibleView: UIView = self.buildVisibleView()
+    fileprivate lazy var visibleView: UIView = self.buildVisibleView()
+    fileprivate let bottomInsetConstraintGroup = ConstraintGroup()
+    fileprivate var animationType: MalertAnimationType = .modalBottom
     
-    private var malertView: MalertView? {
+    fileprivate var malertView: MalertView? {
+        willSet {
+            if let malertView = malertView {
+                malertView.removeFromSuperview()
+            }
+        }
         didSet {
             guard let malertView = malertView else {
                 return
             }
+            malertView.alpha = 1
             visibleView.addSubview(malertView)
             constrain(malertView, visibleView) { (malertView, visibleView) in
                 malertView.center == visibleView.center
                 malertView.left == visibleView.left + 16
                 malertView.right == visibleView.right - 16
             }
+            MalertAnimation.buildAnimation(with: MalertAnimationWrapper(animationType: animationType, malertView: malertView, malertViewController: self))
         }
     }
     
     override func loadView() {
+        super.loadView()
         view = UIView(frame: UIScreen.main.bounds)
     }
     
@@ -54,8 +75,17 @@ class MalertViewController: BaseMalertViewController {
         view.setNeedsUpdateConstraints()
     }
     
-    func setMalertView(malertView: MalertView) {
-        self.malertView = malertView
+}
+
+extension MalertViewController {
+    
+    func setMalertView(malertViewStruct: MalertViewStruct, animationType: MalertAnimationType) {
+        self.animationType = animationType
+        self.malertView = MalertView.buildAlert(with: malertViewStruct)
+    }
+    
+    func getMalertView() -> MalertView? {
+        return malertView
     }
     
     func buildVisibleView() -> UIView {
