@@ -1,4 +1,4 @@
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/Malert_brand.png" width="300">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/Malert_brand.png">
 
 [![CI Status](http://img.shields.io/travis/Vitor Mesquita/Malert.svg?style=flat)](https://travis-ci.org/Vitor Mesquita/Malert)
 [![Version](https://img.shields.io/cocoapods/v/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
@@ -49,9 +49,9 @@ import Malert
 
     //Create Dialog with title, custom view, buttons and animation type
     MalertManager.shared.show(title: "titulo", 
-customView: test.instantiateFromNib(), 
-buttons: [button1, button2, button3], 
-animationType: .modalLeft)
+        customView: test.instantiateFromNib(), 
+        buttons: [button1, button2, button3], 
+        animationType: .modalLeft)
 ```
 
 ## Default Alert without title
@@ -70,15 +70,13 @@ import Malert
 
     //Create Dialog with custom view, buttons and animation type
     MalertManager.shared.show(customView: teste.instantiateFromNib(), 
-buttons: [button1, button2], 
-animationType: .modalLeft)
-
+        buttons: [button1, button2], 
+        animationType: .modalLeft)
 ```
-
 
 ## Author
 
-Vitor Mesquita, vitor.mesquita09@jera.com.br
+Vitor Mesquita, vitor.mesquita09@gmail.com
 
 ## License
 
