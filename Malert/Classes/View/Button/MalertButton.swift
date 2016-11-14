@@ -14,28 +14,31 @@ public enum MalertButtonType {
     case cancel
 }
 
-public struct MalertButtonConfig {
-    var title: String
-    var type: MalertButtonType
-    var enable: Bool
-    var actionBlock: (() -> ())?
-    
-    public init(title: String, type: MalertButtonType, enable: Bool, actionBlock: (() -> ())? = nil) {
-        self.title = title
-        self.type = type
-        self.enable = enable
-        self.actionBlock = actionBlock
-    }
-}
-
 public class MalertButton: UIButton {
     
     fileprivate var actionBlock: (() -> ())?
     fileprivate var index = 0
     fileprivate var isHorizontalAxis = false
     
-    // Button Height
+    // The separetor line on top button
+    fileprivate lazy var separetor: UIView = {
+        let separetorLine = UIView(frame: .zero)
+        separetorLine.backgroundColor = UIColor(white: 0.8, alpha: 1)
+        separetorLine.translatesAutoresizingMaskIntoConstraints = false
+        return separetorLine
+    }()
     
+    // The separetor line on left button
+    fileprivate lazy var leftSeparetor: UIView = {
+        let leftSeparetorLine = UIView(frame: .zero)
+        leftSeparetorLine.translatesAutoresizingMaskIntoConstraints = false
+        leftSeparetorLine.backgroundColor = UIColor(white: 0.8, alpha: 1)
+        return leftSeparetorLine
+    }()
+    
+    //MARK: Appearance 
+    
+    // Button Height
     public dynamic var height: CGFloat {
         get { return bounds.size.height }
         set {
@@ -46,7 +49,6 @@ public class MalertButton: UIButton {
     }
     
     // The separator color of this button
-    
     public dynamic var separatorColor: UIColor? {
         get { return separetor.backgroundColor }
         set {
@@ -55,26 +57,7 @@ public class MalertButton: UIButton {
         }
     }
     
-    // The separetor line on top button
-    
-    fileprivate lazy var separetor: UIView = {
-        let separetorLine = UIView(frame: .zero)
-        separetorLine.backgroundColor = UIColor(white: 0.8, alpha: 1)
-        separetorLine.translatesAutoresizingMaskIntoConstraints = false
-        return separetorLine
-    }()
-    
-    // The separetor line on left button
-    
-    fileprivate lazy var leftSeparetor: UIView = {
-        let leftSeparetorLine = UIView(frame: .zero)
-        leftSeparetorLine.translatesAutoresizingMaskIntoConstraints = false
-        leftSeparetorLine.backgroundColor = UIColor(white: 0.8, alpha: 1)
-        return leftSeparetorLine
-    }()
-
-    // Button action
-    
+    //MARK: Action
     func buttonPressedAction(button: UIButton){
         if let actionBlock = actionBlock {
             actionBlock()
@@ -88,14 +71,13 @@ extension MalertButton {
      * Initializer Malert button
      * Parameters:
      *  - malertButtonConfig: Struct about simple configuraiton, like title and action block
-     *  - index: Button index in array of buttonsConfig. To make logics about separetor lines
-     *  - isHorizontalAxis: Boolean to know when show left separetor line
      **/
     
-    func initializeMalertButton(malertButtonConfig: MalertButtonConfig, index:Int, isHorizontalAxis:Bool) {
-        self.index = index
-        self.isHorizontalAxis = isHorizontalAxis
+    func initializeMalertButton(malertButtonConfig: MalertButtonConfig) {
+        self.index = malertButtonConfig.index
+        self.isHorizontalAxis = malertButtonConfig.isHorizontalAxis
         self.actionBlock = malertButtonConfig.actionBlock
+        self.backgroundColor = malertButtonConfig.backgroundColor
         
         setUpViews()
         setTitle(malertButtonConfig.title, for: .normal)

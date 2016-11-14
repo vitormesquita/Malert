@@ -9,7 +9,7 @@
 import UIKit
 
 public class MalertManager {
-    public static var sharedInstance = MalertManager()
+    public static var shared = MalertManager()
     
     fileprivate var mainWindow: UIWindow?
     fileprivate var alertWindow: UIWindow?
@@ -24,12 +24,12 @@ public class MalertManager {
      * Function to init MalertWindow if needed and verify if has any MalertView on Window.
      * If has put next MalertView on queue.
      * If don't have show MalertView on Window
-     * Parameters: 
+     * Parameters:
      *  - malertViewStruct: Struct to represent MalertView with yours attributes
      *  - animationType: MalertAnimationType that MalertView will be apresented
      */
     
-    fileprivate func show(with malertViewStruct: MalertViewStruct, animationType:MalertAnimationType) {
+    fileprivate func show(with malertViewStruct: MalertViewStruct) {
         if alertWindow == nil {
             alertWindow = UIWindow(frame: UIScreen.main.bounds)
             mainWindow = UIApplication.shared.keyWindow
@@ -37,7 +37,7 @@ public class MalertManager {
         
         if !hasAlertOnWindow {
             hasAlertOnWindow = true
-            malertViewController.setMalertView(malertViewStruct: malertViewStruct, animationType: animationType)
+            malertViewController.setMalertView(malertViewStruct: malertViewStruct)
             alertWindow!.rootViewController = malertViewController
             alertWindow!.windowLevel = UIWindowLevelAlert
             alertWindow!.makeKeyAndVisible()
@@ -57,10 +57,9 @@ extension MalertManager {
      *  - buttons: Struct that will create all buttons in stackView
      *  - animationType: the animation will apresent the alert in uiwindow
      */
-    
-    public func show(customView: UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType = .modalBottom) {
-        let alert = MalertViewStruct(title: nil, customView: customView, buttons: buttons)
-        show(with: alert, animationType: animationType)
+    public func show(customView: UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
+        let alert = MalertViewStruct(title: nil, customView: customView, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
+        show(with: alert)
     }
     
     /**
@@ -71,10 +70,9 @@ extension MalertManager {
      *  - buttons: Struct that will create all buttons in stackView
      *  - animationType: the animation will apresent the alert in uiwindow
      */
-    
-    public func show(title: String, customView:UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType = .modalBottom) {
-        let alert = MalertViewStruct(title: title, customView: customView, buttons: buttons)
-        show(with: alert, animationType: animationType)
+    public func show(title: String, customView:UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
+        let alert = MalertViewStruct(title: title, customView: customView, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
+        show(with: alert)
     }
 }
 
@@ -92,7 +90,7 @@ extension MalertManager {
         
         if let alertToPresent = alertQueue.first {
             hasAlertOnWindow = false
-            show(with: alertToPresent, animationType: .modalBottom)
+            show(with: alertToPresent)
             alertQueue.remove(at: 0)
             
         } else {
@@ -107,7 +105,7 @@ extension MalertManager {
                 if let completion = completion {
                     completion(finished)
                 }
-            })
+                })
         }
     }
     

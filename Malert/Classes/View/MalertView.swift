@@ -42,9 +42,22 @@ public class MalertView: UIView {
             
             buttons = buttonsConfig.enumerated().map { (index, buttonConfig) -> MalertButton in
                 let button = MalertButton(type: .system)
-                button.initializeMalertButton(malertButtonConfig: buttonConfig, index: index, isHorizontalAxis: buttonsAxis == .horizontal)
+                
+                var updatedButtonConfig = buttonConfig
+                updatedButtonConfig.isHorizontalAxis = buttonsAxis == .horizontal
+                updatedButtonConfig.index = index
+                
+                button.initializeMalertButton(malertButtonConfig: updatedButtonConfig)
                 return button
             }
+        }
+    }
+    
+    fileprivate var inset: CGFloat = 0 {
+        didSet {
+            updateTitleLabelConstraints()
+            updateCustomViewConstraints()
+            updateButtonsStackViewConstraints()
         }
     }
     
@@ -86,15 +99,20 @@ public class MalertView: UIView {
         set { buttonsStackView.axis = newValue }
     }
     
-    //TODO
-    public dynamic var margin: CGFloat = 16
-    public dynamic var buttonsMargin: CGFloat = 0
-    public dynamic var buttonsSpace: CGFloat = 0
+    // Margin inset to titleLabel and CustomView
+    public dynamic var margin: CGFloat {
+        get { return inset }
+        set { inset = newValue }
+    }
     
-    init(title: String?, customView: UIView, buttons: [MalertButtonConfig]) {
+    //TODO next upgrade
+    //public dynamic var buttonsMargin: CGFloat = 0
+    //public dynamic var buttonsSpace: CGFloat = 0
+    
+    init(title: String?, customView: UIView, buttons: [MalertButtonConfig], malertViewConfiguration: MalertViewConfiguration? = nil) {
         super.init(frame: .zero)
         backgroundColor = .white
-        layer.cornerRadius = 6
+        cornerRadius = 6
         
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
@@ -102,11 +120,26 @@ public class MalertView: UIView {
             strongSelf.customView = customView
             strongSelf.buttonsConfig = buttons
             strongSelf.setUpViews()
+            
+            if let malertViewConfiguration = malertViewConfiguration {
+                strongSelf.setConfigurationInMalertView(malertViewConfig: malertViewConfiguration)
+            }
         }
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    fileprivate func setConfigurationInMalertView(malertViewConfig: MalertViewConfiguration) {
+        backgroundColor = malertViewConfig.backgroundColor
+        cornerRadius = malertViewConfig.cornerRadius
+        textAlign = malertViewConfig.textAlign
+        textColor = malertViewConfig.textColor
+        buttonsDistribution = malertViewConfig.buttonDistribution
+        buttonsAligment = malertViewConfig.buttonsAligment
+        buttonsAxis = malertViewConfig.buttonsAxis
+        margin = malertViewConfig.margin
     }
 }
 
@@ -115,18 +148,20 @@ extension MalertView {
     /**
      * Build and return MalertView
      * Parameters:
-     *  - title: it's the dialog title. Whitout it wont appear the title
-     *  - customView: Expect any UIView to put in dialog as content
-     *  - buttons: Array of malert button struct to build buttons in alert
+     *  - malertViewStruct: Struct which contains title, customView, array of Buttons and if needed contains malertViewConfiguration
      */
     
     class func buildAlert(with malertViewStruct: MalertViewStruct) -> MalertView {
-        let alert = MalertView(title: malertViewStruct.title, customView: malertViewStruct.customView, buttons: malertViewStruct.buttons)
+        let alert = MalertView(title: malertViewStruct.title, customView: malertViewStruct.customView, buttons: malertViewStruct.buttons, malertViewConfiguration: malertViewStruct.configuration)
         return alert
     }
 }
 
 extension MalertView {
+    
+    /**
+     * Extensions to setUp Views in alert
+     */
     
     fileprivate func setUpViews() {
         setUpTitle()
@@ -141,11 +176,7 @@ extension MalertView {
         
         titleLabel.text = title
         self.addSubview(titleLabel)
-        constrain(titleLabel, self) { (label, containerView) in
-            label.top == containerView.top + margin
-            label.right == containerView.right - margin
-            label.left == containerView.left + margin
-        }
+        updateTitleLabelConstraints()
     }
     
     fileprivate func setUpCustomView() {
@@ -154,18 +185,13 @@ extension MalertView {
         }
         
         self.addSubview(customView)
-        constrain(customView, titleLabel, self, block: { (customView, titleLabel, containerView) in
-            customView.right == containerView.right - margin
-            customView.left == containerView.left + margin
-            if let _ = title {
-                customView.top == titleLabel.bottom + margin
-            } else {
-                customView.top == containerView.top + margin
-            }
-        })
+        updateCustomViewConstraints()
         
-        if title == nil && margin == 0 {
-            customView.round(corners: [.topLeft, .topRight], radius: cornerRadius)
+        if title == nil && inset == 0 {
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                customView.round(corners: [.topLeft, .topRight], radius: strongSelf.cornerRadius)
+            }
         }
     }
     
@@ -178,12 +204,50 @@ extension MalertView {
             buttonsStackView.addArrangedSubview(button)
         }
         addSubview(buttonsStackView)
+        updateButtonsStackViewConstraints()
+    }
+}
+
+extension MalertView {
+    
+    /**
+     * Extensios that implements Malert constraints to:
+     *  - Title Label
+     *  - Custom View
+     *  - Buttons Stack View
+     */
+    
+    fileprivate func updateTitleLabelConstraints() {
+        guard let _ = title else { return }
+        
+        constrain(titleLabel, self) { (label, containerView) in
+            label.top == containerView.top + inset
+            label.right == containerView.right - inset
+            label.left == containerView.left + inset
+        }
+    }
+    
+    fileprivate func updateCustomViewConstraints() {
+        guard let customView = customView else { return }
+        
+        constrain(customView, titleLabel, self, block: { (customView, titleLabel, containerView) in
+            customView.right == containerView.right - inset
+            customView.left == containerView.left + inset
+            if let _ = title {
+                customView.top == titleLabel.bottom + inset
+            } else {
+                customView.top == containerView.top + inset
+            }
+        })
+    }
+    
+    fileprivate func updateButtonsStackViewConstraints() {
         if let customView = customView {
             constrain(buttonsStackView, customView, self, block: { (containerStackView, customView, containerView) in
-                containerStackView.top == customView.bottom + margin
-                containerStackView.left == containerView.left + buttonsMargin
-                containerStackView.right == containerView.right - buttonsMargin
-                containerStackView.bottom == containerView.bottom - buttonsMargin
+                containerStackView.top == customView.bottom + inset
+                containerStackView.left == containerView.left
+                containerStackView.right == containerView.right
+                containerStackView.bottom == containerView.bottom
             })
         }
     }

@@ -11,9 +11,18 @@ import Malert
 
 class ViewController: UIViewController {
     
+    var malertConfiguration = MalertViewConfiguration()
+    var malertConfiguration2 = MalertViewConfiguration()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        malertConfiguration.backgroundColor = .brown
+        malertConfiguration.buttonsAxis = .horizontal
+        malertConfiguration.textAlign = .center
+        malertConfiguration.textColor = .red
+        
+        malertConfiguration2.margin = 16
     }
     
     override func didReceiveMemoryWarning() {
@@ -22,21 +31,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actionButton(_ sender: AnyObject) {
-        let malertButtonConfig = MalertButtonConfig(title: "teste", type: .normal, enable: true) { 
-            MalertManager.sharedInstance.dismiss()
+        let malertButtonConfig = MalertButtonConfig(title: "teste", type: .normal) {
+            MalertManager.shared.dismiss()
         }
         
-        let malertButtonConfig2 = MalertButtonConfig(title: "teste2 ", type: .normal, enable: true) {
-            MalertManager.sharedInstance.dismiss()
+        let malertButtonConfig2 = MalertButtonConfig(title: "teste2 ", type: .normal) {
+            MalertManager.shared.dismiss()
         }
         
-        let malertButtonConfig3 = MalertButtonConfig(title: "teste3 ", type: .normal, enable: true) {
-            MalertManager.sharedInstance.dismiss()
+        let malertButtonConfig3 = MalertButtonConfig(title: "teste3 ", type: .normal) {
+            MalertManager.shared.dismiss()
         }
         
-        MalertManager.sharedInstance.show(title: "titulo", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2, malertButtonConfig3], animationType: .modalLeft)
-        
-//        MalertManager.sharedInstance.show(customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2], animationType: .modalLeft)
+        MalertManager.shared.show(title: "titulo", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2, malertButtonConfig3], animationType: .modalLeft)
+        MalertManager.shared.show(customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2], animationType: .modalLeft)
+        MalertManager.shared.show(title: "título customizado", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig], animationType: .fadeIn, malertConfiguration: malertConfiguration)
+        MalertManager.shared.show(title: "título customizado 2", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig], animationType: .modalRight, malertConfiguration: malertConfiguration2)
     }
 }
 

@@ -48,13 +48,31 @@ import Malert
     }
 
     //Create Dialog with title, custom view, buttons and animation type
-    MalertManager.sharedInstance.show(title: "titulo", customView: test.instantiateFromNib(), buttons: [button1, button2, button2], animationType: .modalLeft)
+    MalertManager.shared.show(title: "titulo", 
+customView: test.instantiateFromNib(), 
+buttons: [button1, button2, button3], 
+animationType: .modalLeft)
 ```
 
 ## Default Alert without title
 
 ```swift
 import Malert 
+
+    //Create Buttons
+    let button1 = MalertButtonConfig(title: "teste", type: .normal, enable: true) { 
+        //Do something when click at button
+    }
+
+    let button2 = MalertButtonConfig(title: "teste2 ", type: .normal, enable: true) {
+        //Do something when click at button
+    }
+
+    //Create Dialog with custom view, buttons and animation type
+    MalertManager.shared.show(customView: teste.instantiateFromNib(), 
+buttons: [button1, button2], 
+animationType: .modalLeft)
+
 ```
 
 

@@ -9,24 +9,11 @@
 import UIKit
 import Cartography
 
-struct MalertViewStruct {
-    var title: String?
-    var customView: UIView
-    var buttons: [MalertButtonConfig]
-    
-    init(title: String?, customView: UIView, buttons: [MalertButtonConfig]) {
-        self.title = title
-        self.customView = customView
-        self.buttons = buttons
-    }
-}
-
 class MalertViewController: BaseMalertViewController {
     
     fileprivate lazy var visibleView: UIView = self.buildVisibleView()
     fileprivate let bottomInsetConstraintGroup = ConstraintGroup()
     fileprivate var animationType: MalertAnimationType = .modalBottom
-    
     fileprivate var malertView: MalertView? {
         willSet {
             if let malertView = malertView {
@@ -79,8 +66,12 @@ class MalertViewController: BaseMalertViewController {
 
 extension MalertViewController {
     
-    func setMalertView(malertViewStruct: MalertViewStruct, animationType: MalertAnimationType) {
-        self.animationType = animationType
+    /**
+     * Extension to create and put MalertView on screen
+     */
+    
+    func setMalertView(malertViewStruct: MalertViewStruct) {
+        self.animationType = malertViewStruct.animationType
         self.malertView = MalertView.buildAlert(with: malertViewStruct)
     }
     

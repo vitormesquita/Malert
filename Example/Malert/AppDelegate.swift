@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 //        MalertView.appearance().buttonsAxis = .horizontal
-    
+//        MalertView.appearance().margin = 16 
         return true
     }
 

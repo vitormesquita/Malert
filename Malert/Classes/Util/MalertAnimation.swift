@@ -15,18 +15,6 @@ public enum MalertAnimationType {
     case fadeIn
 }
 
-struct MalertAnimationWrapper {
-    var animationType: MalertAnimationType
-    var malertView: MalertView
-    var malertViewController: MalertViewController
-    
-    init(animationType: MalertAnimationType, malertView:MalertView, malertViewController: MalertViewController) {
-        self.animationType = animationType
-        self.malertView = malertView
-        self.malertViewController = malertViewController
-    }
-}
-
 class MalertAnimation {
     
     /**
@@ -49,6 +37,7 @@ class MalertAnimation {
             break
             
         case .fadeIn:
+            malertAnimation.malertView.transform = .identity
             malertAnimation.malertView.alpha = 0
             break
         }
