@@ -106,11 +106,12 @@ If you want just customize one malert in you application, you can pass `MalertVi
 
 ## Default values
 
-By default malert provides this defaults values:
+By default malert provides defaults values:
 
 ```swift
     //Defaults attr malertView
     var malertAppearance = MalertView.appearance()
+
     malertAppearance.backgroundColor    : UIColor                 = .white
     malertAppearance.cornerRadius       : CGFloat                 = 6
     malertAppearance.textColor          : UIColor                 = .black
@@ -123,9 +124,10 @@ By default malert provides this defaults values:
 ```swift
     //Defaults attr malertButton
     var malertButtonAppearance = MalertButton.appearance()
-    malertButtonAppearance.backgroundColor    : UIColor                 = .clear
-    malertButtonAppearance.height             : CGFloat                 = 33
-    malertButtonAppearance.separatorColor     : UIColor                 = UIColor(white: 0.8, alpha: 1)
+
+    malertButtonAppearance.backgroundColor : UIColor = .clear
+    malertButtonAppearance.height          : CGFloat = 33
+    malertButtonAppearance.separatorColor  : UIColor = UIColor(white: 0.8, alpha: 1)
 ```
 
 ## Author
