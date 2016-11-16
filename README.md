@@ -25,11 +25,11 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "Malert"
 ```
-###Example
+## Example
 
 This is a simple way. If you want to know more, check the repo.
 
-## Default Alert with title
+### Default Malert with title
 
 ```swift
 import Malert
@@ -54,10 +54,10 @@ import Malert
         animationType: .modalLeft)
 ```
 
-## Default Alert without title
+### Default Malert without title
 
 ```swift
-import Malert 
+import Malert
 
     //Create Buttons
     let button1 = MalertButtonConfig(title: "teste", type: .normal, enable: true) { 
@@ -72,6 +72,60 @@ import Malert
     MalertManager.shared.show(customView: teste.instantiateFromNib(), 
         buttons: [button1, button2], 
         animationType: .modalLeft)
+```
+
+## Customize
+
+Malert is very cstomizable. There are two ways to custmize your Malert: 
+
+- [x] Appearece 
+- [x] Custom single alert
+
+If all malert in your application is the same, malert provides for you a global customization, and every malert will have the same customization.
+
+```swift
+    var malertAppearance = MalertView.appearance()
+    malertAppearance.backgroundColor = .gray
+    malertAppearance.buttonsAxis = .horizontal
+    malertAppearance.margin = 16 
+```
+
+If you want just customize one malert in you application, you can pass `MalertViewConfiguration` containing your configuration
+
+```swift
+    //build your configuration
+    var malertConfiguration = MalertViewConfiguration()
+    malertConfiguration.backgroundColor = .brown
+    malertConfiguration.buttonsAxis = .horizontal
+    malertConfiguration.textAlign = .center
+    malertConfiguration.textColor = .red
+
+    //And pass when you start malert
+    MalertManager.shared.show(title: "title", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig], animationType: .modalRight, malertConfiguration: malertConfiguration)
+```
+
+## Default values
+
+By default malert provides this defaults values:
+
+```swift
+    //Defaults attr malertView
+    var malertAppearance = MalertView.appearance()
+    malertAppearance.backgroundColor    : UIColor                 = .white
+    malertAppearance.cornerRadius       : CGFloat                 = 6
+    malertAppearance.textColor          : UIColor                 = .black
+    malertAppearance.textAlign          : NSTextAlignment         = .left
+    malertAppearance.buttonDistribution : OAStackViewDistribution = .fillEqually
+    malertAppearance.buttonsAligment    : OAStackViewAlignment    = .fill
+    malertAppearance.buttonsAxis        : UILayoutConstraintAxis  = .vertical
+    malertAppearance.margin             : CGFloat                 = 0
+```
+```swift
+    //Defaults attr malertButton
+    var malertButtonAppearance = MalertButton.appearance()
+    malertButtonAppearance.backgroundColor    : UIColor                 = .clear
+    malertButtonAppearance.height             : CGFloat                 = 33
+    malertButtonAppearance.separatorColor     : UIColor                 = UIColor(white: 0.8, alpha: 1)
 ```
 
 ## Author

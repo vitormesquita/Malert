@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         MalertManager.shared.show(title: "titulo", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2, malertButtonConfig3], animationType: .modalLeft)
         MalertManager.shared.show(customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2], animationType: .modalLeft)
         MalertManager.shared.show(title: "título customizado", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig], animationType: .fadeIn, malertConfiguration: malertConfiguration)
-        MalertManager.shared.show(title: "título customizado 2", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig], animationType: .modalRight, malertConfiguration: malertConfiguration2)
+        
     }
 }
 
