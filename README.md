@@ -61,11 +61,11 @@ import Malert
 
     //Create Buttons
     let button1 = MalertButtonConfig(title: "teste", type: .normal, enable: true) { 
-        //Do something when click at button
+        //Do something when click on button
     }
 
     let button2 = MalertButtonConfig(title: "teste2 ", type: .normal, enable: true) {
-        //Do something when click at button
+        //Do something when click on button
     }
 
     //Create Dialog with custom view, buttons and animation type

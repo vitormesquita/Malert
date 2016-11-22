@@ -64,28 +64,29 @@ class MalertAnimation {
     }
     
     /**
+     TODO
      * Complex animation to dismiss malertView by MalertAnimationType
      * Parameters:
-     *  - malertAnimation: Struct to wrapper MalertAnimationType, MalertView and MalertViewController TODO
+     *  - malertAnimation: Struct to wrapper MalertAnimationType, MalertView and MalertViewController
+     class func buildDismissAnimation(with malertAnimation: MalertAnimationWrapper, completion: (() -> ())?) {
+     switch malertAnimation.animationType {
+     case .modalBottom:
+     malertAnimation.malertView.transform = CGAffineTransform.init(translationX: malertAnimation.malertViewController.view.bounds.size.height, y: 0)
+     break
+     
+     default:
+     malertAnimation.malertView.transform = CGAffineTransform.init(translationX: malertAnimation.malertViewController.view.bounds.size.height, y: 0)
+     break
+     }
+     
+     UIView.animate(withDuration: 0.5, animations: {
+     malertAnimation.malertView.alpha = 0
+     malertAnimation.malertView.transform = .identity
+     }) { (finished) in
+     if let completion = completion {
+     completion()
+     }
+     }
+     }
      */
-    class func buildDismissAnimation(with malertAnimation: MalertAnimationWrapper, completion: (() -> ())?) {
-        switch malertAnimation.animationType {
-        case .modalBottom:
-            malertAnimation.malertView.transform = CGAffineTransform.init(translationX: malertAnimation.malertViewController.view.bounds.size.height, y: 0)
-            break
-            
-        default:
-            malertAnimation.malertView.transform = CGAffineTransform.init(translationX: malertAnimation.malertViewController.view.bounds.size.height, y: 0)
-            break
-        }
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            malertAnimation.malertView.alpha = 0
-            malertAnimation.malertView.transform = .identity
-        }) { (finished) in
-            if let completion = completion {
-                completion()
-            }
-        }
-    }
 }
