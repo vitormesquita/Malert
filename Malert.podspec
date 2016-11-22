@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Malert'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Malert.'
+  s.summary          = 'A simple, easy and very customizable alert'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+    Malert came to facilitate make custom alert views, introducing as `UIAlertViewController`. Malert allows you make some custom configurations to show your alert as your application layout. Malert can display one or a queue of alerts and you can to display alert with some animations.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/Malert'
+  s.homepage         = 'https://github.com/vitormesquita/Malert'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Vitor Mesquita' => 'vitor.mesquita09@jera.com.br' }
-  s.source           = { :git => 'https://github.com/vitormesquita/Malert', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/vitormesquita/Malert.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
