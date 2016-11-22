@@ -31,21 +31,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actionButton(_ sender: AnyObject) {
-        let malertButtonConfig = MalertButtonConfig(title: "teste", type: .normal) {
+        let malertButtonConfig = MalertButtonConfig(title: "teste") {
             MalertManager.shared.dismiss()
         }
         
-        let malertButtonConfig2 = MalertButtonConfig(title: "teste2 ", type: .normal) {
+        let malertButtonConfig2 = MalertButtonConfig(title: "teste2") {
             MalertManager.shared.dismiss()
         }
         
-        let malertButtonConfig3 = MalertButtonConfig(title: "teste3 ", type: .normal) {
+        let malertButtonConfig3 = MalertButtonConfig(title: "teste3") {
             MalertManager.shared.dismiss()
         }
         
         MalertManager.shared.show(title: "titulo", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2, malertButtonConfig3], animationType: .modalLeft)
         MalertManager.shared.show(customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig2], animationType: .modalLeft)
-        MalertManager.shared.show(title: "título customizado", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig], animationType: .fadeIn, malertConfiguration: malertConfiguration)
+        MalertManager.shared.show(title: "título customizado", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig, malertButtonConfig3], animationType: .fadeIn, malertConfiguration: malertConfiguration)
         
     }
 }

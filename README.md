@@ -35,20 +35,20 @@ This is a simple way. If you want to know more, check the repo.
 import Malert
 
     //Create Buttons
-    let button1 = MalertButtonConfig(title: "teste", type: .normal, enable: true) { 
+    let button1 = MalertButtonConfig(title: "title1") { 
         //Do something when click at button
     }
 
-    let button2 = MalertButtonConfig(title: "teste2 ", type: .normal, enable: true) {
+    let button2 = MalertButtonConfig(title: "title2") {
         //Do something when click at button
     }
 
-    let button3 = MalertButtonConfig(title: "teste3 ", type: .normal, enable: true) {
+    let button3 = MalertButtonConfig(title: "title3") {
         //Do something when click at button
     }
 
     //Create Dialog with title, custom view, buttons and animation type
-    MalertManager.shared.show(title: "titulo", 
+    MalertManager.shared.show(title: "title", 
         customView: test.instantiateFromNib(), 
         buttons: [button1, button2, button3], 
         animationType: .modalLeft)
@@ -60,18 +60,35 @@ import Malert
 import Malert
 
     //Create Buttons
-    let button1 = MalertButtonConfig(title: "teste", type: .normal, enable: true) { 
+    let button1 = MalertButtonConfig(title: "title1") { 
         //Do something when click on button
     }
 
-    let button2 = MalertButtonConfig(title: "teste2 ", type: .normal, enable: true) {
+    let button2 = MalertButtonConfig(title: "title2") {
         //Do something when click on button
     }
 
     //Create Dialog with custom view, buttons and animation type
-    MalertManager.shared.show(customView: teste.instantiateFromNib(), 
+    MalertManager.shared.show(customView: myCustomView, 
         buttons: [button1, button2], 
         animationType: .modalLeft)
+```
+
+### How to create buttons 
+
+Malert provides a struct to configure your button, for each button you need to instantiate `MalertButtonConfig`
+
+```swift
+    
+    //Create button with default background color
+    let button = MalertButtonConfig(title: "button with default background") {
+        //Block will call when click on button
+    }
+    
+    //Create button with custom background color
+    let button2 = MalertButtonConfig(title: "button with custom background", backgroundColor: .red) {
+        //Block will call when click on button
+    }
 ```
 
 ## Customize
@@ -125,6 +142,7 @@ By default malert provides defaults values:
     //Defaults attr malertButton
     var malertButtonAppearance = MalertButton.appearance()
 
+    malertButtonAppearence.tintColor       : UIColor = .black
     malertButtonAppearance.backgroundColor : UIColor = .clear
     malertButtonAppearance.height          : CGFloat = 33
     malertButtonAppearance.separatorColor  : UIColor = UIColor(white: 0.8, alpha: 1)

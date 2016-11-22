@@ -43,22 +43,20 @@ struct MalertViewStruct {
  */
 public struct MalertButtonConfig {
     var title: String
-    var type: MalertButtonType
+//    var type: MalertButtonType
     var index = 0
     var isHorizontalAxis = false
     
     var backgroundColor: UIColor?
     var actionBlock: (() -> ())?
     
-    public init(title: String, type: MalertButtonType, actionBlock: (() -> ())? = nil) {
+    public init(title: String, actionBlock: (() -> ())? = nil) {
         self.title = title
-        self.type = type
         self.actionBlock = actionBlock
     }
     
-    public init(title: String, type: MalertButtonType, backgroundColor: UIColor, actionBlock: (() -> ())? = nil) {
+    public init(title: String, backgroundColor: UIColor, actionBlock: (() -> ())? = nil) {
         self.title = title
-        self.type = type
         self.backgroundColor = backgroundColor
         self.actionBlock = actionBlock
     }
