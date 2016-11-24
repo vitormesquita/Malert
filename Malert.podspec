@@ -41,5 +41,4 @@ Pod::Spec.new do |s|
 
 s.dependency 'Cartography', '~> 1.0'
 s.dependency 'OAStackView', '~> 1.0'
-
 end
