@@ -57,7 +57,7 @@ extension MalertManager {
      *  - buttons: Struct that will create all buttons in stackView
      *  - animationType: the animation will apresent the alert in uiwindow
      */
-    public func show(customView: UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
+    public func show(customView: UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
         let alert = MalertViewStruct(title: nil, customView: customView, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
         show(with: alert)
     }
@@ -70,7 +70,7 @@ extension MalertManager {
      *  - buttons: Struct that will create all buttons in stackView
      *  - animationType: the animation will apresent the alert in uiwindow
      */
-    public func show(title: String, customView:UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
+    public func show(title: String, customView:UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
         let alert = MalertViewStruct(title: title, customView: customView, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
         show(with: alert)
     }

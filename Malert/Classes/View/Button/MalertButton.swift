@@ -49,7 +49,7 @@ public class MalertButton: UIButton {
     }
     
     // The separator color of this button
-    public dynamic var separatorColor: UIColor? {
+    public dynamic var separetorColor: UIColor? {
         get { return separetor.backgroundColor }
         set {
             separetor.backgroundColor = newValue
@@ -73,19 +73,29 @@ extension MalertButton {
      *  - malertButtonConfig: Struct about simple configuraiton, like title and action block
      **/
     
-    func initializeMalertButton(malertButtonConfig: MalertButtonConfig) {
-        self.index = malertButtonConfig.index
-        self.isHorizontalAxis = malertButtonConfig.isHorizontalAxis
-        self.actionBlock = malertButtonConfig.actionBlock
-        self.backgroundColor = malertButtonConfig.backgroundColor
+    func initializeMalertButton(malertButtonStruct: MalertButtonStruct) {
+        self.index = malertButtonStruct.index
+        self.isHorizontalAxis = malertButtonStruct.isHorizontalAxis
+        self.actionBlock = malertButtonStruct.actionBlock
+        self.backgroundColor = malertButtonStruct.backgroundColor
+        
+        if let buttonConfiguration = malertButtonStruct.buttonConfiguration {
+            setConfiguration(malertButtonConfiguration: buttonConfiguration)
+        }
         
         setUpViews()
-        setTitle(malertButtonConfig.title, for: .normal)
+        setTitle(malertButtonStruct.title, for: .normal)
         addTarget(self, action: #selector(MalertButton.buttonPressedAction(button:)), for: .touchUpInside)
     }
 }
 
 extension MalertButton {
+    
+    fileprivate func setConfiguration(malertButtonConfiguration: MalertButtonConfiguration) {
+        self.backgroundColor = malertButtonConfiguration.backgroundColor
+        self.separetorColor = malertButtonConfiguration.separetorColor
+        self.tintColor = malertButtonConfiguration.tintColor
+    }
     
     fileprivate func setUpViews() {
         addSubview(separetor)
@@ -108,5 +118,3 @@ extension MalertButton {
         }
     }
 }
-
-
