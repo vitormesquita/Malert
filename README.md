@@ -5,7 +5,12 @@
 [![License](https://img.shields.io/cocoapods/l/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
 [![Platform](https://img.shields.io/cocoapods/p/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
 
-## A simple iOS dialog View, customizable dialog View and written in Swift 
+## A simple, easy and custom iOS UIAlertView written in Swift 
+
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/first.gif" width="250">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/second.gif" width="250">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/third.gif" width="250">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/all.gif" width="250">
 
 Malert came to facilitate make custom alert views, introducing as `UIAlertViewController`. Malert allows you make some custom configurations to show your alert as your application layout.
 Malert can display one or a queue of alerts and you can to display alert with some animations.
@@ -35,19 +40,19 @@ This is a simple way. If you want to know more, check the repo.
 import Malert
 
     //Create Buttons
-    let button1 = MalertButtonConfig(title: "title1") { 
+    let button1 = MalertButtonStruct(title: "title1") { 
         //Do something when click at button
     }
 
-    let button2 = MalertButtonConfig(title: "title2") {
+    let button2 = MalertButtonStruct(title: "title2") {
         //Do something when click at button
     }
 
-    let button3 = MalertButtonConfig(title: "title3") {
+    let button3 = MalertButtonStruct(title: "title3") {
         //Do something when click at button
     }
 
-    //Create Dialog with title, custom view, buttons and animation type
+    //Create Malert with title, custom view, buttons and animation type
     MalertManager.shared.show(title: "title", 
         customView: test.instantiateFromNib(), 
         buttons: [button1, button2, button3], 
@@ -60,15 +65,15 @@ import Malert
 import Malert
 
     //Create Buttons
-    let button1 = MalertButtonConfig(title: "title1") { 
-        //Do something when click on button
+    let button1 = MalertButtonStruct(title: "title1") { 
+        //Block will call when click on button
     }
 
-    let button2 = MalertButtonConfig(title: "title2") {
-        //Do something when click on button
+    let button2 = MalertButtonStruct(title: "title2") {
+        //Block will call when click on button
     }
 
-    //Create Dialog with custom view, buttons and animation type
+    //Create Malert with custom view, buttons and animation type
     MalertManager.shared.show(customView: myCustomView, 
         buttons: [button1, button2], 
         animationType: .modalLeft)
@@ -76,24 +81,39 @@ import Malert
 
 ### How to create buttons 
 
-Malert provides a struct to configure your button, for each button you need to instantiate `MalertButtonConfig`
+Malert provides a struct to configure your button, for each button you need to instantiate `MalertButtonStruct`
 
 ```swift
     
     //Create button with default background color
-    let button = MalertButtonConfig(title: "button with default background") {
+    let button = MalertButtonStruct(title: "button with default background") {
         //Block will call when click on button
     }
     
     //Create button with custom background color
-    let button2 = MalertButtonConfig(title: "button with custom background", backgroundColor: .red) {
+    let button2 = MalertButtonStruct(title: "button with custom background", backgroundColor: .red) {
         //Block will call when click on button
     }
 ```
 
+You can customize single button, passing `MalertButtonConfiguration` containing your custom configurations
+
+```swift
+    //Create configuration
+    var btConfiguration = MalertButtonConfiguration()
+    btConfiguration.tintColor = .white
+    btConfiguration.separetorColor = .clear
+    
+    //Create button and pass configuration
+    let thatIsAllFolksButton = MalertButtonStruct(title: "That's all folks", buttonConfiguration: btConfiguration) { 
+        //Block will call when click on button
+    }
+
+```
+
 ## Customize
 
-Malert is very cstomizable. There are two ways to custmize your Malert: 
+Malert is very customizable. There are two ways to customize your Malert: 
 
 - [x] Appearece 
 - [x] Custom single alert
@@ -104,18 +124,21 @@ If all malert in your application is the same, malert provides for you a global 
     var malertAppearance = MalertView.appearance()
     malertAppearance.backgroundColor = .gray
     malertAppearance.buttonsAxis = .horizontal
-    malertAppearance.margin = 16 
+    malertAppearance.margin = 16
 ```
 
 If you want just customize one malert in you application, you can pass `MalertViewConfiguration` containing your configuration
 
 ```swift
+
     //build your configuration
     var malertConfiguration = MalertViewConfiguration()
-    malertConfiguration.backgroundColor = .brown
+
+    malertConfiguration.backgroundColor = UIColor(red:0.7, green:0.7, blue:1.0, alpha:1.0)
     malertConfiguration.buttonsAxis = .horizontal
+    malertConfiguration.textColor = .white
     malertConfiguration.textAlign = .center
-    malertConfiguration.textColor = .red
+    malertConfiguration.margin = 16
 
     //And pass when you start malert
     MalertManager.shared.show(title: "title", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig], animationType: .modalRight, malertConfiguration: malertConfiguration)
@@ -133,10 +156,9 @@ By default malert provides defaults values:
     malertAppearance.cornerRadius       : CGFloat                 = 6
     malertAppearance.textColor          : UIColor                 = .black
     malertAppearance.textAlign          : NSTextAlignment         = .left
-    malertAppearance.buttonDistribution : OAStackViewDistribution = .fillEqually
-    malertAppearance.buttonsAligment    : OAStackViewAlignment    = .fill
     malertAppearance.buttonsAxis        : UILayoutConstraintAxis  = .vertical
     malertAppearance.margin             : CGFloat                 = 0
+    malertAppearance.titleFont          : UIFont                  = UIFont()
 ```
 ```swift
     //Defaults attr malertButton

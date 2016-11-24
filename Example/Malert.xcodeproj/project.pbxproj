@@ -15,8 +15,9 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		91B0ACF67A1169A2D25CD6A1 /* Pods_Malert_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49C907BCD023639C4EE8F78 /* Pods_Malert_Tests.framework */; };
-		FCA49B801DC93C1D000890AA /* teste.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA49B7F1DC93C1D000890AA /* teste.xib */; };
-		FCA49B821DC93C2A000890AA /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA49B811DC93C2A000890AA /* teste.swift */; };
+		FC2182301DE4EB0B003F99AE /* FirstCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */; };
+		FC2182321DE4EB29003F99AE /* FirstCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2182311DE4EB29003F99AE /* FirstCustomView.swift */; };
+		FCA4774D1DE6540D00AC9B3C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA4774C1DE6540D00AC9B3C /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +50,9 @@
 		A49C907BCD023639C4EE8F78 /* Pods_Malert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Malert_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20E16402CA0CDAB7FEB9383 /* Pods-Malert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Example/Pods-Malert_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F869482DEFE00CBEDB3AF8AA /* Pods-Malert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Tests/Pods-Malert_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		FCA49B7F1DC93C1D000890AA /* teste.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = teste.xib; sourceTree = "<group>"; };
-		FCA49B811DC93C2A000890AA /* teste.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = teste.swift; sourceTree = "<group>"; };
+		FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstCustomView.xib; sourceTree = "<group>"; };
+		FC2182311DE4EB29003F99AE /* FirstCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCustomView.swift; sourceTree = "<group>"; };
+		FCA4774C1DE6540D00AC9B3C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,13 +119,13 @@
 		607FACD21AFB9204008FA782 /* Example for Malert */ = {
 			isa = PBXGroup;
 			children = (
-				FCA49B811DC93C2A000890AA /* teste.swift */,
-				FCA49B7F1DC93C1D000890AA /* teste.xib */,
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				FCA477491DE6533800AC9B3C /* util */,
+				FC21822E1DE4E970003F99AE /* view */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for Malert";
@@ -163,6 +165,23 @@
 				A2A84EB05579A47CCBE9BFD2 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		FC21822E1DE4E970003F99AE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				FC2182311DE4EB29003F99AE /* FirstCustomView.swift */,
+				FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		FCA477491DE6533800AC9B3C /* util */ = {
+			isa = PBXGroup;
+			children = (
+				FCA4774C1DE6540D00AC9B3C /* Helper.swift */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +275,8 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				FC2182301DE4EB0B003F99AE /* FirstCustomView.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
-				FCA49B801DC93C1D000890AA /* teste.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +389,8 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				FCA49B821DC93C2A000890AA /* teste.swift in Sources */,
+				FC2182321DE4EB29003F99AE /* FirstCustomView.swift in Sources */,
+				FCA4774D1DE6540D00AC9B3C /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +526,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Malert/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -521,6 +542,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Malert/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";

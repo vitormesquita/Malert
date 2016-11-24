@@ -21,11 +21,11 @@ import OAStackView
 struct MalertViewStruct {
     var title: String?
     var customView: UIView
-    var buttons: [MalertButtonConfig]
+    var buttons: [MalertButtonStruct]
     var animationType: MalertAnimationType
     var configuration: MalertViewConfiguration?
     
-    init(title: String?, customView: UIView, buttons: [MalertButtonConfig], animationType: MalertAnimationType, malertViewConfiguration: MalertViewConfiguration? = nil) {
+    init(title: String?, customView: UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType, malertViewConfiguration: MalertViewConfiguration? = nil) {
         self.title = title
         self.customView = customView
         self.buttons = buttons
@@ -41,14 +41,14 @@ struct MalertViewStruct {
  *  - type: MalertButton type which determines how the button will
  *  - actionBlock: Block which will called when click on button
  */
-public struct MalertButtonConfig {
+public struct MalertButtonStruct {
     var title: String
-//    var type: MalertButtonType
     var index = 0
     var isHorizontalAxis = false
-    
     var backgroundColor: UIColor?
+    var buttonConfiguration: MalertButtonConfiguration?
     var actionBlock: (() -> ())?
+    //    var type: MalertButtonType
     
     public init(title: String, actionBlock: (() -> ())? = nil) {
         self.title = title
@@ -59,6 +59,16 @@ public struct MalertButtonConfig {
         self.title = title
         self.backgroundColor = backgroundColor
         self.actionBlock = actionBlock
+    }
+    
+    public init(title: String, buttonConfiguration: MalertButtonConfiguration, actionBlock: (() -> ())? = nil) {
+        self.title = title
+        self.buttonConfiguration = buttonConfiguration
+        self.actionBlock = actionBlock
+    }
+    
+    public mutating func setButtonConfiguration(_ buttonConfiguration: MalertButtonConfiguration) {
+        self.buttonConfiguration = buttonConfiguration
     }
 }
 
@@ -82,16 +92,25 @@ struct MalertAnimationWrapper {
 }
 
 /**
- *
+ * Struct about MalertView configuration
  */
 public struct MalertViewConfiguration {
     public var backgroundColor: UIColor = .white
     public var cornerRadius: CGFloat = 6
     public var textColor: UIColor = .black
     public var textAlign: NSTextAlignment = .left
-    public var buttonDistribution: OAStackViewDistribution = .fillEqually
-    public var buttonsAligment: OAStackViewAlignment = .fill
     public var buttonsAxis: UILayoutConstraintAxis = .vertical
     public var margin: CGFloat = 0
+    public var titleFont: UIFont = UIFont()
+    public init() {}
+}
+
+/**
+ * Struct about MalertButton configuration
+ */
+public struct MalertButtonConfiguration {
+    public var backgroundColor: UIColor = .clear
+    public var tintColor: UIColor = .lightText
+    public var separetorColor: UIColor = UIColor(white: 0.8, alpha: 1)
     public init() {}
 }
