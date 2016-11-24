@@ -12,8 +12,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m9V-8g-3Ov">
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_mobile" translatesAutoresizingMaskIntoConstraints="NO" id="lnZ-nN-gls"/>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="150" id="PaL-h6-Y9c"/>
+                        <constraint firstItem="lnZ-nN-gls" firstAttribute="centerX" secondItem="m9V-8g-3Ov" secondAttribute="centerX" id="6XN-2a-ppx"/>
+                        <constraint firstAttribute="bottom" secondItem="lnZ-nN-gls" secondAttribute="bottom" id="Iqn-FM-WYc"/>
+                        <constraint firstItem="lnZ-nN-gls" firstAttribute="top" secondItem="m9V-8g-3Ov" secondAttribute="top" constant="8" id="Jgm-mS-xxB"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uP-MK-b6S">
@@ -50,4 +55,7 @@
             <point key="canvasLocation" x="33.5" y="-109.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_mobile" width="338" height="196"/>
+    </resources>
 </document>

@@ -16,7 +16,7 @@ class FirstCustomView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.backgroundColor = UIColor(red:1.0, green:0.27, blue:0.27, alpha:1.0)
+        containerView.backgroundColor = UIColor(red:0.15, green:0.64, blue:0.85, alpha:1.0)
     }
     
     func populate(title: String, message: String) {

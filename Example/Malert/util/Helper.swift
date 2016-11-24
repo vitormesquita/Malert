@@ -23,8 +23,8 @@ class Helper {
     class func setUpThirdExampleCustomMalertViewConfig() -> MalertViewConfiguration {
         var malertViewConfig = MalertViewConfiguration()
         malertViewConfig.margin = 20
-        malertViewConfig.backgroundColor = .darkGray
-        malertViewConfig.textColor = .white
+        malertViewConfig.backgroundColor = UIColor(red:1.0, green:0.8, blue:0.0, alpha:1.0)
+        malertViewConfig.textColor = .black
         return malertViewConfig
     }
 }
