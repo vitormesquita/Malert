@@ -7,9 +7,10 @@
 
 ## A simple, easy and custom iOS UIAlertView written in Swift 
 
-<img src="https://github.com/Orderella/PopupDialog/blob/master/Assets/PopupDialog01.gif?raw=true" width="250">
-<img src="https://github.com/Orderella/PopupDialog/blob/master/Assets/PopupDialog02.gif?raw=true" width="250">
-<img src="https://github.com/Orderella/PopupDialog/blob/master/Assets/PopupDialog03.gif?raw=true" width="250">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/Malert_first_example.gif" width="250">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/Second_malert_example.gif" width="250">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/third_exemple.gif" width="250">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/all_malert_examples.gif" width="250">
 
 Malert came to facilitate make custom alert views, introducing as `UIAlertViewController`. Malert allows you make some custom configurations to show your alert as your application layout.
 Malert can display one or a queue of alerts and you can to display alert with some animations.
