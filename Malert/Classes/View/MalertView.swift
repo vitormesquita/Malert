@@ -43,6 +43,15 @@ public class MalertView: UIView {
         }
     }
     
+    fileprivate var stackInset: CGFloat = 0 {
+        didSet{
+            removeConstraints(viewsConstraints)
+            updateTitleLabelConstraints()
+            updateCustomViewConstraints()
+            updateButtonsStackViewConstraints()
+        }
+    }
+    
     // MARK: - Appearance
     
     // Dialog view corner radius
@@ -87,9 +96,17 @@ public class MalertView: UIView {
         set { inset = newValue }
     }
     
-    //TODO next upgrade
-    //public dynamic var buttonsMargin: CGFloat = 0
-    //public dynamic var buttonsSpace: CGFloat = 0
+    // Margin inset to StackView buttons
+    public dynamic var buttonsMargin: CGFloat {
+        get { return stackInset }
+        set { stackInset = newValue }
+    }
+    
+    // Margin inset between buttons
+    public dynamic var buttonsSpace: CGFloat {
+        get { return buttonsStackView.spacing }
+        set { buttonsStackView.spacing = newValue }
+    }
     
     init(title: String?, customView: UIView, buttons: [MalertButtonStruct], malertViewConfiguration: MalertViewConfiguration? = nil) {
         super.init(frame: .zero)
@@ -120,6 +137,8 @@ public class MalertView: UIView {
         textColor = malertViewConfig.textColor
         buttonsAxis = malertViewConfig.buttonsAxis
         margin = malertViewConfig.margin
+        buttonsMargin = malertViewConfig.buttonsMargin
+        buttonsSpace = malertViewConfig.buttonsSpace
         //buttonsDistribution = malertViewConfig.buttonDistribution
         //buttonsAligment = malertViewConfig.buttonsAligment
     }
@@ -139,11 +158,10 @@ extension MalertView {
     }
 }
 
+/**
+ * Extensions to setUp Views in alert
+ */
 extension MalertView {
-    
-    /**
-     * Extensions to setUp Views in alert
-     */
     
     fileprivate func setUpViews() {
         setUpTitle()
@@ -195,20 +213,20 @@ extension MalertView {
             var updatedButtonStruct = buttonStruct
             updatedButtonStruct.isHorizontalAxis = buttonsAxis == .horizontal
             updatedButtonStruct.index = index
+            updatedButtonStruct.hasMargin = buttonsSpace > 0
             button.initializeMalertButton(malertButtonStruct: updatedButtonStruct)
             return button
         }
     }
 }
 
+/**
+ * Extensios that implements Malert constraints to:
+ *  - Title Label
+ *  - Custom View
+ *  - Buttons Stack View
+ */
 extension MalertView {
-    
-    /**
-     * Extensios that implements Malert constraints to:
-     *  - Title Label
-     *  - Custom View
-     *  - Buttons Stack View
-     */
     
     fileprivate func updateTitleLabelConstraints() {
         guard let _ = title else { return }
@@ -238,9 +256,9 @@ extension MalertView {
         if let customView = customView {
             constrain(buttonsStackView, customView, self, block: { (containerStackView, customView, containerView) in
                 viewsConstraints.append(containerStackView.top == customView.bottom + inset)
-                viewsConstraints.append(containerStackView.left == containerView.left)
-                viewsConstraints.append(containerStackView.right == containerView.right)
-                viewsConstraints.append(containerStackView.bottom == containerView.bottom)
+                viewsConstraints.append(containerStackView.left == containerView.left + stackInset)
+                viewsConstraints.append(containerStackView.right == containerView.right - stackInset)
+                viewsConstraints.append(containerStackView.bottom == containerView.bottom - stackInset)
             })
         }
     }
@@ -259,6 +277,7 @@ extension MalertView {
         stack.distribution = .fillEqually
         stack.alignment = .fill
         stack.axis = .vertical
+        stack.spacing = 0
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }
