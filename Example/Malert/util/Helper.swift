@@ -27,4 +27,13 @@ class Helper {
         malertViewConfig.textColor = .black
         return malertViewConfig
     }
+    
+    class func setUpFouthExampleCustomMalertViewConfig() -> MalertViewConfiguration {
+        var malertViewConfig = MalertViewConfiguration()
+        malertViewConfig.margin = 16
+        malertViewConfig.buttonsSpace = 16
+        malertViewConfig.buttonsMargin = 16
+        malertViewConfig.textColor = .black
+        return malertViewConfig
+    }
 }

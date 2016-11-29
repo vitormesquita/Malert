@@ -83,7 +83,10 @@ extension MalertButton {
             setConfiguration(malertButtonConfiguration: buttonConfiguration)
         }
         
-        setUpViews()
+        if !malertButtonStruct.hasMargin {
+            setUpViews()
+        }
+        
         setTitle(malertButtonStruct.title, for: .normal)
         addTarget(self, action: #selector(MalertButton.buttonPressedAction(button:)), for: .touchUpInside)
     }

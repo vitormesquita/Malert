@@ -10,6 +10,7 @@
 <img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/first.gif" width="250">
 <img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/second.gif" width="250">
 <img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/third.gif" width="250">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/fourthExample.gif" width="250">
 <img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/all.gif" width="250">
 
 Malert came to facilitate make custom alert views, introducing as `UIAlertViewController`. Malert allows you make some custom configurations to show your alert as your application layout.
@@ -159,6 +160,8 @@ By default malert provides defaults values:
     malertAppearance.buttonsAxis        : UILayoutConstraintAxis  = .vertical
     malertAppearance.margin             : CGFloat                 = 0
     malertAppearance.titleFont          : UIFont                  = UIFont()
+    malertAppearance.buttonsMargin      : CGFloat                 = 0
+    malertAppearance.buttonsSpace       : CGFloat                 = 0
 ```
 ```swift
     //Defaults attr malertButton

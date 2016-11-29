@@ -11,8 +11,6 @@ import Malert
 
 class ViewController: UIViewController {
     
-    var btConfiguration = MalertButtonConfiguration()
-    
     var dismissButton = MalertButtonStruct(title: "No, thanks") {
         MalertManager.shared.dismiss()
     }
@@ -37,6 +35,10 @@ class ViewController: UIViewController {
     @IBAction func buttonShowThirdExampleAction(_ sender: AnyObject) {
         showThirdExample()
     }
+    
+    @IBAction func buttonShowFourthExampleAction(_ sender: AnyObject) {
+        showFourthExample()
+    }
 }
 
 //MARK: Build malert examples
@@ -57,6 +59,7 @@ extension ViewController {
     
     func showSecondExample() {
         let malertConfiguration = Helper.setUpSecondExampleCustomMalertViewConfig()
+        var btConfiguration = MalertButtonConfiguration()
         btConfiguration.tintColor = malertConfiguration.textColor
         btConfiguration.separetorColor = .white
         
@@ -81,17 +84,41 @@ extension ViewController {
     
     func showThirdExample() {
         let malertConfig = Helper.setUpThirdExampleCustomMalertViewConfig()
+        var btConfiguration = MalertButtonConfiguration()
         btConfiguration.tintColor = malertConfig.textColor
         btConfiguration.separetorColor = .clear
+        
+        var updatedDismissButton = dismissButton
+        updatedDismissButton.setButtonConfiguration(btConfiguration)
         
         let textField = UITextField()
         textField.backgroundColor = .white
         textField.placeholder = "Example textField"
         
-        let thatIsAllFolksButton = MalertButtonStruct(title: "That's all folks", buttonConfiguration: btConfiguration) {
-            MalertManager.shared.dismiss()
+        let thatIsAllFolksButton = MalertButtonStruct(title: "Fourth example", buttonConfiguration: btConfiguration) {
+            MalertManager.shared.dismiss(with: {[weak self] (_) in
+                guard let strongSelf = self else { return }
+                strongSelf.showFourthExample()
+            })
         }
         
-        MalertManager.shared.show(title: "I Hope that it help you", customView: textField, buttons: [thatIsAllFolksButton], animationType: .modalLeft, malertConfiguration: malertConfig)
+        MalertManager.shared.show(title: "I Hope that it help you", customView: textField, buttons: [thatIsAllFolksButton, updatedDismissButton], animationType: .modalLeft, malertConfiguration: malertConfig)
+    }
+    
+    func showFourthExample() {
+        let malertConfig = Helper.setUpFouthExampleCustomMalertViewConfig()
+        
+        var fourthButtonConfig = MalertButtonConfiguration()
+        fourthButtonConfig.backgroundColor = UIColor(red:1.0, green:0.25, blue:0.25, alpha:1.0)
+        fourthButtonConfig.tintColor = .white
+        
+        let customView = SecondCustomView.instantiateFromNib()
+        customView.populate(title: "FourthExample")
+        
+        let dismissButton = MalertButtonStruct(title: "Well come to Malert", buttonConfiguration: fourthButtonConfig) {
+            MalertManager.shared.dismiss()
+        }
+    
+        MalertManager.shared.show(customView: customView, buttons: [dismissButton], animationType: .fadeIn, malertConfiguration: malertConfig)
     }
 }

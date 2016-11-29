@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SecondCustomView" customModule="Malert_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="244" height="190"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_ticket" translatesAutoresizingMaskIntoConstraints="NO" id="LIL-AD-DHJ"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjH-Yo-H60">
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yjH-Yo-H60" firstAttribute="top" secondItem="LIL-AD-DHJ" secondAttribute="bottom" constant="20" id="10I-uF-PH1"/>
+                <constraint firstItem="yjH-Yo-H60" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5jc-Pe-49D"/>
+                <constraint firstAttribute="bottom" secondItem="yjH-Yo-H60" secondAttribute="bottom" id="Jqd-za-0gm"/>
+                <constraint firstAttribute="trailing" secondItem="yjH-Yo-H60" secondAttribute="trailing" id="baL-ks-Kes"/>
+                <constraint firstItem="LIL-AD-DHJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pI4-Fc-eeV"/>
+                <constraint firstItem="LIL-AD-DHJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="svp-Fo-y0T"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="yjH-Yo-H60" id="D4g-EX-eZZ"/>
+            </connections>
+            <point key="canvasLocation" x="99" y="-184"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_ticket" width="161" height="88"/>
+    </resources>
+</document>

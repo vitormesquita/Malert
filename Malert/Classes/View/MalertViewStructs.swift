@@ -45,6 +45,8 @@ public struct MalertButtonStruct {
     var title: String
     var index = 0
     var isHorizontalAxis = false
+    var hasMargin = false
+    
     var backgroundColor: UIColor?
     var buttonConfiguration: MalertButtonConfiguration?
     var actionBlock: (() -> ())?
@@ -96,12 +98,14 @@ struct MalertAnimationWrapper {
  */
 public struct MalertViewConfiguration {
     public var backgroundColor: UIColor = .white
-    public var cornerRadius: CGFloat = 6
     public var textColor: UIColor = .black
     public var textAlign: NSTextAlignment = .left
     public var buttonsAxis: UILayoutConstraintAxis = .vertical
-    public var margin: CGFloat = 0
     public var titleFont: UIFont = UIFont()
+    public var cornerRadius: CGFloat = 6
+    public var margin: CGFloat = 0
+    public var buttonsMargin: CGFloat = 0
+    public var buttonsSpace: CGFloat = 0
     public init() {}
 }
 
