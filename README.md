@@ -11,7 +11,7 @@
 <img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/second.gif" width="250">
 <img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/third.gif" width="250">
 <img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/fourthExample.gif" width="250">
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/all.gif" width="250">
+<img src="https://github.com/vitormesquita/Malert/blob/master/Malert/Assets/all.gif" width="250">
 
 Malert came to facilitate make custom alert views, introducing as `UIAlertViewController`. Malert allows you make some custom configurations to show your alert as your application layout.
 Malert can display one or a queue of alerts and you can to display alert with some animations.
