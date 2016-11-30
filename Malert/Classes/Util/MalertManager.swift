@@ -56,6 +56,7 @@ extension MalertManager {
      *  - customView: all UIView can be put here to appear in alert
      *  - buttons: Struct that will create all buttons in stackView
      *  - animationType: the animation will apresent the alert in uiwindow
+     *  - malertConfiguration: optional configuration for single malert
      */
     public func show(customView: UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
         let alert = MalertViewStruct(title: nil, customView: customView, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
@@ -69,9 +70,33 @@ extension MalertManager {
      *  - customView: all UIView can be put here to appear in alert
      *  - buttons: Struct that will create all buttons in stackView
      *  - animationType: the animation will apresent the alert in uiwindow
+     *  - malertConfiguration: optional configuration for single malert
      */
     public func show(title: String, customView:UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
         let alert = MalertViewStruct(title: title, customView: customView, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
+        show(with: alert)
+    }
+    
+    /**
+     * Show alert with title and message
+     * Parameters:
+     *  - title: String that will put on top to alert
+     *  - message: String which will create messageLabel
+     *  - buttons: Struct that will create all buttons in stackView
+     *  - malertConfiguration: optional configuration for single malert
+     *  - animationType: the animation will apresent the alert in uiwindow
+     */
+    public func show(title: String, message: String, buttons: [MalertButtonStruct], malertConfiguration: MalertViewConfiguration? = nil, animationType: MalertAnimationType = .modalBottom) {
+        
+        let messageLabel = UILabel()
+        messageLabel.numberOfLines = 0
+        messageLabel.text = message
+        if let malertConfig = malertConfiguration {
+            messageLabel.textColor = malertConfig.textColor
+            messageLabel.textAlignment = malertConfig.textAlign
+        }
+        
+        let alert = MalertViewStruct(title: title, customView: messageLabel, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
         show(with: alert)
     }
 }

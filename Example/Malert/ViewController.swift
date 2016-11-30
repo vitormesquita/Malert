@@ -63,12 +63,6 @@ extension ViewController {
         btConfiguration.tintColor = malertConfiguration.textColor
         btConfiguration.separetorColor = .white
         
-        let messageLabel = UILabel()
-        messageLabel.textColor = malertConfiguration.textColor
-        messageLabel.textAlignment = malertConfiguration.textAlign
-        messageLabel.numberOfLines = 0
-        messageLabel.text = "This is second example. Explaning how to use and customize your malert"
-        
         let showThirdExempleButton = MalertButtonStruct(title: "Third example", buttonConfiguration: btConfiguration) { [weak self] in
             guard let strongSelf = self else { return }
             MalertManager.shared.dismiss(with: { (finished) in
@@ -79,7 +73,7 @@ extension ViewController {
         var updatedDismissButton = dismissButton
         updatedDismissButton.setButtonConfiguration(btConfiguration)
         
-        MalertManager.shared.show(title: "Hello!", customView: messageLabel, buttons: [showThirdExempleButton, updatedDismissButton], animationType: .modalRight, malertConfiguration: malertConfiguration)
+        MalertManager.shared.show(title: "Hello!", message: "This is second example. Explaning how to use and customize your malert", buttons: [showThirdExempleButton, updatedDismissButton], malertConfiguration: malertConfiguration, animationType: .modalRight)
     }
     
     func showThirdExample() {

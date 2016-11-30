@@ -72,6 +72,12 @@ public class MalertView: UIView {
         set { titleLabel.textAlignment = newValue }
     }
     
+    //Title font
+    public dynamic var titleFont: UIFont {
+        get { return titleLabel.font }
+        set { titleLabel.font = newValue }
+    }
+    
     // Buttons distribution in stack view
     public dynamic var buttonsDistribution: OAStackViewDistribution {
         get { return buttonsStackView.distribution }
@@ -139,6 +145,7 @@ public class MalertView: UIView {
         margin = malertViewConfig.margin
         buttonsMargin = malertViewConfig.buttonsMargin
         buttonsSpace = malertViewConfig.buttonsSpace
+        titleFont = malertViewConfig.titleFont
         //buttonsDistribution = malertViewConfig.buttonDistribution
         //buttonsAligment = malertViewConfig.buttonsAligment
     }

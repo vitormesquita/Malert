@@ -101,7 +101,7 @@ public struct MalertViewConfiguration {
     public var textColor: UIColor = .black
     public var textAlign: NSTextAlignment = .left
     public var buttonsAxis: UILayoutConstraintAxis = .vertical
-    public var titleFont: UIFont = UIFont()
+    public var titleFont: UIFont = UIFont.systemFont(ofSize: 14)
     public var cornerRadius: CGFloat = 6
     public var margin: CGFloat = 0
     public var buttonsMargin: CGFloat = 0
