@@ -25,12 +25,25 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
+### Pod
+
 Malert is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "Malert"
 ```
+### Manually
+
+If you prefer not to use any dependency managers, you can integrate Malert in your project manually just adding the files which contains [Malert Classes](https://github.com/vitormesquita/Malert/tree/master/Malert/Classes). 
+
+And you will need to add MalertDependencies libraries:
+
+    -[Cartography](https://github.com/robb/Cartography)
+    -[OAStackView](https://github.com/oarrabi/OAStackView)
+
+And congratulations!!! You can run Malert without any dependecy managers
+
 ## Example
 
 This is a simple way. If you want to know more, check the repo.
