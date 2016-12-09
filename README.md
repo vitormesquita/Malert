@@ -39,8 +39,8 @@ If you prefer not to use any dependency managers, you can integrate Malert in yo
 
 And you will need to add MalertDependencies libraries:
 
-    -[Cartography](https://github.com/robb/Cartography)
-    -[OAStackView](https://github.com/oarrabi/OAStackView)
+* [Cartography](https://github.com/robb/Cartography)
+* [OAStackView](https://github.com/oarrabi/OAStackView)
 
 And congratulations!!! You can run Malert without any dependecy managers
 
