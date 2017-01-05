@@ -94,6 +94,8 @@ extension MalertManager {
         if let malertConfig = malertConfiguration {
             messageLabel.textColor = malertConfig.textColor
             messageLabel.textAlignment = malertConfig.textAlign
+        } else {
+            messageLabel.textAlignment = MalertView.appearance().textAlign
         }
         
         let alert = MalertViewStruct(title: title, customView: messageLabel, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
