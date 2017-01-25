@@ -200,6 +200,13 @@ extension MalertView {
                 customView.round(corners: [.topLeft, .topRight], radius: strongSelf.cornerRadius)
             }
         }
+        
+        if buttonsConfig == nil || buttonsConfig?.count == 0 {
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                customView.round(corners: [.bottomLeft, .bottomRight], radius: strongSelf.cornerRadius)
+            }
+        }
     }
     
     fileprivate func setUpButtonsStackView() {
@@ -255,6 +262,10 @@ extension MalertView {
                 viewsConstraints.append(customView.top == titleLabel.bottom + inset)
             } else {
                 viewsConstraints.append(customView.top == containerView.top + inset)
+            }
+            
+            if buttonsConfig == nil || buttonsConfig?.count == 0 {
+                viewsConstraints.append(customView.bottom == containerView.bottom - inset)
             }
         })
     }
