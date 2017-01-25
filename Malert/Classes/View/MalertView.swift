@@ -194,17 +194,19 @@ extension MalertView {
         self.addSubview(customView)
         updateCustomViewConstraints()
         
-        if title == nil && inset == 0 {
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            if strongSelf.title == nil && strongSelf.inset == 0 {
                 customView.round(corners: [.topLeft, .topRight], radius: strongSelf.cornerRadius)
             }
-        }
-        
-        if buttonsConfig == nil || buttonsConfig?.count == 0 {
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else { return }
+            
+            if strongSelf.buttonsConfig == nil || strongSelf.buttonsConfig?.count == 0 {
                 customView.round(corners: [.bottomLeft, .bottomRight], radius: strongSelf.cornerRadius)
+            }
+            
+            if strongSelf.title == nil && strongSelf.inset == 0 && (strongSelf.buttonsConfig == nil || strongSelf.buttonsConfig?.count == 0) {
+                customView.round(corners: [.allCorners], radius: strongSelf.cornerRadius)
             }
         }
     }
