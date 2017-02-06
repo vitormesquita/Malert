@@ -132,17 +132,17 @@ extension MalertManager {
                     
                 } else {
                     
-                    MalertAnimation.buildSimpleDismissAnimation(with: alertWindow, completion: {[weak self] finished in
-                        guard let strongSelf = self else { return }
-                        strongSelf.hasAlertOnWindow = false
-                        alertWindow.rootViewController?.view.endEditing(true)
-                        strongSelf.mainWindow?.makeKey()
-                        strongSelf.alertWindow = nil
-                        
-                        if let completion = completion {
-                            completion(finished)
-                        }
-                        })
+                    //                    MalertAnimation.buildSimpleDismissAnimation(with: alertWindow, completion: {[weak self] finished in
+                    //                        guard let strongSelf = self else { return }
+                    strongSelf.hasAlertOnWindow = false
+                    alertWindow.rootViewController?.view.endEditing(true)
+                    strongSelf.mainWindow?.makeKey()
+                    strongSelf.alertWindow = nil
+                    
+                    if let completion = completion {
+                        completion(finished)
+                    }
+                    //                        })
                 }
             }
         }

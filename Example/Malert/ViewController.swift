@@ -55,6 +55,7 @@ extension ViewController {
         }
         
         MalertManager.shared.show(customView: firstCustomView, buttons: [showSecondMalertButton, dismissButton])
+        MalertManager.shared.show(customView: firstCustomView, buttons: [showSecondMalertButton, dismissButton])
     }
     
     func showSecondExample() {
