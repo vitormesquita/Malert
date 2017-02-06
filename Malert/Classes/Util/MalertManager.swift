@@ -140,7 +140,7 @@ extension MalertManager {
                     strongSelf.alertWindow = nil
                     
                     if let completion = completion {
-                        completion(finished)
+                        completion(true)
                     }
                     //                        })
                 }
