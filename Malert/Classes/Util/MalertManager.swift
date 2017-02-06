@@ -15,6 +15,7 @@ public class MalertManager {
     fileprivate var alertWindow: UIWindow?
     fileprivate var alertQueue = [MalertViewStruct]()
     fileprivate var hasAlertOnWindow = false
+    fileprivate let showAlertQueue = DispatchQueue(label: "showAlertQueue")
     
     fileprivate lazy var malertViewController: MalertViewController = {
         return MalertViewController()
@@ -30,20 +31,26 @@ public class MalertManager {
      */
     
     fileprivate func show(with malertViewStruct: MalertViewStruct) {
-        if alertWindow == nil {
-            alertWindow = UIWindow(frame: UIScreen.main.bounds)
-            mainWindow = UIApplication.shared.keyWindow
-        }
-        
-        if !hasAlertOnWindow {
-            hasAlertOnWindow = true
-            malertViewController.setMalertView(malertViewStruct: malertViewStruct)
-            alertWindow!.rootViewController = malertViewController
-            alertWindow!.windowLevel = UIWindowLevelAlert
-            alertWindow!.makeKeyAndVisible()
-            
-        } else {
-            alertQueue.append(malertViewStruct)
+        showAlertQueue.sync {
+            DispatchQueue.main.async{ [weak self] in
+                guard let strongSelf = self else { return }
+                
+                if strongSelf.alertWindow == nil {
+                    strongSelf.alertWindow = UIWindow(frame: UIScreen.main.bounds)
+                    strongSelf.mainWindow = UIApplication.shared.keyWindow
+                }
+                
+                if !strongSelf.hasAlertOnWindow {
+                    strongSelf.hasAlertOnWindow = true
+                    strongSelf.malertViewController.setMalertView(malertViewStruct: malertViewStruct)
+                    strongSelf.alertWindow!.rootViewController = strongSelf.malertViewController
+                    strongSelf.alertWindow!.windowLevel = UIWindowLevelAlert
+                    strongSelf.alertWindow!.makeKeyAndVisible()
+                    
+                } else {
+                    strongSelf.alertQueue.append(malertViewStruct)
+                }
+            }
         }
     }
 }
@@ -113,26 +120,31 @@ extension MalertManager {
      */
     
     public func dismiss(with completion: ((_ finished: Bool) -> Void)? = nil) {
-        guard let alertWindow = alertWindow else { return }
-        
-        if let alertToPresent = alertQueue.first {
-            hasAlertOnWindow = false
-            show(with: alertToPresent)
-            alertQueue.remove(at: 0)
-            
-        } else {
-            
-            MalertAnimation.buildSimpleDismissAnimation(with: alertWindow, completion: {[weak self] finished in
+        showAlertQueue.sync {
+            DispatchQueue.main.async{ [weak self] in
                 guard let strongSelf = self else { return }
-                strongSelf.hasAlertOnWindow = false
-                strongSelf.alertWindow?.rootViewController?.view.endEditing(true)
-                strongSelf.mainWindow?.makeKey()
-                strongSelf.alertWindow = nil
+                guard let alertWindow = strongSelf.alertWindow else { return }
                 
-                if let completion = completion {
-                    completion(finished)
+                if let alertToPresent = strongSelf.alertQueue.first {
+                    strongSelf.hasAlertOnWindow = false
+                    strongSelf.show(with: alertToPresent)
+                    strongSelf.alertQueue.remove(at: 0)
+                    
+                } else {
+                    
+                    MalertAnimation.buildSimpleDismissAnimation(with: alertWindow, completion: {[weak self] finished in
+                        guard let strongSelf = self else { return }
+                        strongSelf.hasAlertOnWindow = false
+                        alertWindow.rootViewController?.view.endEditing(true)
+                        strongSelf.mainWindow?.makeKey()
+                        strongSelf.alertWindow = nil
+                        
+                        if let completion = completion {
+                            completion(finished)
+                        }
+                        })
                 }
-                })
+            }
         }
     }
     
