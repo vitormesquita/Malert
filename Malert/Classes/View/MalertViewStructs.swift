@@ -75,25 +75,6 @@ public struct MalertButtonStruct {
 }
 
 /**
- * Struct to wrapper MalertAnimation
- * Parametes:
- *  - animationType: Is pre-determineted animations which malert will do when appear
- *  - malertView: current malertView to make animations with it
- *  - malertViewController: viewController container to build malerView
- */
-struct MalertAnimationWrapper {
-    var animationType: MalertAnimationType
-    var malertView: MalertView
-    var malertViewController: MalertViewController
-    
-    init(animationType: MalertAnimationType, malertView:MalertView, malertViewController: MalertViewController) {
-        self.animationType = animationType
-        self.malertView = malertView
-        self.malertViewController = malertViewController
-    }
-}
-
-/**
  * Struct about MalertView configuration
  */
 public struct MalertViewConfiguration {

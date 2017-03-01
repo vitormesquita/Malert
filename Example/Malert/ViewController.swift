@@ -54,8 +54,9 @@ extension ViewController {
             })
         }
         
-        MalertManager.shared.show(customView: firstCustomView, buttons: [showSecondMalertButton, dismissButton])
-        MalertManager.shared.show(customView: firstCustomView, buttons: [showSecondMalertButton, dismissButton])
+        
+        MalertManager.shared.show(viewController: self, customView: firstCustomView, buttons: [showSecondMalertButton, dismissButton])
+        MalertManager.shared.show( viewController: self, customView: firstCustomView, buttons: [showSecondMalertButton, dismissButton])
     }
     
     func showSecondExample() {
@@ -74,7 +75,7 @@ extension ViewController {
         var updatedDismissButton = dismissButton
         updatedDismissButton.setButtonConfiguration(btConfiguration)
         
-        MalertManager.shared.show(title: "Hello!", message: "This is second example. Explaning how to use and customize your malert", buttons: [showThirdExempleButton, updatedDismissButton], malertConfiguration: malertConfiguration, animationType: .modalRight)
+        MalertManager.shared.show(viewController: self, title: "Hello!", message: "This is second example. Explaning how to use and customize your malert", buttons: [showThirdExempleButton, updatedDismissButton], malertConfiguration: malertConfiguration, animationType: .modalRight)
     }
     
     func showThirdExample() {
@@ -97,7 +98,7 @@ extension ViewController {
             })
         }
         
-        MalertManager.shared.show(title: "I Hope that it help you", customView: textField, buttons: [thatIsAllFolksButton, updatedDismissButton], animationType: .modalLeft, malertConfiguration: malertConfig)
+        MalertManager.shared.show(viewController: self, title: "I Hope that it help you", customView: textField, buttons: [thatIsAllFolksButton, updatedDismissButton], animationType: .modalLeft, malertConfiguration: malertConfig)
     }
     
     func showFourthExample() {
@@ -114,6 +115,6 @@ extension ViewController {
             MalertManager.shared.dismiss()
         }
     
-        MalertManager.shared.show(customView: customView, buttons: [dismissButton], animationType: .fadeIn, malertConfiguration: malertConfig)
+        MalertManager.shared.show(viewController: self, customView: customView, buttons: [dismissButton], animationType: .fadeIn, malertConfiguration: malertConfig)
     }
 }

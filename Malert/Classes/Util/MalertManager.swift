@@ -8,49 +8,45 @@
 
 import UIKit
 
-public class MalertManager {
+public class MalertManager: NSObject {
     public static var shared = MalertManager()
     
-    fileprivate var mainWindow: UIWindow?
-    fileprivate var alertWindow: UIWindow?
+    
     fileprivate var alertQueue = [MalertViewStruct]()
     fileprivate var hasAlertOnWindow = false
-    fileprivate let showAlertQueue = DispatchQueue(label: "showAlertQueue")
     
+    
+    fileprivate var viewControllerToPresent: UIViewController?
     fileprivate lazy var malertViewController: MalertViewController = {
-        return MalertViewController()
+        let malertViewController = MalertViewController()
+        malertViewController.modalPresentationStyle = .custom
+        return malertViewController
     }()
     
+    fileprivate let malertPresentationManager = MalertPresentationManager()
+    
     /**
-     * Function to init MalertWindow if needed and verify if has any MalertView on Window.
+     * Function to init MalertWindow if needed and verify if has any MalertView with other ViewController
      * If has put next MalertView on queue.
-     * If don't have show MalertView on Window
+     * If haven't shown MalertView
      * Parameters:
+     *  - view
      *  - malertViewStruct: Struct to represent MalertView with yours attributes
      *  - animationType: MalertAnimationType that MalertView will be apresented
      */
-    
-    fileprivate func show(with malertViewStruct: MalertViewStruct) {
-        showAlertQueue.sync {
-            DispatchQueue.main.async{ [weak self] in
-                guard let strongSelf = self else { return }
-                
-                if strongSelf.alertWindow == nil {
-                    strongSelf.alertWindow = UIWindow(frame: UIScreen.main.bounds)
-                    strongSelf.mainWindow = UIApplication.shared.keyWindow
-                }
-                
-                if !strongSelf.hasAlertOnWindow {
-                    strongSelf.hasAlertOnWindow = true
-                    strongSelf.malertViewController.setMalertView(malertViewStruct: malertViewStruct)
-                    strongSelf.alertWindow!.rootViewController = strongSelf.malertViewController
-                    strongSelf.alertWindow!.windowLevel = UIWindowLevelAlert
-                    strongSelf.alertWindow!.makeKeyAndVisible()
-                    
-                } else {
-                    strongSelf.alertQueue.append(malertViewStruct)
-                }
-            }
+    fileprivate func show(with viewController: UIViewController, malertViewStruct: MalertViewStruct) {
+        self.viewControllerToPresent = viewController
+        
+        if !hasAlertOnWindow {
+            hasAlertOnWindow = true
+            malertPresentationManager.animationType = malertViewStruct.animationType
+            malertViewController.transitioningDelegate = malertPresentationManager
+            
+            viewController.present(malertViewController, animated: true, completion: nil)
+            malertViewController.setMalertView(malertViewStruct: malertViewStruct)
+            
+        } else {
+            alertQueue.append(malertViewStruct)
         }
     }
 }
@@ -65,9 +61,9 @@ extension MalertManager {
      *  - animationType: the animation will apresent the alert in uiwindow
      *  - malertConfiguration: optional configuration for single malert
      */
-    public func show(customView: UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
+    public func show(viewController: UIViewController, customView: UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
         let alert = MalertViewStruct(title: nil, customView: customView, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
-        show(with: alert)
+        show(with: viewController, malertViewStruct: alert)
     }
     
     /**
@@ -79,9 +75,9 @@ extension MalertManager {
      *  - animationType: the animation will apresent the alert in uiwindow
      *  - malertConfiguration: optional configuration for single malert
      */
-    public func show(title: String, customView:UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
+    public func show(viewController: UIViewController, title: String, customView:UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil) {
         let alert = MalertViewStruct(title: title, customView: customView, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
-        show(with: alert)
+        show(with: viewController, malertViewStruct: alert)
     }
     
     /**
@@ -93,7 +89,7 @@ extension MalertManager {
      *  - malertConfiguration: optional configuration for single malert
      *  - animationType: the animation will apresent the alert in uiwindow
      */
-    public func show(title: String, message: String, buttons: [MalertButtonStruct], malertConfiguration: MalertViewConfiguration? = nil, animationType: MalertAnimationType = .modalBottom) {
+    public func show(viewController: UIViewController, title: String, message: String, buttons: [MalertButtonStruct], malertConfiguration: MalertViewConfiguration? = nil, animationType: MalertAnimationType = .modalBottom) {
         
         let messageLabel = UILabel()
         messageLabel.numberOfLines = 0
@@ -106,7 +102,7 @@ extension MalertManager {
         }
         
         let alert = MalertViewStruct(title: title, customView: messageLabel, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration)
-        show(with: alert)
+        show(with: viewController, malertViewStruct: alert)
     }
 }
 
@@ -118,31 +114,20 @@ extension MalertManager {
      * Parameters:
      *  - completion: Block with boolean that inform if animation is completed
      */
-    
     public func dismiss(with completion: ((_ finished: Bool) -> Void)? = nil) {
-        showAlertQueue.sync {
-            DispatchQueue.main.async{ [weak self] in
-                guard let strongSelf = self else { return }
-                guard let alertWindow = strongSelf.alertWindow else { return }
+        
+        malertViewController.view.endEditing(true)
+        malertViewController.dismiss(animated: true) {[weak self] in
+            guard let strongSelf = self else {return}
+            if let alertToPresent = strongSelf.alertQueue.first, let vc = strongSelf.viewControllerToPresent {
+                strongSelf.hasAlertOnWindow = false
+                strongSelf.show(with: vc, malertViewStruct: alertToPresent)
+                strongSelf.alertQueue.remove(at: 0)
                 
-                if let alertToPresent = strongSelf.alertQueue.first {
-                    strongSelf.hasAlertOnWindow = false
-                    strongSelf.show(with: alertToPresent)
-                    strongSelf.alertQueue.remove(at: 0)
-                    
-                } else {
-                    
-                    //                    MalertAnimation.buildSimpleDismissAnimation(with: alertWindow, completion: {[weak self] finished in
-                    //                        guard let strongSelf = self else { return }
-                    strongSelf.hasAlertOnWindow = false
-                    alertWindow.rootViewController?.view.endEditing(true)
-                    strongSelf.mainWindow?.makeKey()
-                    strongSelf.alertWindow = nil
-                    
-                    if let completion = completion {
-                        completion(true)
-                    }
-                    //                        })
+            } else {
+                strongSelf.hasAlertOnWindow = false
+                if let completion = completion {
+                    completion(true)
                 }
             }
         }

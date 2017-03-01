@@ -13,7 +13,7 @@ class MalertViewController: BaseMalertViewController {
     
     fileprivate lazy var visibleView: UIView = self.buildVisibleView()
     fileprivate let bottomInsetConstraintGroup = ConstraintGroup()
-    fileprivate var animationType: MalertAnimationType = .modalBottom
+    
     fileprivate var malertView: MalertView? {
         willSet {
             if let malertView = malertView {
@@ -31,13 +31,14 @@ class MalertViewController: BaseMalertViewController {
                 malertView.left == visibleView.left + 16
                 malertView.right == visibleView.right - 16
             }
-            MalertAnimation.buildAnimation(with: MalertAnimationWrapper(animationType: animationType, malertView: malertView, malertViewController: self))
         }
     }
     
     override func loadView() {
-        super.loadView()
+        
         view = UIView(frame: UIScreen.main.bounds)
+        view.backgroundColor = UIColor(white: 0, alpha: 0.4)
+//        super.loadView()
     }
     
     override func viewDidLoad() {
@@ -68,10 +69,8 @@ extension MalertViewController {
     
     /**
      * Extension to create and put MalertView on screen
-     */
-    
+     */ 
     func setMalertView(malertViewStruct: MalertViewStruct) {
-        self.animationType = malertViewStruct.animationType
         self.malertView = MalertView.buildAlert(with: malertViewStruct)
     }
     
@@ -81,6 +80,7 @@ extension MalertViewController {
     
     func buildVisibleView() -> UIView {
         let visibleView = UIView(frame: self.view.frame)
+//        visibleView.backgroundColor = .red
         view.addSubview(visibleView)
         constrain(visibleView, view) { (visibleView, containerView) in
             visibleView.top == containerView.top
