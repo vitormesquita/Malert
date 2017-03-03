@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		91B0ACF67A1169A2D25CD6A1 /* Pods_Malert_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49C907BCD023639C4EE8F78 /* Pods_Malert_Tests.framework */; };
+		FC0EA23A1E6A2C9100F3A527 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = FC0EA2391E6A2C9100F3A527 /* CHANGELOG.md */; };
 		FC2182301DE4EB0B003F99AE /* FirstCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */; };
 		FC2182321DE4EB29003F99AE /* FirstCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2182311DE4EB29003F99AE /* FirstCustomView.swift */; };
 		FC433B761DEDEE6100CD9131 /* SecondCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433B751DEDEE6100CD9131 /* SecondCustomView.swift */; };
@@ -52,6 +53,7 @@
 		A49C907BCD023639C4EE8F78 /* Pods_Malert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Malert_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20E16402CA0CDAB7FEB9383 /* Pods-Malert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Example/Pods-Malert_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F869482DEFE00CBEDB3AF8AA /* Pods-Malert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Tests/Pods-Malert_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		FC0EA2391E6A2C9100F3A527 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstCustomView.xib; sourceTree = "<group>"; };
 		FC2182311DE4EB29003F99AE /* FirstCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCustomView.swift; sourceTree = "<group>"; };
 		FC433B751DEDEE6100CD9131 /* SecondCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCustomView.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				21083D1D6390361B30853B37 /* Malert.podspec */,
 				98737553F911AA11740A107E /* README.md */,
+				FC0EA2391E6A2C9100F3A527 /* CHANGELOG.md */,
 				A2A84EB05579A47CCBE9BFD2 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC433B761DEDEE6100CD9131 /* SecondCustomView.swift in Sources */,
+				FC0EA23A1E6A2C9100F3A527 /* CHANGELOG.md in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				FC2182321DE4EB29003F99AE /* FirstCustomView.swift in Sources */,

@@ -24,13 +24,15 @@ struct MalertViewStruct {
     var buttons: [MalertButtonStruct]
     var animationType: MalertAnimationType
     var configuration: MalertViewConfiguration?
+    var tapToDismiss:Bool
     
-    init(title: String?, customView: UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType, malertViewConfiguration: MalertViewConfiguration? = nil) {
+    init(title: String?, customView: UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType, malertViewConfiguration: MalertViewConfiguration?, tapToDismiss:Bool) {
         self.title = title
         self.customView = customView
         self.buttons = buttons
-        self.configuration = malertViewConfiguration
         self.animationType = animationType
+        self.configuration = malertViewConfiguration
+        self.tapToDismiss = tapToDismiss
     }
 }
 
@@ -71,25 +73,6 @@ public struct MalertButtonStruct {
     
     public mutating func setButtonConfiguration(_ buttonConfiguration: MalertButtonConfiguration) {
         self.buttonConfiguration = buttonConfiguration
-    }
-}
-
-/**
- * Struct to wrapper MalertAnimation
- * Parametes:
- *  - animationType: Is pre-determineted animations which malert will do when appear
- *  - malertView: current malertView to make animations with it
- *  - malertViewController: viewController container to build malerView
- */
-struct MalertAnimationWrapper {
-    var animationType: MalertAnimationType
-    var malertView: MalertView
-    var malertViewController: MalertViewController
-    
-    init(animationType: MalertAnimationType, malertView:MalertView, malertViewController: MalertViewController) {
-        self.animationType = animationType
-        self.malertView = malertView
-        self.malertViewController = malertViewController
     }
 }
 

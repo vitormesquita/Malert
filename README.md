@@ -67,10 +67,11 @@ import Malert
     }
 
     //Create Malert with title, custom view, buttons and animation type
-    MalertManager.shared.show(title: "title", 
-        customView: test.instantiateFromNib(), 
-        buttons: [button1, button2, button3], 
-        animationType: .modalLeft)
+    Malert.shared.show(viewController: self,
+                       title: "title",
+                       customView: test.instantiateFromNib(), 
+                       buttons: [button1, button2, button3],
+                       animationType: .modalLeft)
 ```
 
 ### Default Malert without title
@@ -88,9 +89,10 @@ import Malert
     }
 
     //Create Malert with custom view, buttons and animation type
-    MalertManager.shared.show(customView: myCustomView, 
-        buttons: [button1, button2], 
-        animationType: .modalLeft)
+    Malert.shared.show(viewController: self,
+                       customView: myCustomView, 
+                       buttons: [button1, button2], 
+                       animationType: .modalLeft)
 ```
 
 ### How to create buttons 
@@ -155,7 +157,12 @@ If you want just customize one malert in you application, you can pass `MalertVi
     malertConfiguration.margin = 16
 
     //And pass when you start malert
-    MalertManager.shared.show(title: "title", customView: teste.instantiateFromNib(), buttons: [malertButtonConfig], animationType: .modalRight, malertConfiguration: malertConfiguration)
+    Malert.shared.show(viewController: self, 
+                       title: "title",
+                       customView: teste.instantiateFromNib(), 
+                       buttons: [malertButtonConfig], 
+                       animationType: .modalRight, 
+                       malertConfiguration: malertConfiguration)
 ```
 
 ## Default values
@@ -185,6 +192,10 @@ By default malert provides defaults values:
     malertButtonAppearance.height          : CGFloat = 33
     malertButtonAppearance.separatorColor  : UIColor = UIColor(white: 0.8, alpha: 1)
 ```
+
+## Change Log
+
+### Look at [CHANGELOG.md](https://github.com/vitormesquita/Malert/blob/develop/CHANGELOG.md) for this project.
 
 ## Author
 
