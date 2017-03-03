@@ -17,7 +17,7 @@ class MalertPresentTransitioning: BaseTransitioning, UIViewControllerAnimatedTra
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let fromVC = transitionContext.viewController(forKey: .from), let toVC = transitionContext.viewController(forKey: .to) as? MalertViewController else {return}
+        guard let toVC = transitionContext.viewController(forKey: .to) as? MalertViewController else {return}
         
         toVC.view.frame = originFrame
         transitionContext.containerView.addSubview(toVC.view)

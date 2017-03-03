@@ -16,7 +16,7 @@ class MalertDimissTransitioning: BaseTransitioning, UIViewControllerAnimatedTran
     }
     
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let fromVC = transitionContext.viewController(forKey: .from) as? MalertViewController, let toVC = transitionContext.viewController(forKey: .to) else {return}
+        guard let fromVC = transitionContext.viewController(forKey: .from) as? MalertViewController else {return}
         
         if let malertView = fromVC.getMalertView() {
         

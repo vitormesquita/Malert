@@ -17,7 +17,7 @@ class MalertInteractiveTransition: UIPercentDrivenInteractiveTransition {
     
     @objc func handlePan(_ sender: UIPanGestureRecognizer) {
         
-        guard let vc = viewController else { return }
+        guard let _ = viewController else { return }
         
         guard let progress = calculateProgress(sender: sender) else { return }
         
