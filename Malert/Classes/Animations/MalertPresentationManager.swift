@@ -18,9 +18,20 @@ public enum MalertAnimationType {
 class MalertPresentationManager: NSObject, UIViewControllerTransitioningDelegate {
     
     var animationType: MalertAnimationType = .modalBottom
+    var interactor: MalertInteractiveTransition?
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return MalertAnimatedTransitioning(animationType: self.animationType)
+        return MalertPresentTransitioning(animationType: self.animationType)
     }
-
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return MalertDimissTransitioning(animationType: self.animationType)
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        if let interactor = interactor {
+            return interactor.hasStarted ? interactor : nil
+        }
+        return nil
+    }
 }

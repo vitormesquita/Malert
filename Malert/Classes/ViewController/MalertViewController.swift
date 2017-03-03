@@ -10,10 +10,10 @@ import UIKit
 import Cartography
 
 class MalertViewController: BaseMalertViewController {
-    
-    fileprivate lazy var visibleView: UIView = self.buildVisibleView()
+
+    fileprivate var tapToDismiss:Bool = false
     fileprivate let bottomInsetConstraintGroup = ConstraintGroup()
-    
+    fileprivate lazy var visibleView: UIView = self.buildVisibleView()
     fileprivate var malertView: MalertView? {
         willSet {
             if let malertView = malertView {
@@ -35,14 +35,16 @@ class MalertViewController: BaseMalertViewController {
     }
     
     override func loadView() {
-        
+        super.loadView()
         view = UIView(frame: UIScreen.main.bounds)
         view.backgroundColor = UIColor(white: 0, alpha: 0.4)
-//        super.loadView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapOnView))
+        self.view.addGestureRecognizer(tapRecognizer)
         listenKeyboard()
     }
     
@@ -63,15 +65,32 @@ class MalertViewController: BaseMalertViewController {
         view.setNeedsUpdateConstraints()
     }
     
+    //MARK: TapToDismiss
+    
+    @objc fileprivate func tapOnView(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+        
+        if let malertView = malertView, tapToDismiss == true {
+            let point = sender.location(in: malertView)
+            guard !malertView.point(inside: point, with: nil) else { return }
+            Malert.shared.dismiss()
+        }
+    }
 }
 
+/**
+ * Create visibleView to display MalertView util keyboard has appeared
+ * Create MalertView with MalertInteractiveTransation to dismiss malert
+ */
 extension MalertViewController {
     
-    /**
-     * Extension to create and put MalertView on screen
-     */ 
-    func setMalertView(malertViewStruct: MalertViewStruct) {
+    func set(malertViewStruct: MalertViewStruct, interactor: MalertInteractiveTransition) {
         self.malertView = MalertView.buildAlert(with: malertViewStruct)
+        self.tapToDismiss = malertViewStruct.tapToDismiss
+//        if tapToDismiss {
+//            let panRecognizer = UIPanGestureRecognizer(target: interactor, action: #selector(MalertInteractiveTransition.handlePan))
+//            self.view.addGestureRecognizer(panRecognizer)
+//        }
     }
     
     func getMalertView() -> MalertView? {
@@ -80,7 +99,6 @@ extension MalertViewController {
     
     func buildVisibleView() -> UIView {
         let visibleView = UIView(frame: self.view.frame)
-//        visibleView.backgroundColor = .red
         view.addSubview(visibleView)
         constrain(visibleView, view) { (visibleView, containerView) in
             visibleView.top == containerView.top

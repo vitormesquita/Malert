@@ -8,16 +8,10 @@
 
 import UIKit
 
-class MalertAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
+class MalertPresentTransitioning: BaseTransitioning, UIViewControllerAnimatedTransitioning {
     
     var originFrame = UIScreen.main.bounds
-    var animationType: MalertAnimationType
-    
-    init(animationType: MalertAnimationType) {
-        self.animationType = animationType
-        super.init()
-    }
-    
+   
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.5
     }
@@ -29,25 +23,7 @@ class MalertAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioni
         transitionContext.containerView.addSubview(toVC.view)
         
         if let malertView = toVC.getMalertView() {
-            switch animationType {
-            case .modalBottom:
-                malertView.transform = CGAffineTransform.init(translationX: 0, y: toVC.view.bounds.size.height)
-                break
-                
-            case .modalLeft:
-                malertView.transform = CGAffineTransform.init(translationX: -toVC.view.bounds.size.height, y: 0)
-                break
-                
-            case .modalRight:
-                malertView.transform = CGAffineTransform.init(translationX: toVC.view.bounds.size.height, y: 0)
-                break
-                
-            case .fadeIn:
-                malertView.transform = .identity
-                malertView.alpha = 0
-                break
-            }
-            
+            buildMalertAnimation(malertView: malertView, width: toVC.view.bounds.size.width, height: toVC.view.bounds.size.height)
             let duration = transitionDuration(using: transitionContext)
             
             UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {

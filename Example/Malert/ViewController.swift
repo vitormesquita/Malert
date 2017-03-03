@@ -12,7 +12,7 @@ import Malert
 class ViewController: UIViewController {
     
     var dismissButton = MalertButtonStruct(title: "No, thanks") {
-        MalertManager.shared.dismiss()
+        Malert.shared.dismiss()
     }
     
     lazy var firstCustomView: FirstCustomView = {
@@ -49,14 +49,12 @@ extension ViewController {
         
         let showSecondMalertButton = MalertButtonStruct(title: "Show second Malert") { [weak self] in
             guard let strongSelf = self else { return }
-            MalertManager.shared.dismiss(with: { (finished) in
+            Malert.shared.dismiss(with: { (finished) in
                 strongSelf.showSecondExample()
             })
         }
         
-        
-        MalertManager.shared.show(viewController: self, customView: firstCustomView, buttons: [showSecondMalertButton, dismissButton])
-        MalertManager.shared.show( viewController: self, customView: firstCustomView, buttons: [showSecondMalertButton, dismissButton])
+        Malert.shared.show(viewController: self, customView: firstCustomView, buttons: [showSecondMalertButton, dismissButton])
     }
     
     func showSecondExample() {
@@ -67,7 +65,7 @@ extension ViewController {
         
         let showThirdExempleButton = MalertButtonStruct(title: "Third example", buttonConfiguration: btConfiguration) { [weak self] in
             guard let strongSelf = self else { return }
-            MalertManager.shared.dismiss(with: { (finished) in
+            Malert.shared.dismiss(with: { (finished) in
                 strongSelf.showThirdExample()
             })
         }
@@ -75,7 +73,7 @@ extension ViewController {
         var updatedDismissButton = dismissButton
         updatedDismissButton.setButtonConfiguration(btConfiguration)
         
-        MalertManager.shared.show(viewController: self, title: "Hello!", message: "This is second example. Explaning how to use and customize your malert", buttons: [showThirdExempleButton, updatedDismissButton], malertConfiguration: malertConfiguration, animationType: .modalRight)
+        Malert.shared.show(viewController: self, title: "Hello!", message: "This is second example. Explaning how to use and customize your malert", buttons: [showThirdExempleButton, updatedDismissButton], animationType: .modalRight, malertConfiguration: malertConfiguration)
     }
     
     func showThirdExample() {
@@ -92,13 +90,13 @@ extension ViewController {
         textField.placeholder = "Example textField"
         
         let thatIsAllFolksButton = MalertButtonStruct(title: "Fourth example", buttonConfiguration: btConfiguration) {
-            MalertManager.shared.dismiss(with: {[weak self] (_) in
+            Malert.shared.dismiss(with: {[weak self] (_) in
                 guard let strongSelf = self else { return }
                 strongSelf.showFourthExample()
             })
         }
         
-        MalertManager.shared.show(viewController: self, title: "I Hope that it help you", customView: textField, buttons: [thatIsAllFolksButton, updatedDismissButton], animationType: .modalLeft, malertConfiguration: malertConfig)
+        Malert.shared.show(viewController: self, title: "I Hope that it help you", customView: textField, buttons: [thatIsAllFolksButton, updatedDismissButton], animationType: .modalLeft, malertConfiguration: malertConfig, tapToDismiss: false)
     }
     
     func showFourthExample() {
@@ -112,9 +110,9 @@ extension ViewController {
         customView.populate(title: "FourthExample")
         
         let dismissButton = MalertButtonStruct(title: "Well come to Malert", buttonConfiguration: fourthButtonConfig) {
-            MalertManager.shared.dismiss()
+            Malert.shared.dismiss()
         }
     
-        MalertManager.shared.show(viewController: self, customView: customView, buttons: [dismissButton], animationType: .fadeIn, malertConfiguration: malertConfig)
+        Malert.shared.show(viewController: self, customView: customView, buttons: [dismissButton], animationType: .fadeIn, malertConfiguration: malertConfig)
     }
 }
