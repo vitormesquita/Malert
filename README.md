@@ -195,7 +195,7 @@ By default malert provides defaults values:
 
 ## Change Log
 
-### Look at [CHANGELOG.md](https://github.com/vitormesquita/Malert/CHANGELOG.md) for this project.
+### Look at [CHANGELOG.md](https://github.com/vitormesquita/Malert/blob/develop/CHANGELOG.md) for this project.
 
 ## Author
 

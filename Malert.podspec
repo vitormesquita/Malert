@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Malert'
-  s.version          = '0.2.1'
+  s.version          = '1.0'
   s.summary          = 'A simple, easy and very customizable alert'
 
 # This description is used to generate tags and improve search results.
