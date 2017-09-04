@@ -1,6 +1,6 @@
 #Change Log
 
-> ##[1.0](https://github.com/vitormesquita/Malert/tree/1.0) (2017-03-03)
+> ## [1.0](https://github.com/vitormesquita/Malert/tree/1.0) (2017-03-03)
 >
 > **Implemented enhancements:**
 > 
@@ -13,3 +13,5 @@
 >
 > - Tap on View and Dismiss current MalertView [#3](https://github.com/vitormesquita/Malert/issues/3)
 > - Error to hide keyboard when clicked on view [#4](https://github.com/vitormesquita/Malert/issues/4)
+> 
+> ## [1.1](https://github.com/vitormesquita/Malert/tree/1.0)

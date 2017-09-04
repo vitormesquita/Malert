@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import Malert
+//import Malert
 
 class Tests: XCTestCase {
     

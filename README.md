@@ -1,6 +1,6 @@
 <img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/Malert_brand.png">
 
-[![CI Status](http://img.shields.io/travis/Vitor Mesquita/Malert.svg?style=flat)](https://travis-ci.org/Vitor Mesquita/Malert)
+[![CI Status](http://img.shields.io/travis/vitormesquita/Malert.svg?style=flat)](https://travis-ci.org/vitormesquita/Malert)
 [![Version](https://img.shields.io/cocoapods/v/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
 [![License](https://img.shields.io/cocoapods/l/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
 [![Platform](https://img.shields.io/cocoapods/p/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
@@ -13,14 +13,15 @@
 <img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/fourthExample.gif" width="250">
 <img src="https://github.com/vitormesquita/Malert/blob/master/Malert/Assets/all.gif" width="250">
 
-Malert came to facilitate make custom alert views, introducing as `UIAlertViewController`. Malert allows you make some custom configurations to show your alert as your application layout.
-Malert can display one or a queue of alerts and you can to display alert with some animations.
+Malert came to facilitates custom alert views as `UIAlertViewController`. Malert allows you to personalize your alertView so that it matches your application layout
+
+Malert can display one or a queue of alerts and you can also display alert with some animations
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 
-- Xcode 8.0+
+- Xcode 9.0+
 - Swift 3.0+
 
 ## Installation
@@ -35,18 +36,17 @@ pod "Malert"
 ```
 ### Manually
 
-If you prefer not to use any dependency managers, you can integrate Malert in your project manually just adding the files which contains [Malert Classes](https://github.com/vitormesquita/Malert/tree/master/Malert/Classes). 
+f you don't use any dependency managers, you can integrate Malert in your project manually just adding the files which contains [Malert Classes](https://github.com/vitormesquita/Malert/tree/master/Malert/Classes). 
 
-And you will need to add MalertDependencies libraries:
+You will need to add Malert dependencies libraries as well.
 
 * [Cartography](https://github.com/robb/Cartography)
-* [OAStackView](https://github.com/oarrabi/OAStackView)
 
-And congratulations!!! You can run Malert without any dependecy managers
+Congratulations!!! You can run Malert without any dependency managers!
 
 ## Example
 
-This is a simple way. If you want to know more, check the repo.
+This is a simple example. If you want to know more, check the repo.
 
 ### Default Malert with title
 
@@ -112,7 +112,7 @@ Malert provides a struct to configure your button, for each button you need to i
     }
 ```
 
-You can customize single button, passing `MalertButtonConfiguration` containing your custom configurations
+You can customize a single button, passing `MalertButtonConfiguration` containing your custom configurations
 
 ```swift
     //Create configuration
@@ -134,7 +134,7 @@ Malert is very customizable. There are two ways to customize your Malert:
 - [x] Appearece 
 - [x] Custom single alert
 
-If all malert in your application is the same, malert provides for you a global customization, and every malert will have the same customization.
+If all malerts in your application are the same, malert provides a global customization option, and every malert will have the same customization.
 
 ```swift
     var malertAppearance = MalertView.appearance()
@@ -143,7 +143,7 @@ If all malert in your application is the same, malert provides for you a global 
     malertAppearance.margin = 16
 ```
 
-If you want just customize one malert in you application, you can pass `MalertViewConfiguration` containing your configuration
+If you want to just customize one malert, you can pass `MalertViewConfiguration` containing your custom configuration
 
 ```swift
 
@@ -167,7 +167,7 @@ If you want just customize one malert in you application, you can pass `MalertVi
 
 ## Default values
 
-By default malert provides defaults values:
+By default malert provides values:
 
 ```swift
     //Defaults attr malertView

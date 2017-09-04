@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import OAStackView
 import Cartography
 
 public class MalertView: UIView {
     
     fileprivate lazy var titleLabel: UILabel = MalertView.initializeTitleLabel()
-    fileprivate lazy var buttonsStackView: OAStackView = MalertView.initializeButtonsStackView()
+    fileprivate lazy var buttonsStackView: UIStackView = MalertView.initializeButtonsStackView()
     fileprivate var buttons = [MalertButton]()
     fileprivate var viewsConstraints = [NSLayoutConstraint]()
     
@@ -79,13 +78,13 @@ public class MalertView: UIView {
     }
     
     // Buttons distribution in stack view
-    public dynamic var buttonsDistribution: OAStackViewDistribution {
+    public dynamic var buttonsDistribution: UIStackViewDistribution {
         get { return buttonsStackView.distribution }
         set { buttonsStackView.distribution = newValue }
     }
     
     // Buttons aligns in stack view
-    public dynamic var buttonsAligment: OAStackViewAlignment {
+    public dynamic var buttonsAligment: UIStackViewAlignment {
         get { return buttonsStackView.alignment }
         set { buttonsStackView.alignment = newValue }
     }
@@ -292,8 +291,8 @@ extension MalertView {
         return label
     }
     
-    fileprivate class func initializeButtonsStackView() -> OAStackView {
-        let stack = OAStackView()
+    fileprivate class func initializeButtonsStackView() -> UIStackView {
+        let stack = UIStackView()
         stack.distribution = .fillEqually
         stack.alignment = .fill
         stack.axis = .vertical

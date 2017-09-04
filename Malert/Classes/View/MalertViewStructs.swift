@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OAStackView
 
 /**
  * Struct to build MalertView

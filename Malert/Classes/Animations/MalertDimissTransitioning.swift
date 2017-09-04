@@ -10,7 +10,6 @@ import UIKit
 
 class MalertDimissTransitioning: BaseTransitioning, UIViewControllerAnimatedTransitioning {
     
-  
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }

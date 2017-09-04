@@ -1,22 +1,19 @@
 PODS:
-  - Cartography (1.0.1)
-  - Malert (0.1.0):
-    - Cartography (~> 1.0)
-    - OAStackView (~> 1.0)
-  - OAStackView (1.0.1)
+  - Cartography (1.1.0)
+  - Malert (1.0):
+    - Cartography (~> 1.1)
 
 DEPENDENCIES:
   - Malert (from `../`)
 
 EXTERNAL SOURCES:
   Malert:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  Cartography: c1460e99395b824d9d75360b0382faeb0b33dcd7
-  Malert: b8db8a8929b48790a2454858b61dc07499a54dad
-  OAStackView: 95e7cb79cbea25c2342f496a44bdbe8bd4c8d510
+  Cartography: 0538ccb4044acbbda2266335fc58cb4228794d90
+  Malert: a859f3e89918e5b405acd80e7ec04075a49d5573
 
-PODFILE CHECKSUM: 7eb14b4bb51e3ea3f41a21b78d74ae7c9da66f3c
+PODFILE CHECKSUM: 74b915e073dcad13b9ddf42484d1b22ace7e65e4
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.3.1
