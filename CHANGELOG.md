@@ -1,4 +1,4 @@
-#Change Log
+# Change Log
 
 > ## [1.0](https://github.com/vitormesquita/Malert/tree/1.0) (2017-03-03)
 >
