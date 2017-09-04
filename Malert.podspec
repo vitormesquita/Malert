@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Malert'
-  s.version          = '1.0'
+  s.version          = '1.1'
   s.summary          = 'A simple, easy and very customizable alert'
 
 # This description is used to generate tags and improve search results.
@@ -40,5 +40,4 @@ Pod::Spec.new do |s|
   # s.dependency 'AFNetworking', '~> 2.3'
 
 s.dependency 'Cartography', '~> 1.1'
-#s.dependency 'OAStackView', '~> 1.0'
 end
