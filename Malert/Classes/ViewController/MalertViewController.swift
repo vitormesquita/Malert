@@ -11,9 +11,10 @@ import Cartography
 
 class MalertViewController: BaseMalertViewController {
 
-    fileprivate var tapToDismiss:Bool = false
+    fileprivate var tapToDismiss: Bool = false
     fileprivate let bottomInsetConstraintGroup = ConstraintGroup()
     fileprivate lazy var visibleView: UIView = self.buildVisibleView()
+    
     fileprivate var malertView: MalertView? {
         willSet {
             if let malertView = malertView {
@@ -58,11 +59,13 @@ class MalertViewController: BaseMalertViewController {
     override func keyboardWillShow(sender: NSNotification) {
         super.keyboardWillShow(sender: sender)
         view.setNeedsUpdateConstraints()
+        view.layoutIfNeeded()
     }
     
     override func keyboardWillHide(sender: NSNotification) {
         super.keyboardWillHide(sender: sender)
         view.setNeedsUpdateConstraints()
+        view.layoutIfNeeded()
     }
     
     //MARK: TapToDismiss
@@ -87,10 +90,6 @@ extension MalertViewController {
     func set(malertViewStruct: MalertViewStruct, interactor: MalertInteractiveTransition) {
         self.malertView = MalertView.buildAlert(with: malertViewStruct)
         self.tapToDismiss = malertViewStruct.tapToDismiss
-//        if tapToDismiss {
-//            let panRecognizer = UIPanGestureRecognizer(target: interactor, action: #selector(MalertInteractiveTransition.handlePan))
-//            self.view.addGestureRecognizer(panRecognizer)
-//        }
     }
     
     func getMalertView() -> MalertView? {
