@@ -1,6 +1,6 @@
 <img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/Malert_brand.png">
 
-[![CI Status](http://img.shields.io/travis/vitormesquita/Malert.svg?style=flat)](https://travis-ci.org/vitormesquita/Malert)
+<!--[![CI Status](http://img.shields.io/travis/vitormesquita/Malert.svg?style=flat)](https://travis-ci.org/vitormesquita/Malert)-->
 [![Version](https://img.shields.io/cocoapods/v/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
 [![License](https://img.shields.io/cocoapods/l/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
 [![Platform](https://img.shields.io/cocoapods/p/Malert.svg?style=flat)](http://cocoapods.org/pods/Malert)
@@ -36,7 +36,7 @@ pod "Malert"
 ```
 ### Manually
 
-f you don't use any dependency managers, you can integrate Malert in your project manually just adding the files which contains [Malert Classes](https://github.com/vitormesquita/Malert/tree/master/Malert/Classes). 
+If you don't use any dependency managers, you can integrate Malert in your project manually just adding the files which contains [Malert Classes](https://github.com/vitormesquita/Malert/tree/master/Malert/Classes). 
 
 You will need to add Malert dependencies libraries as well.
 

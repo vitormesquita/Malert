@@ -19,6 +19,10 @@ class ViewController: UIViewController {
         return FirstCustomView.instantiateFromNib()
     }()
     
+    lazy var fifthCustomView: FiveCustomView = {
+       return FiveCustomView.instantiateFromNib()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,6 +42,10 @@ class ViewController: UIViewController {
     
     @IBAction func buttonShowFourthExampleAction(_ sender: AnyObject) {
         showFourthExample()
+    }
+    
+    @IBAction func buttonShowFifthExampleAction(_ sender: Any) {
+        showFifthExample()
     }
 }
 
@@ -114,5 +122,9 @@ extension ViewController {
         }
     
         Malert.shared.show(viewController: self, customView: customView, buttons: [dismissButton], animationType: .fadeIn, malertConfiguration: malertConfig)
+    }
+    
+    func showFifthExample() {
+        Malert.shared.show(viewController: self, customView: fifthCustomView, buttons: [])
     }
 }

@@ -20,6 +20,8 @@
 		FC2182321DE4EB29003F99AE /* FirstCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2182311DE4EB29003F99AE /* FirstCustomView.swift */; };
 		FC433B761DEDEE6100CD9131 /* SecondCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433B751DEDEE6100CD9131 /* SecondCustomView.swift */; };
 		FC433B781DEDEE6A00CD9131 /* SecondCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */; };
+		FC5F7F411F5E02850067D0F4 /* FiveCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */; };
+		FC5F7F431F5E028C0067D0F4 /* FiveCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */; };
 		FCA4774D1DE6540D00AC9B3C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA4774C1DE6540D00AC9B3C /* Helper.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		FC2182311DE4EB29003F99AE /* FirstCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCustomView.swift; sourceTree = "<group>"; };
 		FC433B751DEDEE6100CD9131 /* SecondCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCustomView.swift; sourceTree = "<group>"; };
 		FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCustomView.xib; sourceTree = "<group>"; };
+		FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveCustomView.swift; sourceTree = "<group>"; };
+		FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiveCustomView.xib; sourceTree = "<group>"; };
 		FCA4774C1DE6540D00AC9B3C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +185,8 @@
 				FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */,
 				FC433B751DEDEE6100CD9131 /* SecondCustomView.swift */,
 				FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */,
+				FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */,
+				FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 				FC2182301DE4EB0B003F99AE /* FirstCustomView.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				FC433B781DEDEE6A00CD9131 /* SecondCustomView.xib in Resources */,
+				FC5F7F431F5E028C0067D0F4 /* FiveCustomView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC433B761DEDEE6100CD9131 /* SecondCustomView.swift in Sources */,
+				FC5F7F411F5E02850067D0F4 /* FiveCustomView.swift in Sources */,
 				FC0EA23A1E6A2C9100F3A527 /* CHANGELOG.md in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
