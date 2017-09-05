@@ -26,12 +26,13 @@ class FiveCustomView: UIView {
         
         UIView.animate(withDuration: 0.4) { [weak self] in
             guard let strongSelf = self else {return}
-            strongSelf.collapsingHeightLayoutConstraint.constant = strongSelf.collapsing ? 0 : 100
+            strongSelf.collapsingHeightLayoutConstraint.constant = strongSelf.collapsing ? 0 : 219
             
-            strongSelf.setNeedsUpdateConstraints()
+//            strongSelf.setNeedsUpdateConstraints()
 //            strongSelf.updateConstraintsIfNeeded()
 //            strongSelf.setNeedsLayout()
             strongSelf.layoutIfNeeded()
+            strongSelf.superview?.layoutIfNeeded()
         }
     }
     

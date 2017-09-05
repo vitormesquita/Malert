@@ -11,19 +11,22 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FiveCustomView" customModule="Malert_Example" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="196"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDJ-Qs-Qmh">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="219"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="qK0-fB-Q7C"/>
+                        <constraint firstAttribute="height" constant="219" id="sZe-PB-aDV"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIZ-y8-45q">
-                    <rect key="frame" x="16" y="116" width="343" height="64"/>
+                    <rect key="frame" x="16" y="235" width="343" height="44"/>
                     <color key="backgroundColor" red="0.51200000000000001" green="0.754" blue="0.34300000000000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="QuX-tC-HNY"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <connections>
                         <action selector="tappedOnButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qdq-GE-nX9"/>
@@ -44,9 +47,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="collapisingView" destination="LDJ-Qs-Qmh" id="ttp-X8-vnn"/>
-                <outlet property="collapsingHeightLayoutConstraint" destination="qK0-fB-Q7C" id="XIz-vD-vba"/>
+                <outlet property="collapsingHeightLayoutConstraint" destination="sZe-PB-aDV" id="uA3-n0-30B"/>
             </connections>
-            <point key="canvasLocation" x="33.5" y="-182"/>
+            <point key="canvasLocation" x="33.5" y="-132.5"/>
         </view>
     </objects>
 </document>

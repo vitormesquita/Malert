@@ -18,7 +18,7 @@ public class MalertView: UIView {
     fileprivate var customViewConstraintGroup = ConstraintGroup()
     fileprivate var stackConstraintGroup = ConstraintGroup()
     
-    fileprivate var viewsSetupped = false
+    fileprivate var viewsConfigurated = false
     
     fileprivate var hasButtons: Bool {
         if let buttons = buttons {
@@ -83,13 +83,25 @@ public class MalertView: UIView {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             
-            strongSelf.setUpViews()
+            strongSelf.setUpTitle()
+            strongSelf.setUpCustomView()
+            strongSelf.setUpButtonsStackView()
+            
+            strongSelf.viewsConfigurated = true
         }
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+    
+        customViewCorners()
+    }
+    
+    //MARK - Utils
     
     fileprivate func setConfigurationInMalertView(malertViewConfig: MalertViewConfiguration) {
         backgroundColor = malertViewConfig.backgroundColor
@@ -106,7 +118,6 @@ public class MalertView: UIView {
     }
     
     fileprivate func refreshViews() {
-        //        removeConstraints(viewsConstraints)
         updateTitleLabelConstraints()
         updateCustomViewConstraints()
         updateButtonsStackViewConstraints()
@@ -128,7 +139,9 @@ public class MalertView: UIView {
             }
             
             if strongSelf.title == nil && strongSelf.inset == 0 && !strongSelf.hasButtons {
-                customView.round(corners: [.allCorners], radius: strongSelf.cornerRadius)
+                customView.layer.mask = nil
+                customView.layer.cornerRadius = strongSelf.cornerRadius
+                //TODO REVER isso com o naka
             }
         }
     }
@@ -152,14 +165,6 @@ extension MalertView {
  * Extensions to setUp Views in alert
  */
 extension MalertView {
-    
-    fileprivate func setUpViews() {
-        setUpTitle()
-        setUpCustomView()
-        setUpButtonsStackView()
-        
-        viewsSetupped = true
-    }
     
     fileprivate func setUpTitle() {
         guard let title = title else {
@@ -209,12 +214,12 @@ extension MalertView {
             label.left == containerView.left + inset
         }
         
-        titleLabel.layoutIfNeeded()
+//        UIView.animate(withDuration: 0.5, animations: self.layoutIfNeeded)//titleLabel.layoutIfNeeded()
     }
     
     fileprivate func updateCustomViewConstraints() {
         guard let customView = customView else { return }
-        customViewCorners()
+//        customViewCorners()
         
         if titleLabel.isDescendant(of: self) {
             
@@ -238,7 +243,7 @@ extension MalertView {
             })
         }
         
-        customView.layoutIfNeeded()
+//        UIView.animate(withDuration: 0.5, animations: customView.layoutIfNeeded)
     }
     
     fileprivate func updateButtonsStackViewConstraints() {
@@ -251,16 +256,7 @@ extension MalertView {
                 stack.bottom == container.bottom - stackInset
             })
             
-            buttonsStackView.layoutIfNeeded()
-        }
-    }
-    
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        if viewsSetupped {
-            refreshViews()
-            self.layoutIfNeeded()
+//            UIView.animate(withDuration: 0.3, animations: self.layoutIfNeeded)//buttonsStackView.layoutIfNeeded()
         }
     }
 }
