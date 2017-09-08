@@ -23,7 +23,7 @@ struct MalertViewStruct {
     var buttons: [MalertButtonStruct]
     var animationType: MalertAnimationType
     var configuration: MalertViewConfiguration?
-    var tapToDismiss:Bool
+    var tapToDismiss: Bool
     
     init(title: String?,
          customView: UIView,
