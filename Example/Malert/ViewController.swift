@@ -104,7 +104,9 @@ extension ViewController {
             })
         }
         
-        Malert.shared.show(viewController: self, title: "I Hope that it help you", customView: textField, buttons: [thatIsAllFolksButton, updatedDismissButton], animationType: .modalLeft, malertConfiguration: malertConfig, tapToDismiss: false)
+        Malert.shared.show(viewController: self, title: "I Hope that it help you", customView: textField, buttons: [thatIsAllFolksButton, updatedDismissButton], animationType: .modalLeft, malertConfiguration: malertConfig) { 
+            print("DISMISSED")
+        }
     }
     
     func showFourthExample() {

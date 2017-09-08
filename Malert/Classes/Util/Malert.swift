@@ -10,7 +10,7 @@ import UIKit
 
 public class Malert: NSObject {
     public static var shared = Malert()
-
+    
     fileprivate var alertQueue = [MalertViewStruct]()
     fileprivate var hasAlertOnWindow = false
     
@@ -18,6 +18,8 @@ public class Malert: NSObject {
     fileprivate var malertViewController: MalertViewController?    
     fileprivate let malertPresentationManager = MalertPresentationManager()
     fileprivate lazy var interactor = MalertInteractiveTransition()
+    
+    fileprivate var dismissOnTap: (() -> ())?
     
     /**
      * Function to init MalertWindow if needed and verify if has any MalertView with other ViewController
@@ -62,7 +64,15 @@ extension Malert {
      *  - animationType: the animation will apresent the alert in uiwindow
      *  - malertConfiguration: optional configuration for single malert
      */
-    public func show(viewController: UIViewController, customView: UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil, tapToDismiss:Bool = true) {
+    public func show(viewController: UIViewController,
+                     customView: UIView,
+                     buttons: [MalertButtonStruct] = [],
+                     animationType: MalertAnimationType = .modalBottom,
+                     malertConfiguration: MalertViewConfiguration? = nil,
+                     tapToDismiss: Bool = true,
+                     dismissOnTap: (() -> ())? = nil) {
+        
+        self.dismissOnTap = dismissOnTap
         
         let alert = MalertViewStruct(title: nil,
                                      customView: customView,
@@ -83,7 +93,16 @@ extension Malert {
      *  - animationType: the animation will apresent the alert in uiwindow
      *  - malertConfiguration: optional configuration for single malert
      */
-    public func show(viewController: UIViewController, title: String, customView:UIView, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil, tapToDismiss:Bool = true) {
+    public func show(viewController: UIViewController,
+                     title: String,
+                     customView:UIView,
+                     buttons: [MalertButtonStruct] = [],
+                     animationType: MalertAnimationType = .modalBottom,
+                     malertConfiguration: MalertViewConfiguration? = nil,
+                     tapToDismiss: Bool = true,
+                     dismissOnTap: (() -> ())? = nil) {
+        
+        self.dismissOnTap = dismissOnTap
         
         let alert = MalertViewStruct(title: title,
                                      customView: customView,
@@ -104,7 +123,16 @@ extension Malert {
      *  - malertConfiguration: optional configuration for single malert
      *  - animationType: the animation will apresent the alert in uiwindow
      */
-    public func show(viewController: UIViewController, title: String, message: String, buttons: [MalertButtonStruct], animationType: MalertAnimationType = .modalBottom, malertConfiguration: MalertViewConfiguration? = nil, tapToDismiss:Bool = true) {
+    public func show(viewController: UIViewController,
+                     title: String,
+                     message: String,
+                     buttons: [MalertButtonStruct] = [],
+                     animationType: MalertAnimationType = .modalBottom,
+                     malertConfiguration: MalertViewConfiguration? = nil,
+                     tapToDismiss: Bool = true,
+                     dismissOnTap: (() -> ())? = nil) {
+        
+        self.dismissOnTap = dismissOnTap
         
         let messageLabel = UILabel()
         messageLabel.numberOfLines = 0
@@ -116,7 +144,13 @@ extension Malert {
             messageLabel.textAlignment = MalertView.appearance().textAlign
         }
         
-        let alert = MalertViewStruct(title: title, customView: messageLabel, buttons: buttons, animationType: animationType, malertViewConfiguration: malertConfiguration, tapToDismiss: tapToDismiss)
+        let alert = MalertViewStruct(title: title,
+                                     customView: messageLabel,
+                                     buttons: buttons,
+                                     animationType: animationType,
+                                     malertViewConfiguration: malertConfiguration,
+                                     tapToDismiss: tapToDismiss)
+        
         show(with: viewController, malertViewStruct: alert)
     }
 }
@@ -147,6 +181,10 @@ extension Malert {
                     strongSelf.hasAlertOnWindow = false
                     if let completion = completion {
                         completion(true)
+                    }
+                    
+                    if let dismissOnTap = strongSelf.dismissOnTap {
+                        dismissOnTap()
                     }
                 }
             }
