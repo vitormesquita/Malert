@@ -9,11 +9,17 @@
 import UIKit
 import Cartography
 
+protocol MalertViewControllerCallback: class {
+    func tappedToDismiss()
+}
+
 class MalertViewController: BaseMalertViewController {
 
+    fileprivate lazy var visibleView: UIView = self.buildVisibleView()
+    
+    fileprivate weak var callback: MalertViewControllerCallback?
     fileprivate var tapToDismiss: Bool = false
     fileprivate let bottomInsetConstraintGroup = ConstraintGroup()
-    fileprivate lazy var visibleView: UIView = self.buildVisibleView()
     
     fileprivate var malertView: MalertView? {
         willSet {
@@ -76,7 +82,7 @@ class MalertViewController: BaseMalertViewController {
         if let malertView = malertView, tapToDismiss == true {
             let point = sender.location(in: malertView)
             guard !malertView.point(inside: point, with: nil) else { return }
-            Malert.shared.dismiss()
+            callback?.tappedToDismiss()
         }
     }
 }
@@ -87,9 +93,10 @@ class MalertViewController: BaseMalertViewController {
  */
 extension MalertViewController {
     
-    func set(malertViewStruct: MalertViewStruct, interactor: MalertInteractiveTransition) {
+    func set(malertViewStruct: MalertViewStruct, interactor: MalertInteractiveTransition, callback: MalertViewControllerCallback) {
         self.malertView = MalertView.buildAlert(with: malertViewStruct)
         self.tapToDismiss = malertViewStruct.tapToDismiss
+        self.callback = callback
     }
     
     func getMalertView() -> MalertView? {

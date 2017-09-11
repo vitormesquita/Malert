@@ -32,4 +32,9 @@
 > **Implemented enhancements:**
 > 
 > - Added `dismissOnTap` block to handle when Malert is dismissed
+>
+> ### [1.1.3](https://github.com/vitormesquita/Malert/tree/1.1.3)
 > 
+> **Implemented enhancements:** 
+> 
+> - Create `MalertViewControllerCallback` to change responsibility of dismiss for `Malert`

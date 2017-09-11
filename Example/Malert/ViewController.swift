@@ -11,6 +11,7 @@ import Malert
 
 class ViewController: UIViewController {
     
+    var otherMaler = Malert()
     var dismissButton = MalertButtonStruct(title: "No, thanks") {
         Malert.shared.dismiss()
     }
@@ -127,6 +128,6 @@ extension ViewController {
     }
     
     func showFifthExample() {
-        Malert.shared.show(viewController: self, customView: fifthCustomView, buttons: [])
+        otherMaler.show(viewController: self, customView: fifthCustomView)
     }
 }
