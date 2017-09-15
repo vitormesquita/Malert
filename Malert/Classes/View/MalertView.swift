@@ -67,6 +67,7 @@ public class MalertView: UIView {
         
         super.init(frame: .zero)
         
+        clipsToBounds = true
         backgroundColor = .white
         cornerRadius = 6
         
@@ -95,12 +96,6 @@ public class MalertView: UIView {
         super.init(coder: aDecoder)
     }
     
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-    
-        customViewCorners()
-    }
-    
     //MARK - Utils
     
     fileprivate func setConfigurationInMalertView(malertViewConfig: MalertViewConfiguration) {
@@ -121,29 +116,6 @@ public class MalertView: UIView {
         updateTitleLabelConstraints()
         updateCustomViewConstraints()
         updateButtonsStackViewConstraints()
-    }
-    
-    
-    fileprivate func customViewCorners() {
-        guard let customView = customView else { return }
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            
-            if strongSelf.title == nil && strongSelf.inset == 0 {
-                customView.round(corners: [.topLeft, .topRight], radius: strongSelf.cornerRadius)
-            }
-            
-            if !strongSelf.hasButtons {
-                customView.round(corners: [.bottomLeft, .bottomRight], radius: strongSelf.cornerRadius)
-            }
-            
-            if strongSelf.title == nil && strongSelf.inset == 0 && !strongSelf.hasButtons {
-                customView.layer.mask = nil
-                customView.layer.cornerRadius = strongSelf.cornerRadius
-                //TODO REVER isso com o naka
-            }
-        }
     }
 }
 
@@ -219,7 +191,6 @@ extension MalertView {
     
     fileprivate func updateCustomViewConstraints() {
         guard let customView = customView else { return }
-//        customViewCorners()
         
         if titleLabel.isDescendant(of: self) {
             

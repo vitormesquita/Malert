@@ -20,6 +20,7 @@ class MalertViewController: BaseMalertViewController {
     fileprivate weak var callback: MalertViewControllerCallback?
     fileprivate var tapToDismiss: Bool = false
     fileprivate let bottomInsetConstraintGroup = ConstraintGroup()
+    fileprivate let malertConstraintGroup = ConstraintGroup()
     
     fileprivate var malertView: MalertView? {
         willSet {
@@ -33,10 +34,10 @@ class MalertViewController: BaseMalertViewController {
             }
             malertView.alpha = 1
             visibleView.addSubview(malertView)
-            constrain(malertView, visibleView) { (malertView, visibleView) in
-                malertView.center == visibleView.center
-                malertView.left == visibleView.left + 16
-                malertView.right == visibleView.right - 16
+            constrain(malertView, visibleView, replace: malertConstraintGroup) { (malert, container) in
+                malert.center == container.center
+                malert.left == container.left + 16
+                malert.right == container.right - 16
             }
         }
     }
@@ -80,9 +81,11 @@ class MalertViewController: BaseMalertViewController {
         self.view.endEditing(true)
         
         if let malertView = malertView, tapToDismiss == true {
-            let point = sender.location(in: malertView)
-            guard !malertView.point(inside: point, with: nil) else { return }
-            callback?.tappedToDismiss()
+            let point = sender.location(in: self.view)
+            let isPointInMalertView = malertView.frame.contains(point)
+            if !isPointInMalertView {
+                callback?.tappedToDismiss()
+            }
         }
     }
 }
