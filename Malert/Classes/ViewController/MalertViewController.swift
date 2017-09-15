@@ -9,11 +9,18 @@
 import UIKit
 import Cartography
 
+protocol MalertViewControllerCallback: class {
+    func tappedToDismiss()
+}
+
 class MalertViewController: BaseMalertViewController {
 
+    fileprivate lazy var visibleView: UIView = self.buildVisibleView()
+    
+    fileprivate weak var callback: MalertViewControllerCallback?
     fileprivate var tapToDismiss: Bool = false
     fileprivate let bottomInsetConstraintGroup = ConstraintGroup()
-    fileprivate lazy var visibleView: UIView = self.buildVisibleView()
+    fileprivate let malertConstraintGroup = ConstraintGroup()
     
     fileprivate var malertView: MalertView? {
         willSet {
@@ -27,10 +34,10 @@ class MalertViewController: BaseMalertViewController {
             }
             malertView.alpha = 1
             visibleView.addSubview(malertView)
-            constrain(malertView, visibleView) { (malertView, visibleView) in
-                malertView.center == visibleView.center
-                malertView.left == visibleView.left + 16
-                malertView.right == visibleView.right - 16
+            constrain(malertView, visibleView, replace: malertConstraintGroup) { (malert, container) in
+                malert.center == container.center
+                malert.left == container.left + 16
+                malert.right == container.right - 16
             }
         }
     }
@@ -74,9 +81,11 @@ class MalertViewController: BaseMalertViewController {
         self.view.endEditing(true)
         
         if let malertView = malertView, tapToDismiss == true {
-            let point = sender.location(in: malertView)
-            guard !malertView.point(inside: point, with: nil) else { return }
-            Malert.shared.dismiss()
+            let point = sender.location(in: self.view)
+            let isPointInMalertView = malertView.frame.contains(point)
+            if !isPointInMalertView {
+                callback?.tappedToDismiss()
+            }
         }
     }
 }
@@ -87,9 +96,10 @@ class MalertViewController: BaseMalertViewController {
  */
 extension MalertViewController {
     
-    func set(malertViewStruct: MalertViewStruct, interactor: MalertInteractiveTransition) {
+    func set(malertViewStruct: MalertViewStruct, interactor: MalertInteractiveTransition, callback: MalertViewControllerCallback) {
         self.malertView = MalertView.buildAlert(with: malertViewStruct)
         self.tapToDismiss = malertViewStruct.tapToDismiss
+        self.callback = callback
     }
     
     func getMalertView() -> MalertView? {

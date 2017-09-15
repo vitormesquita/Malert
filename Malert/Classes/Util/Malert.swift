@@ -45,7 +45,7 @@ public class Malert: NSObject {
 //                interactor.viewController = malertViewController
             }
             
-            malertViewController!.set(malertViewStruct: malertViewStruct, interactor: interactor)
+            malertViewController!.set(malertViewStruct: malertViewStruct, interactor: interactor, callback: self)
             viewController.present(malertViewController!, animated: true, completion: nil)
             
         } else {
@@ -197,5 +197,12 @@ extension Malert {
     public func dismissAll() {
         alertQueue = [MalertViewStruct]()
         dismiss()
+    }
+}
+
+extension Malert: MalertViewControllerCallback {
+    
+    func tappedToDismiss() {
+        self.dismiss()
     }
 }
