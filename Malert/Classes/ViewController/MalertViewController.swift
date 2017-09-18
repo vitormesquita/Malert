@@ -52,6 +52,7 @@ class MalertViewController: BaseMalertViewController {
         super.viewDidLoad()
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapOnView))
+        tapRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapRecognizer)
         listenKeyboard()
     }

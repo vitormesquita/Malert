@@ -38,3 +38,16 @@
 > **Implemented enhancements:** 
 > 
 > - Create `MalertViewControllerCallback` to change responsibility of dismiss for `Malert`
+>
+> ### [1.1.4](https://github.com/vitormesquita/Malert/tree/1.1.4)
+>
+> **Implemented enhancements:**
+>
+> - Added `clipToBouds` and removed `customViewCorners()` from MalertView
+>
+> ### [1.1.5](https://github.com/vitormesquita/Malert/tree/1.1.5)
+>
+> **Fixed bugs:**
+> 
+> - Added `cancelsTouchesInView=false` in MalertViewController `tapRecognizer` for not cancel subviews touch
+>
