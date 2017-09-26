@@ -186,6 +186,8 @@ extension Malert {
                     if let dismissOnTap = strongSelf.dismissOnTap {
                         dismissOnTap()
                     }
+                    
+                    strongSelf.viewControllerToPresent = nil
                 }
             }
         }
