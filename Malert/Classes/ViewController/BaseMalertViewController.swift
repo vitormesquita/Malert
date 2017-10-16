@@ -17,7 +17,7 @@ class BaseMalertViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(BaseMalertViewController.keyboardWillHide(sender:)), name: .UIKeyboardWillHide, object: nil)
     }
     
-    func keyboardWillShow(sender: NSNotification){
+    @objc func keyboardWillShow(sender: NSNotification){
         guard let userInfo = sender.userInfo else {
             return
         }
@@ -27,7 +27,7 @@ class BaseMalertViewController: UIViewController {
         }
     }
     
-    func keyboardWillHide(sender: NSNotification){
+    @objc func keyboardWillHide(sender: NSNotification){
         keyboardRect = CGRect.zero
     }
 }

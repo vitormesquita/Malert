@@ -39,7 +39,7 @@ public class MalertButton: UIButton {
     //MARK: Appearance 
     
     // Button Height
-    public dynamic var height: CGFloat {
+    @objc public dynamic var height: CGFloat {
         get { return bounds.size.height }
         set {
             constrain(self) { button in
@@ -49,7 +49,7 @@ public class MalertButton: UIButton {
     }
     
     // The separator color of this button
-    public dynamic var separetorColor: UIColor? {
+    @objc public dynamic var separetorColor: UIColor? {
         get { return separetor.backgroundColor }
         set {
             separetor.backgroundColor = newValue
@@ -58,7 +58,7 @@ public class MalertButton: UIButton {
     }
     
     //MARK: Action
-    func buttonPressedAction(button: UIButton){
+    @objc func buttonPressedAction(button: UIButton){
         if let actionBlock = actionBlock {
             actionBlock()
         }

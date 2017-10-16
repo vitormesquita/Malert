@@ -237,61 +237,61 @@ extension MalertView {
 extension MalertView {
     
     // Dialog view corner radius
-    public dynamic var cornerRadius: CGFloat {
+    @objc public dynamic var cornerRadius: CGFloat {
         get { return layer.cornerRadius }
         set { layer.cornerRadius = newValue }
     }
     
     // Title text color
-    public dynamic var textColor: UIColor {
+    @objc public dynamic var textColor: UIColor {
         get { return titleLabel.textColor }
         set { titleLabel.textColor = newValue }
     }
     
     // Title text Align
-    public dynamic var textAlign: NSTextAlignment {
+    @objc public dynamic var textAlign: NSTextAlignment {
         get { return titleLabel.textAlignment }
         set { titleLabel.textAlignment = newValue }
     }
     
     //Title font
-    public dynamic var titleFont: UIFont {
+    @objc public dynamic var titleFont: UIFont {
         get { return titleLabel.font }
         set { titleLabel.font = newValue }
     }
     
     // Buttons distribution in stack view
-    public dynamic var buttonsDistribution: UIStackViewDistribution {
+    @objc public dynamic var buttonsDistribution: UIStackViewDistribution {
         get { return buttonsStackView.distribution }
         set { buttonsStackView.distribution = newValue }
     }
     
     // Buttons aligns in stack view
-    public dynamic var buttonsAligment: UIStackViewAlignment {
+    @objc public dynamic var buttonsAligment: UIStackViewAlignment {
         get { return buttonsStackView.alignment }
         set { buttonsStackView.alignment = newValue }
     }
     
     // Buttons axis in stack view
-    public dynamic var buttonsAxis: UILayoutConstraintAxis {
+    @objc public dynamic var buttonsAxis: UILayoutConstraintAxis {
         get { return buttonsStackView.axis }
         set { buttonsStackView.axis = newValue }
     }
     
     // Margin inset to titleLabel and CustomView
-    public dynamic var margin: CGFloat {
+    @objc public dynamic var margin: CGFloat {
         get { return inset }
         set { inset = newValue }
     }
     
     // Margin inset to StackView buttons
-    public dynamic var buttonsMargin: CGFloat {
+    @objc public dynamic var buttonsMargin: CGFloat {
         get { return stackInset }
         set { stackInset = newValue }
     }
     
     // Margin inset between buttons
-    public dynamic var buttonsSpace: CGFloat {
+    @objc public dynamic var buttonsSpace: CGFloat {
         get { return buttonsStackView.spacing }
         set { buttonsStackView.spacing = newValue }
     }
