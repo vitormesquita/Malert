@@ -24,11 +24,11 @@ class BaseTransitioning: NSObject {
             break
             
         case .modalLeft:
-            malertView.transform = CGAffineTransform.init(translationX: -height, y: 0)
+            malertView.transform = CGAffineTransform.init(translationX: -width, y: 0)
             break
             
         case .modalRight:
-            malertView.transform = CGAffineTransform.init(translationX: height, y: 0)
+            malertView.transform = CGAffineTransform.init(translationX: width, y: 0)
             break
             
         case .fadeIn:

@@ -1,6 +1,6 @@
 PODS:
   - Cartography (1.1.0)
-  - Malert (1.0):
+  - Malert (1.1.5):
     - Cartography (~> 1.1)
 
 DEPENDENCIES:
@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Cartography: 0538ccb4044acbbda2266335fc58cb4228794d90
-  Malert: a859f3e89918e5b405acd80e7ec04075a49d5573
+  Malert: e25bf78d4d4ea23b03c1882540fb24b672430c1b
 
 PODFILE CHECKSUM: 74b915e073dcad13b9ddf42484d1b22ace7e65e4
 
