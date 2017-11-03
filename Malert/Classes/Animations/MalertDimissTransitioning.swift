@@ -25,7 +25,6 @@ class MalertDimissTransitioning: BaseTransitioning, UIViewControllerAnimatedTran
                 self.buildMalertAnimation(malertView: malertView, width: fromVC.view.bounds.size.width, height: fromVC.view.bounds.size.height)
                 
             }, completion: { (finished) in
-                
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
         }
