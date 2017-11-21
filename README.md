@@ -7,11 +7,11 @@
 
 ## A simple, easy and custom iOS UIAlertView written in Swift 
 
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/first.gif" width="250">
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/second.gif" width="250">
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/third.gif" width="250">
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/fourthExample.gif" width="250">
-<img src="https://github.com/vitormesquita/Malert/blob/master/Malert/Assets/all.gif" width="250">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/first.gif" width="200">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/second.gif" width="200">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/third.gif" width="200">
+<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/fourthExample.gif" width="200">
+<img src="https://github.com/vitormesquita/Malert/blob/master/Malert/Assets/all.gif" width="200">
 
 Malert came to facilitates custom alert views as `UIAlertViewController`. Malert allows you to personalize your alertView so that it matches your application layout
 
@@ -22,7 +22,12 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 - Xcode 9.0+
-- Swift 3.0+
+- Swift 4.0+
+
+## Versioning
+
+- *Swift 3.x*: 1.1.5
+- *Swift 4*: 2.0
 
 ## Installation
 
