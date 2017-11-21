@@ -7,11 +7,17 @@
 
 ## A simple, easy and custom iOS UIAlertView written in Swift 
 
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/first.gif" width="200">
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/second.gif" width="200">
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/third.gif" width="200">
-<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/fourthExample.gif" width="200">
-<img src="https://github.com/vitormesquita/Malert/blob/master/Malert/Assets/all.gif" width="200">
+![Photos](https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/first.gif)
+![Photos](https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/second.gif)
+![Photos](https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/third.gif)
+![Photos](https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/fourthExample.gif)
+![Photos](https://github.com/vitormesquita/Malert/blob/master/Malert/Assets/all.gif)
+
+<!--<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/first.gif" width="200">-->
+<!--<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/second.gif" width="200">-->
+<!--<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/third.gif" width="200">-->
+<!--<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/fourthExample.gif" width="200">-->
+<!--<img src="https://github.com/vitormesquita/Malert/blob/master/Malert/Assets/all.gif" width="200">-->
 
 Malert came to facilitates custom alert views as `UIAlertViewController`. Malert allows you to personalize your alertView so that it matches your application layout
 
