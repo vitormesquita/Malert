@@ -1,4 +1,4 @@
-#Change Log
+# Change Log
 
 > ## [1.0](https://github.com/vitormesquita/Malert/tree/1.0) (2017-03-03)
 >
@@ -50,4 +50,16 @@
 > **Fixed bugs:**
 > 
 > - Added `cancelsTouchesInView=false` in MalertViewController `tapRecognizer` for not cancel subviews touch
+>
+>
+> ## [2.0](https://github.com/vitormesquita/Malert/tree/1.0) (2017-11-21)
+>
+> **Implemented enhancements:**
+>
+>- Merged with [pull request](https://github.com/vitormesquita/Malert/pull/8), updating to swift 4
+>- Refactoring some unnecessary codes
+>
+>**Fixed bugs:**
+>
+>- Fixing [bug](https://github.com/vitormesquita/Malert/issues/9)
 >
