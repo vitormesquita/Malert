@@ -14,12 +14,14 @@ protocol MalertViewControllerCallback: class {
 }
 
 class MalertViewController: BaseMalertViewController {
-
+    
     fileprivate lazy var visibleView: UIView = self.buildVisibleView()
     
     fileprivate weak var callback: MalertViewControllerCallback?
     fileprivate var tapToDismiss: Bool = false
-    fileprivate let bottomInsetConstraintGroup = ConstraintGroup()
+    
+    fileprivate let visibleViewConstraintGroup = ConstraintGroup()
+    
     fileprivate let malertConstraintGroup = ConstraintGroup()
     
     fileprivate var malertView: MalertView? {
@@ -34,17 +36,12 @@ class MalertViewController: BaseMalertViewController {
             }
             malertView.alpha = 1
             visibleView.addSubview(malertView)
-            constrain(malertView, visibleView, replace: malertConstraintGroup) { (malert, container) in
-                malert.center == container.center
-                malert.left == container.left + 16
-                malert.right == container.right - 16
-            }
+            self.viewDidLayoutSubviews()
         }
     }
     
     override func loadView() {
         super.loadView()
-        view = UIView(frame: UIScreen.main.bounds)
         view.backgroundColor = UIColor(white: 0, alpha: 0.4)
     }
     
@@ -57,22 +54,41 @@ class MalertViewController: BaseMalertViewController {
         listenKeyboard()
     }
     
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        constrain(view, visibleView, replace: bottomInsetConstraintGroup, block: { (view, visibleView) -> () in
-            visibleView.bottom == view.bottom - keyboardRect.size.height
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        constrain(view, visibleView, replace: visibleViewConstraintGroup, block: {[weak self] (view, visibleView) -> () in
+            guard let strongSelf = self else { return }
+            visibleView.top == view.top
+            visibleView.right == view.right
+            visibleView.left == view.left
+            visibleView.bottom == view.bottom - strongSelf.keyboardRect.size.height
         })
+        
+        if let malertView = malertView {
+            
+            constrain(malertView, visibleView, replace: malertConstraintGroup) { (malert, container) in
+                malert.center == container.center
+                malert.left == container.left + 16
+                malert.right == container.right - 16
+                
+                if UIDevice.current.orientation.isLandscape {
+                    malert.top >= container.top + 16 ~ UILayoutPriority(900)
+                    malert.bottom >= container.bottom - 16 ~ UILayoutPriority(900)
+                }
+            }
+        }
     }
     
     override func keyboardWillShow(sender: NSNotification) {
         super.keyboardWillShow(sender: sender)
-        view.setNeedsUpdateConstraints()
+        self.viewDidLayoutSubviews()
         view.layoutIfNeeded()
     }
     
     override func keyboardWillHide(sender: NSNotification) {
         super.keyboardWillHide(sender: sender)
-        view.setNeedsUpdateConstraints()
+        self.viewDidLayoutSubviews()
         view.layoutIfNeeded()
     }
     
@@ -108,13 +124,8 @@ extension MalertViewController {
     }
     
     func buildVisibleView() -> UIView {
-        let visibleView = UIView(frame: self.view.frame)
+        let visibleView = UIView()
         view.addSubview(visibleView)
-        constrain(visibleView, view) { (visibleView, containerView) in
-            visibleView.top == containerView.top
-            visibleView.right == containerView.right
-            visibleView.left == containerView.left
-        }
         return visibleView
     }
 }
