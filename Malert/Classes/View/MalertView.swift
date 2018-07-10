@@ -7,20 +7,19 @@
 //
 
 import UIKit
-import Cartography
 
 public class MalertView: UIView {
     
-    fileprivate lazy var titleLabel = UILabel.ilimitNumberOfLines()
-    fileprivate lazy var buttonsStackView = UIStackView.defaultStack(axis: .vertical)
+    private lazy var titleLabel = UILabel.ilimitNumberOfLines()
+    private lazy var buttonsStackView = UIStackView.defaultStack(axis: .vertical)
     
-    fileprivate var titleLabelConstraintGroup = ConstraintGroup()
-    fileprivate var customViewConstraintGroup = ConstraintGroup()
-    fileprivate var stackConstraintGroup = ConstraintGroup()
+    private var titleLabelConstraints: [NSLayoutConstraint] = []
+    private var customViewConstraints: [NSLayoutConstraint] = []
+    private var stackConstraints: [NSLayoutConstraint] = []
     
-    fileprivate var viewsConfigurated = false
+    private var viewsConfigurated = false
     
-    fileprivate var hasButtons: Bool {
+    private var hasButtons: Bool {
         if let buttons = buttons {
             return !buttons.isEmpty
         }
@@ -28,9 +27,9 @@ public class MalertView: UIView {
         return false
     }
     
-    fileprivate var title: String?
+    private var title: String?
     
-    fileprivate var customView: UIView? {
+    private var customView: UIView? {
         willSet {
             if let customView = customView {
                 customView.removeFromSuperview()
@@ -38,7 +37,7 @@ public class MalertView: UIView {
         }
     }
     
-    fileprivate var buttons: [MalertButton]? {
+    private var buttons: [MalertButton]? {
         willSet {
             if let buttons = buttons {
                 for button in buttons {
@@ -48,13 +47,13 @@ public class MalertView: UIView {
         }
     }
     
-    fileprivate var inset: CGFloat = 0 {
+    private var inset: CGFloat = 0 {
         didSet {
             refreshViews()
         }
     }
     
-    fileprivate var stackInset: CGFloat = 0 {
+    private var stackInset: CGFloat = 0 {
         didSet{
             refreshViews()
         }
@@ -98,7 +97,7 @@ public class MalertView: UIView {
     
     //MARK - Utils
     
-    fileprivate func setConfigurationInMalertView(malertViewConfig: MalertViewConfiguration) {
+    private func setConfigurationInMalertView(malertViewConfig: MalertViewConfiguration) {
         backgroundColor = malertViewConfig.backgroundColor
         cornerRadius = malertViewConfig.cornerRadius
         textAlign = malertViewConfig.textAlign
@@ -112,7 +111,7 @@ public class MalertView: UIView {
         //buttonsAligment = malertViewConfig.buttonsAligment
     }
     
-    fileprivate func refreshViews() {
+    private func refreshViews() {
         updateTitleLabelConstraints()
         updateCustomViewConstraints()
         updateButtonsStackViewConstraints()
@@ -138,7 +137,7 @@ extension MalertView {
  */
 extension MalertView {
     
-    fileprivate func setUpTitle() {
+    private func setUpTitle() {
         guard let title = title else {
             return
         }
@@ -148,7 +147,7 @@ extension MalertView {
         updateTitleLabelConstraints()
     }
     
-    fileprivate func setUpCustomView() {
+    private func setUpCustomView() {
         guard let customView = customView else {
             return
         }
@@ -157,7 +156,7 @@ extension MalertView {
         updateCustomViewConstraints()
     }
     
-    fileprivate func setUpButtonsStackView() {
+    private func setUpButtonsStackView() {
         guard hasButtons else { return }
         
         for button in buttons! {
@@ -177,57 +176,56 @@ extension MalertView {
  */
 extension MalertView {
     
-    fileprivate func updateTitleLabelConstraints() {
+    private func updateTitleLabelConstraints() {
         guard let _ = title else { return }
         
-        constrain(titleLabel, self, replace: titleLabelConstraintGroup) { (label, containerView) in
-            label.top == containerView.top + inset
-            label.right == containerView.right - inset
-            label.left == containerView.left + inset
-        }
+        NSLayoutConstraint.deactivate(titleLabelConstraints)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabelConstraints = [
+            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: inset),
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -inset),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: inset)
+        ]
         
-//        UIView.animate(withDuration: 0.5, animations: self.layoutIfNeeded)//titleLabel.layoutIfNeeded()
+        NSLayoutConstraint.activate(titleLabelConstraints)
     }
     
-    fileprivate func updateCustomViewConstraints() {
+    private func updateCustomViewConstraints() {
         guard let customView = customView else { return }
         
+        NSLayoutConstraint.deactivate(customViewConstraints)
+        customView.translatesAutoresizingMaskIntoConstraints = false
+        customViewConstraints = [
+            customView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -inset),
+            customView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: inset)
+        ]
+        
         if titleLabel.isDescendant(of: self) {
-            
-            constrain(customView, titleLabel, self, replace: customViewConstraintGroup, block: { (view, title, container) in
-                view.right == container.right - inset
-                view.left == container.left + inset
-                view.top == title.bottom + inset
-                if !hasButtons {
-                    view.bottom == container.bottom - inset
-                }
-            })
+            customViewConstraints.append(customView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: inset))
         } else {
-            
-            constrain(customView, self, replace: customViewConstraintGroup, block: { (view, container) in
-                view.right == container.right - inset
-                view.left == container.left + inset
-                view.top == container.top + inset
-                if !hasButtons {
-                    view.bottom == container.bottom - inset
-                }
-            })
+            customViewConstraints.append(customView.topAnchor.constraint(equalTo: self.topAnchor, constant: inset))
         }
         
-//        UIView.animate(withDuration: 0.5, animations: customView.layoutIfNeeded)
+        if !hasButtons {
+            customViewConstraints.append(customView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -inset))
+        }
+        
+        NSLayoutConstraint.activate(customViewConstraints)
     }
     
-    fileprivate func updateButtonsStackViewConstraints() {
+    private func updateButtonsStackViewConstraints() {
         if let customView = customView, hasButtons {
             
-            constrain(buttonsStackView, customView, self, replace: stackConstraintGroup, block: { (stack, custom, container) in
-                stack.top == custom.bottom + inset
-                stack.left == container.left + stackInset
-                stack.right == container.right - stackInset
-                stack.bottom == container.bottom - stackInset
-            })
+            NSLayoutConstraint.deactivate(stackConstraints)
+            buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
+            stackConstraints = [
+                buttonsStackView.topAnchor.constraint(equalTo: customView.bottomAnchor, constant: inset),
+                buttonsStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -stackInset),
+                buttonsStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: stackInset),
+                buttonsStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -stackInset)
+            ]
             
-//            UIView.animate(withDuration: 0.3, animations: self.layoutIfNeeded)//buttonsStackView.layoutIfNeeded()
+            NSLayoutConstraint.activate(stackConstraints)
         }
     }
 }

@@ -1,7 +1,5 @@
 PODS:
-  - Cartography (2.0.0)
-  - Malert (1.1.5):
-    - Cartography (~> 2.0)
+  - Malert (2.0)
 
 DEPENDENCIES:
   - Malert (from `../`)
@@ -11,8 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Cartography: d295eb25ab54bb57eecd8c2f04e9648c850f1281
-  Malert: 1b2ee363459649a97812e011ab918e05d283036c
+  Malert: 6baf0102d5f8016612060c1c79f0e6c9d7fbd563
 
 PODFILE CHECKSUM: 74b915e073dcad13b9ddf42484d1b22ace7e65e4
 

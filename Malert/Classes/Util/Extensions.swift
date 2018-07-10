@@ -23,6 +23,7 @@ extension UILabel {
     static func ilimitNumberOfLines() -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
 }

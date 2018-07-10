@@ -34,6 +34,4 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'Malert' => ['Malert/Assets/*.png']
   }
-
-s.dependency 'Cartography', '~> 2.0'
 end

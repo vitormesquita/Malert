@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Cartography
 
 protocol MalertViewControllerCallback: class {
     func tappedToDismiss()
@@ -15,16 +14,15 @@ protocol MalertViewControllerCallback: class {
 
 class MalertViewController: BaseMalertViewController {
     
-    fileprivate lazy var visibleView: UIView = self.buildVisibleView()
+    private lazy var visibleView: UIView = self.buildVisibleView()
     
-    fileprivate weak var callback: MalertViewControllerCallback?
-    fileprivate var tapToDismiss: Bool = false
+    private weak var callback: MalertViewControllerCallback?
+    private var tapToDismiss: Bool = false
     
-    fileprivate let visibleViewConstraintGroup = ConstraintGroup()
+    private var visibleViewConstraints: [NSLayoutConstraint] = []
+    private var malertConstraints: [NSLayoutConstraint] = []
     
-    fileprivate let malertConstraintGroup = ConstraintGroup()
-    
-    fileprivate var malertView: MalertView? {
+    private var malertView: MalertView? {
         willSet {
             if let malertView = malertView {
                 malertView.removeFromSuperview()
@@ -35,8 +33,9 @@ class MalertViewController: BaseMalertViewController {
                 return
             }
             malertView.alpha = 1
+            malertView.translatesAutoresizingMaskIntoConstraints = false
             visibleView.addSubview(malertView)
-            self.viewDidLayoutSubviews()
+            //            self.viewDidLayoutSubviews()
         }
     }
     
@@ -57,26 +56,40 @@ class MalertViewController: BaseMalertViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        constrain(view, visibleView, replace: visibleViewConstraintGroup, block: {[weak self] (view, visibleView) -> () in
-            guard let strongSelf = self else { return }
-            visibleView.top == view.top
-            visibleView.right == view.right
-            visibleView.left == view.left
-            visibleView.bottom == view.bottom - strongSelf.keyboardRect.size.height
-        })
+        NSLayoutConstraint.deactivate(visibleViewConstraints)
         
+        visibleViewConstraints = [
+            visibleView.topAnchor.constraint(equalTo: view.topAnchor),
+            visibleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            visibleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            visibleView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -keyboardRect.size.height)
+        ]
+        
+        NSLayoutConstraint.activate(visibleViewConstraints)
+        visibleView.layoutIfNeeded()
+        
+        NSLayoutConstraint.deactivate(malertConstraints)
         if let malertView = malertView {
             
-            constrain(malertView, visibleView, replace: malertConstraintGroup) { (malert, container) in
-                malert.center == container.center
-                malert.left == container.left + 16
-                malert.right == container.right - 16
+            malertConstraints = [
+                malertView.centerXAnchor.constraint(equalTo: visibleView.centerXAnchor),
+                malertView.centerYAnchor.constraint(equalTo: visibleView.centerYAnchor),
+                malertView.trailingAnchor.constraint(equalTo: visibleView.trailingAnchor, constant: -16),
+                malertView.leadingAnchor.constraint(equalTo: visibleView.leadingAnchor, constant: 16)
+            ]
+            
+            if UIDevice.current.orientation.isLandscape {
+                let topContraint = malertView.topAnchor.constraint(equalTo: visibleView.topAnchor, constant: 16)
+                topContraint.priority = UILayoutPriority(900)
+                malertConstraints.append(topContraint)
                 
-                if UIDevice.current.orientation.isLandscape {
-                    malert.top >= container.top + 16 ~ UILayoutPriority(900)
-                    malert.bottom >= container.bottom - 16 ~ UILayoutPriority(900)
-                }
+                let bottomConstraint = malertView.bottomAnchor.constraint(equalTo: visibleView.bottomAnchor, constant: -16)
+                bottomConstraint.priority = UILayoutPriority(900)
+                malertConstraints.append(bottomConstraint)
             }
+            NSLayoutConstraint.activate(malertConstraints)
+            
+            malertView.layoutIfNeeded()
         }
     }
     
@@ -94,11 +107,12 @@ class MalertViewController: BaseMalertViewController {
     
     //MARK: TapToDismiss
     
-    @objc fileprivate func tapOnView(_ sender: UITapGestureRecognizer) {
+    @objc private func tapOnView(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
         
         if let malertView = malertView, tapToDismiss == true {
             let point = sender.location(in: self.view)
+            
             let isPointInMalertView = malertView.frame.contains(point)
             if !isPointInMalertView {
                 callback?.tappedToDismiss()
@@ -125,6 +139,7 @@ extension MalertViewController {
     
     func buildVisibleView() -> UIView {
         let visibleView = UIView()
+        visibleView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(visibleView)
         return visibleView
     }

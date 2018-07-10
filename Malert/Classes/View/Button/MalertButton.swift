@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Cartography
 
 public enum MalertButtonType {
     case normal
@@ -16,12 +15,12 @@ public enum MalertButtonType {
 
 public class MalertButton: UIButton {
     
-    fileprivate var actionBlock: (() -> ())?
-    fileprivate var index = 0
-    fileprivate var isHorizontalAxis = false
+    private var actionBlock: (() -> ())?
+    private var index = 0
+    private var isHorizontalAxis = false
     
     // The separetor line on top button
-    fileprivate lazy var separetor: UIView = {
+    private lazy var separetor: UIView = {
         let separetorLine = UIView(frame: .zero)
         separetorLine.backgroundColor = UIColor(white: 0.8, alpha: 1)
         separetorLine.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +28,7 @@ public class MalertButton: UIButton {
     }()
     
     // The separetor line on left button
-    fileprivate lazy var leftSeparetor: UIView = {
+    private lazy var leftSeparetor: UIView = {
         let leftSeparetorLine = UIView(frame: .zero)
         leftSeparetorLine.translatesAutoresizingMaskIntoConstraints = false
         leftSeparetorLine.backgroundColor = UIColor(white: 0.8, alpha: 1)
@@ -42,9 +41,10 @@ public class MalertButton: UIButton {
     @objc public dynamic var height: CGFloat {
         get { return bounds.size.height }
         set {
-            constrain(self) { button in
-                button.height >= newValue
-            }
+            self.heightAnchor.constraint(equalToConstant: newValue).isActive = true
+//            constrain(self) { button in
+//                button.height >= newValue
+//            }
         }
     }
     
@@ -87,6 +87,7 @@ extension MalertButton {
             setUpViews()
         }
         
+        translatesAutoresizingMaskIntoConstraints = false
         setTitle(malertButtonStruct.title, for: .normal)
         addTarget(self, action: #selector(MalertButton.buttonPressedAction(button:)), for: .touchUpInside)
     }
@@ -94,30 +95,35 @@ extension MalertButton {
 
 extension MalertButton {
     
-    fileprivate func setConfiguration(malertButtonConfiguration: MalertButtonConfiguration) {
+    private func setConfiguration(malertButtonConfiguration: MalertButtonConfiguration) {
         self.backgroundColor = malertButtonConfiguration.backgroundColor
         self.separetorColor = malertButtonConfiguration.separetorColor
         self.tintColor = malertButtonConfiguration.tintColor
     }
     
-    fileprivate func setUpViews() {
+    private func setUpViews() {
         addSubview(separetor)
         addSubview(leftSeparetor)
         
-        constrain(separetor, self) { (separetor, button) in
-            separetor.top == button.top
-            separetor.left == button.left
-            separetor.right == button.right
-            separetor.height == 1
-        }
+        let separetorConstraints = [
+            separetor.topAnchor.constraint(equalTo: self.topAnchor),
+            separetor.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            separetor.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            separetor.heightAnchor.constraint(equalToConstant: 1)
+        ]
+        
+        NSLayoutConstraint.activate(separetorConstraints)
         
         if isHorizontalAxis && index != 0 {
-            constrain(leftSeparetor, self, block: { (leftSeparetor, button) in
-                leftSeparetor.top == button.top
-                leftSeparetor.bottom == button.bottom
-                leftSeparetor.left == button.left
-                leftSeparetor.width == 1
-            })
+            
+            let leftSeparetorConstraints = [
+                leftSeparetor.topAnchor.constraint(equalTo: self.topAnchor),
+                leftSeparetor.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                leftSeparetor.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                leftSeparetor.widthAnchor.constraint(equalToConstant: 1)
+            ]
+            
+            NSLayoutConstraint.activate(leftSeparetorConstraints)
         }
     }
 }
