@@ -17,13 +17,13 @@ enum ExampleType {
     var color: UIColor {
         switch self {
         case .withImage:
-            return UIColor(red:0.46, green:0.46, blue:0.46, alpha:1.0)
+            return .imageExample
         case .textField:
-            return UIColor(red:0.96, green:0.32, blue:0.12, alpha:1.0)
+            return .formExample
         case .customizable:
-            return UIColor(red:0.75, green:0.79, blue:0.20, alpha:1.0)
+            return .customizableExample
         case .expandable:
-            return UIColor(red:0.49, green:0.30, blue:1.00, alpha:1.0)
+            return .expandableExample
         }
     }
 }
@@ -45,9 +45,12 @@ class ListExamplesViewController: BaseViewController {
         super.viewDidLoad()
         
         title = "Examples"
-        navigationController?.navigationBar.barTintColor = .primary
-        
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.barTintColor = .primary
     }
 }
 
@@ -93,5 +96,14 @@ extension ListExamplesViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let type = examples[indexPath.row]
+        
+        switch type {
+        case .withImage:
+            navigationController?.pushViewController(ImageExamplesViewController(), animated: true)
+        default:
+            break
+        }
     }
 }

@@ -37,7 +37,7 @@ public class MalertView: UIView {
         }
     }
     
-    private var buttons: [MalertButton]? {
+    private var buttons: [MalertButtonView]? {
         willSet {
             if let buttons = buttons {
                 for button in buttons {
@@ -61,7 +61,7 @@ public class MalertView: UIView {
     
     init(title: String?,
          customView: UIView?,
-         buttons: [MalertButtonStruct]?,
+         buttons: [MalertButton]?,
          malertViewConfiguration: MalertViewConfiguration? = nil) {
         
         super.init(frame: .zero)
@@ -76,7 +76,7 @@ public class MalertView: UIView {
         
         self.title = title
         self.customView = customView
-        self.buttons = Helper.buildButtonsBy(buttonsStruct: buttons,
+        self.buttons = Helper.buildButtonsBy(buttons: buttons,
                                              hasMargin: buttonsSpace > 0,
                                              isHorizontalAxis: buttonsAxis == .horizontal)
         

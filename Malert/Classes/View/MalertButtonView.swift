@@ -1,9 +1,6 @@
 //
-//  MalertButton.swift
-//  Pods
-//
+//  MalertButtonView.swift
 //  Created by Vitor Mesquita on 01/11/16.
-//
 //
 
 import UIKit
@@ -13,7 +10,7 @@ public enum MalertButtonType {
     case cancel
 }
 
-public class MalertButton: UIButton {
+public class MalertButtonView: UIButton {
     
     private var actionBlock: (() -> ())?
     private var index = 0
@@ -35,7 +32,7 @@ public class MalertButton: UIButton {
         return leftSeparetorLine
     }()
     
-    //MARK: Appearance 
+    // MARK: - Appearence
     
     // Button Height
     @objc public dynamic var height: CGFloat {
@@ -60,41 +57,37 @@ public class MalertButton: UIButton {
     }
 }
 
-extension MalertButton {
+extension MalertButtonView {
     
     /**
      * Initializer Malert button
-     * Parameters:
-     *  - malertButtonConfig: Struct about simple configuraiton, like title and action block
+     * - Parameters:
+     *      - malertButton: Class to configure `MalertButtonView`
      **/
     
-    func initializeMalertButton(malertButtonStruct: MalertButtonStruct) {
-        self.index = malertButtonStruct.index
-        self.isHorizontalAxis = malertButtonStruct.isHorizontalAxis
-        self.actionBlock = malertButtonStruct.actionBlock
-        self.backgroundColor = malertButtonStruct.backgroundColor
+    func initializeMalertButton(malertButton: MalertButton, index: Int, hasMargin: Bool, isHorizontalAxis: Bool) {
+        self.index = index
+        self.isHorizontalAxis = isHorizontalAxis
+        self.actionBlock = malertButton.actionBlock
         
-        if let buttonConfiguration = malertButtonStruct.buttonConfiguration {
-            setConfiguration(malertButtonConfiguration: buttonConfiguration)
-        }
+        //TODO testar para ver se não sobrescreve o appearence
+        self.backgroundColor = malertButton.backgroundColor
+        self.separetorColor = malertButton.separetorColor
+        self.tintColor = malertButton.tintColor
+        self.height = malertButton.height
+        //TODO testar para ver se não sobrescreve o appearence
         
-        if !malertButtonStruct.hasMargin {
+        if !hasMargin {
             setUpViews()
         }
         
         translatesAutoresizingMaskIntoConstraints = false
-        setTitle(malertButtonStruct.title, for: .normal)
-        addTarget(self, action: #selector(MalertButton.buttonPressedAction(button:)), for: .touchUpInside)
+        setTitle(malertButton.title, for: .normal)
+        addTarget(self, action: #selector(MalertButtonView.buttonPressedAction(button:)), for: .touchUpInside)
     }
 }
 
-extension MalertButton {
-    
-    private func setConfiguration(malertButtonConfiguration: MalertButtonConfiguration) {
-        self.backgroundColor = malertButtonConfiguration.backgroundColor
-        self.separetorColor = malertButtonConfiguration.separetorColor
-        self.tintColor = malertButtonConfiguration.tintColor
-    }
+extension MalertButtonView {
     
     private func setUpViews() {
         addSubview(separetor)

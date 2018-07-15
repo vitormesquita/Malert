@@ -20,14 +20,14 @@ import UIKit
 struct MalertViewStruct {
     var title: String?
     var customView: UIView
-    var buttons: [MalertButtonStruct]
+    var buttons: [MalertButton]
     var animationType: MalertAnimationType
     var configuration: MalertViewConfiguration?
     var tapToDismiss: Bool
     
     init(title: String?,
          customView: UIView,
-         buttons: [MalertButtonStruct],
+         buttons: [MalertButton],
          animationType: MalertAnimationType,
          malertViewConfiguration: MalertViewConfiguration?,
          tapToDismiss: Bool) {
@@ -42,42 +42,32 @@ struct MalertViewStruct {
 }
 
 /**
- * Struct to build MalertButtons
+ * Class to build `MalertButtonView`
  * Parameters:
  *  - title: Title that will appear in button
  *  - type: MalertButton type which determines how the button will
  *  - actionBlock: Block which will called when click on button
  */
-public struct MalertButtonStruct {
-    var title: String
-    var index = 0
-    var isHorizontalAxis = false
-    var hasMargin = false
+public class MalertButton {
     
-    var backgroundColor: UIColor?
-    var buttonConfiguration: MalertButtonConfiguration?
+    var title: String
     var actionBlock: (() -> ())?
-    //    var type: MalertButtonType
+    
+    public var height: CGFloat = 44
+    public var tintColor: UIColor = .lightText
+    public var backgroundColor: UIColor = .clear
+    public var separetorColor: UIColor = UIColor(white: 0.8, alpha: 1)
     
     public init(title: String, actionBlock: (() -> ())? = nil) {
         self.title = title
         self.actionBlock = actionBlock
+
     }
     
     public init(title: String, backgroundColor: UIColor, actionBlock: (() -> ())? = nil) {
         self.title = title
         self.backgroundColor = backgroundColor
         self.actionBlock = actionBlock
-    }
-    
-    public init(title: String, buttonConfiguration: MalertButtonConfiguration, actionBlock: (() -> ())? = nil) {
-        self.title = title
-        self.buttonConfiguration = buttonConfiguration
-        self.actionBlock = actionBlock
-    }
-    
-    public mutating func setButtonConfiguration(_ buttonConfiguration: MalertButtonConfiguration) {
-        self.buttonConfiguration = buttonConfiguration
     }
 }
 
@@ -94,15 +84,5 @@ public struct MalertViewConfiguration {
     public var margin: CGFloat = 0
     public var buttonsMargin: CGFloat = 0
     public var buttonsSpace: CGFloat = 0
-    public init() {}
-}
-
-/**
- * Struct about MalertButton configuration
- */
-public struct MalertButtonConfiguration {
-    public var backgroundColor: UIColor = .clear
-    public var tintColor: UIColor = .lightText
-    public var separetorColor: UIColor = UIColor(white: 0.8, alpha: 1)
     public init() {}
 }

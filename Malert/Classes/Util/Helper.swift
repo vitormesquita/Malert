@@ -10,17 +10,13 @@ import UIKit
 
 class Helper {
     
-    static func buildButtonsBy(buttonsStruct: [MalertButtonStruct]?, hasMargin: Bool, isHorizontalAxis: Bool) -> [MalertButton]? {
-        guard let buttonsStruct = buttonsStruct else { return nil }
+    static func buildButtonsBy(buttons: [MalertButton]?, hasMargin: Bool, isHorizontalAxis: Bool) -> [MalertButtonView]? {
+        guard let buttons = buttons else { return nil }
         
-        return buttonsStruct.enumerated().map { (index, buttonStruct) -> MalertButton in
-            let button = MalertButton(type: .system)
-            var updatedButtonStruct = buttonStruct
-            updatedButtonStruct.index = index
-            updatedButtonStruct.hasMargin = hasMargin
-            updatedButtonStruct.isHorizontalAxis = isHorizontalAxis
-            button.initializeMalertButton(malertButtonStruct: updatedButtonStruct)
-            return button
+        return buttons.enumerated().map { (index, button) -> MalertButtonView in
+            let buttonView = MalertButtonView(type: .system)
+            buttonView.initializeMalertButton(malertButton: button, index: index, hasMargin: hasMargin, isHorizontalAxis: isHorizontalAxis)
+            return buttonView
         }
     }
     
