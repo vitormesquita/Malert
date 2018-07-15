@@ -11,13 +11,13 @@ import UIKit
 public class Malert: NSObject {
     public static var shared = Malert()
     
-    fileprivate var alertQueue = [MalertViewStruct]()
-    fileprivate var hasAlertOnWindow = false
+    private var alertQueue = [MalertViewStruct]()
+    private var hasAlertOnWindow = false
     
-    fileprivate var viewControllerToPresent: UIViewController?
-    fileprivate var malertViewController: MalertViewController?    
-    fileprivate let malertPresentationManager = MalertPresentationManager()
-    fileprivate lazy var interactor = MalertInteractiveTransition()
+    private var viewControllerToPresent: UIViewController?
+    private var malertViewController: MalertViewController?
+    private let malertPresentationManager = MalertPresentationManager()
+    private lazy var interactor = MalertInteractiveTransition()
     
     fileprivate var dismissOnTap: (() -> ())?
     
@@ -30,19 +30,17 @@ public class Malert: NSObject {
      *  - malertViewStruct: Struct to represent MalertView with yours attributes
      *  - animationType: MalertAnimationType that MalertView will be apresented
      */
-    fileprivate func show(with viewController: UIViewController, malertViewStruct: MalertViewStruct) {
+    private func show(with viewController: UIViewController, malertViewStruct: MalertViewStruct) {
         self.viewControllerToPresent = viewController
         
         if !hasAlertOnWindow {
             hasAlertOnWindow = true
             malertPresentationManager.animationType = malertViewStruct.animationType
-//            malertPresentationManager.interactor = interactor
             
             if malertViewController == nil {
                 malertViewController = MalertViewController()
                 malertViewController!.modalPresentationStyle = .custom
                 malertViewController!.transitioningDelegate = malertPresentationManager
-//                interactor.viewController = malertViewController
             }
             
             malertViewController!.set(malertViewStruct: malertViewStruct, interactor: interactor, callback: self)
@@ -57,12 +55,12 @@ public class Malert: NSObject {
 extension Malert {
     
     /**
-     * Show alert without Title, just customView
-     * Parameters:
-     *  - customView: all UIView can be put here to appear in alert
-     *  - buttons: Struct that will create all buttons in stackView
-     *  - animationType: the animation will apresent the alert in uiwindow
-     *  - malertConfiguration: optional configuration for single malert
+     * Show alert without title, just customView
+     * - Parameters:
+     *      - customView: all UIView can be put here to appear in alert
+     *      - buttons: Struct that will create all buttons in stackView
+     *      - animationType: the animation will apresent the alert in uiwindow
+     *      - malertConfiguration: optional configuration for single malert
      */
     public func show(viewController: UIViewController,
                      customView: UIView,
@@ -86,12 +84,12 @@ extension Malert {
     
     /**
      * Show alert with title
-     * Parameters:
-     *  - title: String that will put on top to alert
-     *  - customView: all UIView can be put here to appear in alert
-     *  - buttons: Struct that will create all buttons in stackView
-     *  - animationType: the animation will apresent the alert in uiwindow
-     *  - malertConfiguration: optional configuration for single malert
+     * - Parameters:
+     *      - title: String that will put on top to alert
+     *      - customView: all UIView can be put here to appear in alert
+     *      - buttons: Struct that will create all buttons in stackView
+     *      - animationType: the animation will apresent the alert in uiwindow
+     *      - malertConfiguration: optional configuration for single malert
      */
     public func show(viewController: UIViewController,
                      title: String,
@@ -116,12 +114,12 @@ extension Malert {
     
     /**
      * Show alert with title and message
-     * Parameters:
-     *  - title: String that will put on top to alert
-     *  - message: String which will create messageLabel
-     *  - buttons: Struct that will create all buttons in stackView
-     *  - malertConfiguration: optional configuration for single malert
-     *  - animationType: the animation will apresent the alert in uiwindow
+     * - Parameters:
+     *      - title: String that will put on top to alert
+     *      - message: String which will create messageLabel
+     *      - buttons: Struct that will create all buttons in stackView
+     *      - malertConfiguration: optional configuration for single malert
+     *      - animationType: the animation will apresent the alert in uiwindow
      */
     public func show(viewController: UIViewController,
                      title: String,

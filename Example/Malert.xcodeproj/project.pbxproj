@@ -10,7 +10,6 @@
 		1AE6D0AA3BDD71E0BBFBACB8 /* Pods_Malert_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEFA3CF468AD2C89AC6F2A8 /* Pods_Malert_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
@@ -23,6 +22,12 @@
 		FC5F7F411F5E02850067D0F4 /* FiveCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */; };
 		FC5F7F431F5E028C0067D0F4 /* FiveCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */; };
 		FCA4774D1DE6540D00AC9B3C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA4774C1DE6540D00AC9B3C /* Helper.swift */; };
+		FCB2051E20FBEB5E009EB2BC /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2051D20FBEB5E009EB2BC /* BaseNavigationController.swift */; };
+		FCB2052120FBEB9C009EB2BC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2052020FBEB9C009EB2BC /* BaseViewController.swift */; };
+		FCB2052420FBEBCB009EB2BC /* ListExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2052320FBEBCB009EB2BC /* ListExamplesViewController.swift */; };
+		FCB2052620FBEC86009EB2BC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2052520FBEC86009EB2BC /* Colors.swift */; };
+		FCB2052A20FBF09F009EB2BC /* ExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2052820FBF09F009EB2BC /* ExampleTableViewCell.swift */; };
+		FCB2052B20FBF09F009EB2BC /* ExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB2052920FBF09F009EB2BC /* ExampleTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +48,6 @@
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Malert_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Malert_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +67,12 @@
 		FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveCustomView.swift; sourceTree = "<group>"; };
 		FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiveCustomView.xib; sourceTree = "<group>"; };
 		FCA4774C1DE6540D00AC9B3C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		FCB2051D20FBEB5E009EB2BC /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		FCB2052020FBEB9C009EB2BC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FCB2052320FBEBCB009EB2BC /* ListExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExamplesViewController.swift; sourceTree = "<group>"; };
+		FCB2052520FBEC86009EB2BC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		FCB2052820FBF09F009EB2BC /* ExampleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewCell.swift; sourceTree = "<group>"; };
+		FCB2052920FBF09F009EB2BC /* ExampleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +140,14 @@
 			isa = PBXGroup;
 			children = (
 				FCA477491DE6533800AC9B3C /* util */,
+				FCB2051F20FBEB86009EB2BC /* base */,
+				FCB2052220FBEBAD009EB2BC /* listExamples */,
+				FCB2052C20FBF80A009EB2BC /* imageExamples */,
+				FCB2052D20FBF819009EB2BC /* formExamples */,
+				FCB2052E20FBF827009EB2BC /* customizableExamples */,
+				FCB2052F20FBF838009EB2BC /* expandableExamples */,
 				FC21822E1DE4E970003F99AE /* view */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -195,8 +210,64 @@
 			isa = PBXGroup;
 			children = (
 				FCA4774C1DE6540D00AC9B3C /* Helper.swift */,
+				FCB2052520FBEC86009EB2BC /* Colors.swift */,
 			);
 			path = util;
+			sourceTree = "<group>";
+		};
+		FCB2051F20FBEB86009EB2BC /* base */ = {
+			isa = PBXGroup;
+			children = (
+				FCB2051D20FBEB5E009EB2BC /* BaseNavigationController.swift */,
+				FCB2052020FBEB9C009EB2BC /* BaseViewController.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		FCB2052220FBEBAD009EB2BC /* listExamples */ = {
+			isa = PBXGroup;
+			children = (
+				FCB2052720FBF089009EB2BC /* view */,
+				FCB2052320FBEBCB009EB2BC /* ListExamplesViewController.swift */,
+			);
+			path = listExamples;
+			sourceTree = "<group>";
+		};
+		FCB2052720FBF089009EB2BC /* view */ = {
+			isa = PBXGroup;
+			children = (
+				FCB2052820FBF09F009EB2BC /* ExampleTableViewCell.swift */,
+				FCB2052920FBF09F009EB2BC /* ExampleTableViewCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		FCB2052C20FBF80A009EB2BC /* imageExamples */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = imageExamples;
+			sourceTree = "<group>";
+		};
+		FCB2052D20FBF819009EB2BC /* formExamples */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = formExamples;
+			sourceTree = "<group>";
+		};
+		FCB2052E20FBF827009EB2BC /* customizableExamples */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = customizableExamples;
+			sourceTree = "<group>";
+		};
+		FCB2052F20FBF838009EB2BC /* expandableExamples */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = expandableExamples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,11 +361,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				FC2182301DE4EB0B003F99AE /* FirstCustomView.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				FC433B781DEDEE6A00CD9131 /* SecondCustomView.xib in Resources */,
+				FCB2052B20FBF09F009EB2BC /* ExampleTableViewCell.xib in Resources */,
 				FC5F7F431F5E028C0067D0F4 /* FiveCustomView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,10 +486,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCB2051E20FBEB5E009EB2BC /* BaseNavigationController.swift in Sources */,
+				FCB2052620FBEC86009EB2BC /* Colors.swift in Sources */,
 				FC433B761DEDEE6100CD9131 /* SecondCustomView.swift in Sources */,
 				FC5F7F411F5E02850067D0F4 /* FiveCustomView.swift in Sources */,
 				FC0EA23A1E6A2C9100F3A527 /* CHANGELOG.md in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				FCB2052120FBEB9C009EB2BC /* BaseViewController.swift in Sources */,
+				FCB2052420FBEBCB009EB2BC /* ListExamplesViewController.swift in Sources */,
+				FCB2052A20FBF09F009EB2BC /* ExampleTableViewCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				FC2182321DE4EB29003F99AE /* FirstCustomView.swift in Sources */,
 				FCA4774D1DE6540D00AC9B3C /* Helper.swift in Sources */,
@@ -444,14 +520,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -558,7 +626,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KXWH4SC5H2;
 				INFOPLIST_FILE = Malert/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -576,7 +644,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KXWH4SC5H2;
 				INFOPLIST_FILE = Malert/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";

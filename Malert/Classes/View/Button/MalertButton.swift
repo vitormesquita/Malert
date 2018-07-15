@@ -40,12 +40,7 @@ public class MalertButton: UIButton {
     // Button Height
     @objc public dynamic var height: CGFloat {
         get { return bounds.size.height }
-        set {
-            self.heightAnchor.constraint(equalToConstant: newValue).isActive = true
-//            constrain(self) { button in
-//                button.height >= newValue
-//            }
-        }
+        set { heightAnchor.constraint(equalToConstant: newValue).isActive = true }
     }
     
     // The separator color of this button
