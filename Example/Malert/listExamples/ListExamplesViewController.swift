@@ -30,10 +30,6 @@ enum ExampleType {
 
 class ListExamplesViewController: BaseViewController {
     
-    private lazy var tableView: UITableView = {
-        return UITableView()
-    }()
-    
     private let examples: [ExampleType] = [.withImage, .textField, .customizable, .expandable]
     
     override func loadView() {
@@ -43,46 +39,32 @@ class ListExamplesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Examples"
         configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        title = "Examples"
         navigationController?.navigationBar.barTintColor = .primary
     }
-}
-
-extension ListExamplesViewController: UITableViewDelegate, UITableViewDataSource {
     
-    private func addTableView() {
-        self.view.addSubview(tableView)
-        
-        let tableViewConstraints = [
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 8)
-        ]
-        
-        NSLayoutConstraint.activate(tableViewConstraints)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
     }
     
-    private func configureTableView() {
+    override func configureTableView() {
+        super.configureTableView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 100
-        
-        tableView.keyboardDismissMode = .interactive
-        tableView.showsVerticalScrollIndicator = false
-        tableView.showsHorizontalScrollIndicator = false
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         
         tableView.register(UINib(nibName: "ExampleTableViewCell", bundle: nil), forCellReuseIdentifier: "ExampleTableViewCell")
     }
+}
+
+extension ListExamplesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return examples.count

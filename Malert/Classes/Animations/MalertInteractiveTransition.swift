@@ -24,7 +24,6 @@ class MalertInteractiveTransition: UIPercentDrivenInteractiveTransition {
         switch sender.state {
         case .began:
             hasStarted = true
-            Malert.shared.dismiss()
         case .changed:
             shouldFinish = progress > 0.4
             update(progress)

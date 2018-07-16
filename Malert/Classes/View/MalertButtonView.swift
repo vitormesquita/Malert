@@ -32,7 +32,7 @@ public class MalertButtonView: UIButton {
         return leftSeparetorLine
     }()
     
-    // MARK: - Appearence
+    // MARK: Appearence
     
     // Button Height
     @objc public dynamic var height: CGFloat {
@@ -65,17 +65,26 @@ extension MalertButtonView {
      *      - malertButton: Class to configure `MalertButtonView`
      **/
     
-    func initializeMalertButton(malertButton: MalertButton, index: Int, hasMargin: Bool, isHorizontalAxis: Bool) {
+    func initializeMalertButton(malertButton: MalertAction, index: Int, hasMargin: Bool, isHorizontalAxis: Bool) {
         self.index = index
         self.isHorizontalAxis = isHorizontalAxis
         self.actionBlock = malertButton.actionBlock
         
-        //TODO testar para ver se não sobrescreve o appearence
-        self.backgroundColor = malertButton.backgroundColor
-        self.separetorColor = malertButton.separetorColor
-        self.tintColor = malertButton.tintColor
-        self.height = malertButton.height
-        //TODO testar para ver se não sobrescreve o appearence
+        if let height = malertButton.height {
+            self.height = height
+        }
+    
+        if let tintColor = malertButton.tintColor {
+            self.tintColor = tintColor
+        }
+        
+        if let separetorColor = malertButton.separetorColor {
+            self.separetorColor = separetorColor
+        }
+        
+        if let backgroundColor = malertButton.backgroundColor {
+            self.backgroundColor = backgroundColor
+        }
         
         if !hasMargin {
             setUpViews()

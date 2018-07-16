@@ -198,8 +198,6 @@
 		FC21822E1DE4E970003F99AE /* view */ = {
 			isa = PBXGroup;
 			children = (
-				FC2182311DE4EB29003F99AE /* FirstCustomView.swift */,
-				FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */,
 				FC433B751DEDEE6100CD9131 /* SecondCustomView.swift */,
 				FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */,
 				FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */,
@@ -247,6 +245,7 @@
 		FCB2052C20FBF80A009EB2BC /* imageExamples */ = {
 			isa = PBXGroup;
 			children = (
+				FCF399FF20FCFE7B00D6EB7C /* view */,
 				FCB2053020FBF8C8009EB2BC /* ImageExamplesViewController.swift */,
 			);
 			path = imageExamples;
@@ -271,6 +270,15 @@
 			children = (
 			);
 			path = expandableExamples;
+			sourceTree = "<group>";
+		};
+		FCF399FF20FCFE7B00D6EB7C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				FC2182311DE4EB29003F99AE /* FirstCustomView.swift */,
+				FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -635,7 +643,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -653,7 +661,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -675,7 +683,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -693,7 +701,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

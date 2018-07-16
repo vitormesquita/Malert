@@ -13,82 +13,42 @@ public class MalertView: UIView {
     private lazy var titleLabel = UILabel.ilimitNumberOfLines()
     private lazy var buttonsStackView = UIStackView.defaultStack(axis: .vertical)
     
+    private var stackConstraints: [NSLayoutConstraint] = []
     private var titleLabelConstraints: [NSLayoutConstraint] = []
     private var customViewConstraints: [NSLayoutConstraint] = []
-    private var stackConstraints: [NSLayoutConstraint] = []
-    
-    private var viewsConfigurated = false
-    
-    private var hasButtons: Bool {
-        if let buttons = buttons {
-            return !buttons.isEmpty
-        }
-        
-        return false
-    }
-    
-    private var title: String?
-    
-    private var customView: UIView? {
-        willSet {
-            if let customView = customView {
-                customView.removeFromSuperview()
-            }
-        }
-    }
-    
-    private var buttons: [MalertButtonView]? {
-        willSet {
-            if let buttons = buttons {
-                for button in buttons {
-                    buttonsStackView.removeArrangedSubview(button)
-                }
-            }
-        }
-    }
     
     private var inset: CGFloat = 0 {
-        didSet {
-            refreshViews()
-        }
+        didSet { refreshViews() }
     }
     
     private var stackInset: CGFloat = 0 {
-        didSet{
-            refreshViews()
+        didSet { updateButtonsStackViewConstraints() }
+    }
+    
+    private var customView: UIView? {
+        didSet {
+            if let oldValue = oldValue {
+                oldValue.removeFromSuperview()
+            }
         }
     }
     
-    init(title: String?,
-         customView: UIView?,
-         buttons: [MalertButton]?,
-         malertViewConfiguration: MalertViewConfiguration? = nil) {
-        
+    init() {
         super.init(frame: .zero)
         
         clipsToBounds = true
-        backgroundColor = .white
+        
+        //TODO Verificar se não não sobreescreve o appearence
+        margin = 0
         cornerRadius = 6
-        
-        if let malertViewConfiguration = malertViewConfiguration {
-            setConfigurationInMalertView(malertViewConfig: malertViewConfiguration)
-        }
-        
-        self.title = title
-        self.customView = customView
-        self.buttons = Helper.buildButtonsBy(buttons: buttons,
-                                             hasMargin: buttonsSpace > 0,
-                                             isHorizontalAxis: buttonsAxis == .horizontal)
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            
-            strongSelf.setUpTitle()
-            strongSelf.setUpCustomView()
-            strongSelf.setUpButtonsStackView()
-            
-            strongSelf.viewsConfigurated = true
-        }
+        backgroundColor = .white
+        textColor = .black
+        textAlign = .left
+        titleFont = UIFont.systemFont(ofSize: 14)
+        buttonsSpace = 0
+        buttonsMargin = 0
+        buttonsAxis = .vertical
+        //TODO Verificar se não não sobreescreve o appearence
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -97,18 +57,9 @@ public class MalertView: UIView {
     
     //MARK - Utils
     
-    private func setConfigurationInMalertView(malertViewConfig: MalertViewConfiguration) {
-        backgroundColor = malertViewConfig.backgroundColor
-        cornerRadius = malertViewConfig.cornerRadius
-        textAlign = malertViewConfig.textAlign
-        textColor = malertViewConfig.textColor
-        buttonsAxis = malertViewConfig.buttonsAxis
-        margin = malertViewConfig.margin
-        buttonsMargin = malertViewConfig.buttonsMargin
-        buttonsSpace = malertViewConfig.buttonsSpace
-        titleFont = malertViewConfig.titleFont
-        //buttonsDistribution = malertViewConfig.buttonDistribution
-        //buttonsAligment = malertViewConfig.buttonsAligment
+    private var hasButtons: Bool {
+        guard buttonsStackView.isDescendant(of: self) else { return false }
+        return !buttonsStackView.arrangedSubviews.isEmpty
     }
     
     private func refreshViews() {
@@ -118,53 +69,44 @@ public class MalertView: UIView {
     }
 }
 
+// MARK: - Extensions to setUp Views in alert
 extension MalertView {
     
-    /**
-     * Build and return MalertView
-     * Parameters:
-     *  - malertViewStruct: Struct which contains title, customView, array of Buttons and if needed contains malertViewConfiguration
-     */
-    
-    class func buildAlert(with malertViewStruct: MalertViewStruct) -> MalertView {
-        let alert = MalertView(title: malertViewStruct.title, customView: malertViewStruct.customView, buttons: malertViewStruct.buttons, malertViewConfiguration: malertViewStruct.configuration)
-        return alert
-    }
-}
-
-/**
- * Extensions to setUp Views in alert
- */
-extension MalertView {
-    
-    private func setUpTitle() {
-        guard let title = title else {
-            return
+    func seTitle(_ title: String?) {
+        if let title = title {
+            titleLabel.text = title
+            
+            if !titleLabel.isDescendant(of: self) {
+                self.addSubview(titleLabel)
+                refreshViews()
+            }
+            
+        } else {
+            titleLabel.removeFromSuperview()
+            refreshViews()
         }
-        
-        titleLabel.text = title
-        self.addSubview(titleLabel)
-        updateTitleLabelConstraints()
     }
     
-    private func setUpCustomView() {
-        guard let customView = customView else {
-            return
-        }
-        
+    func setCustomView(_ customView: UIView?) {
+        guard let customView = customView else { return }
+        self.customView = customView
         self.addSubview(customView)
-        updateCustomViewConstraints()
+        refreshViews()
     }
     
-    private func setUpButtonsStackView() {
-        guard hasButtons else { return }
+    func addButton(_ button: MalertAction) {
+        let buttonView = MalertButtonView(type: .system)
+        buttonView.initializeMalertButton(malertButton: button,
+                                          index: buttonsStackView.arrangedSubviews.count,
+                                          hasMargin: buttonsSpace > 0,
+                                          isHorizontalAxis: buttonsAxis == .horizontal)
         
-        for button in buttons! {
-            buttonsStackView.addArrangedSubview(button)
+        buttonsStackView.addArrangedSubview(buttonView)
+        
+        if !buttonsStackView.isDescendant(of: self) {
+            self.addSubview(buttonsStackView)
+            refreshViews()
         }
-        
-        self.addSubview(buttonsStackView)
-        updateButtonsStackViewConstraints()
     }
 }
 
@@ -177,9 +119,9 @@ extension MalertView {
 extension MalertView {
     
     private func updateTitleLabelConstraints() {
-        guard let _ = title else { return }
-        
         NSLayoutConstraint.deactivate(titleLabelConstraints)
+        guard titleLabel.isDescendant(of: self) else { return }
+        
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabelConstraints = [
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: inset),
@@ -231,66 +173,77 @@ extension MalertView {
 }
 
 // MARK: - Appearance
-
 extension MalertView {
     
-    // Dialog view corner radius
+    /// Dialog view corner radius
     @objc public dynamic var cornerRadius: CGFloat {
         get { return layer.cornerRadius }
         set { layer.cornerRadius = newValue }
     }
     
-    // Title text color
+    /// Title text color
     @objc public dynamic var textColor: UIColor {
         get { return titleLabel.textColor }
         set { titleLabel.textColor = newValue }
     }
     
-    // Title text Align
+    /// Title text Align
     @objc public dynamic var textAlign: NSTextAlignment {
         get { return titleLabel.textAlignment }
         set { titleLabel.textAlignment = newValue }
     }
     
-    //Title font
+    /// Title font
     @objc public dynamic var titleFont: UIFont {
         get { return titleLabel.font }
         set { titleLabel.font = newValue }
     }
     
-    // Buttons distribution in stack view
+    /// Buttons distribution in stack view
     @objc public dynamic var buttonsDistribution: UIStackViewDistribution {
         get { return buttonsStackView.distribution }
         set { buttonsStackView.distribution = newValue }
     }
     
-    // Buttons aligns in stack view
+    /// Buttons aligns in stack view
     @objc public dynamic var buttonsAligment: UIStackViewAlignment {
         get { return buttonsStackView.alignment }
         set { buttonsStackView.alignment = newValue }
     }
     
-    // Buttons axis in stack view
+    /// Buttons axis in stack view
     @objc public dynamic var buttonsAxis: UILayoutConstraintAxis {
         get { return buttonsStackView.axis }
         set { buttonsStackView.axis = newValue }
     }
     
-    // Margin inset to titleLabel and CustomView
+    /// Margin inset to titleLabel and CustomView
     @objc public dynamic var margin: CGFloat {
         get { return inset }
         set { inset = newValue }
     }
     
-    // Margin inset to StackView buttons
+    /// Margin inset to StackView buttons
     @objc public dynamic var buttonsMargin: CGFloat {
         get { return stackInset }
         set { stackInset = newValue }
     }
     
-    // Margin inset between buttons
+    /// Margin inset between buttons
     @objc public dynamic var buttonsSpace: CGFloat {
         get { return buttonsStackView.spacing }
         set { buttonsStackView.spacing = newValue }
     }
 }
+
+//extension MalertView {
+//
+//    private func buildButtonsBy(buttons: [MalertButton]?, hasMargin: Bool, isHorizontalAxis: Bool) -> [MalertButtonView]? {
+//        guard let buttons = buttons else { return nil }
+//        return buttons.enumerated().map { (index, button) -> MalertButtonView in
+//            let buttonView = MalertButtonView(type: .system)
+//            buttonView.initializeMalertButton(malertButton: button, index: index, hasMargin: hasMargin, isHorizontalAxis: isHorizontalAxis)
+//            return buttonView
+//        }
+//    }
+//}

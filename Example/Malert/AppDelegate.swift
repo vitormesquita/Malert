@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        MalertButtonView.appearance().height = 44
+        MalertButtonView.appearance().height = 60
         
         let window = UIWindow()
         window.rootViewController = BaseNavigationController(rootViewController: ListExamplesViewController())

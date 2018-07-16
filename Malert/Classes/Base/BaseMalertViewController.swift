@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseMalertViewController: UIViewController {
+public class BaseMalertViewController: UIViewController {
     
     private(set) var keyboardRect = CGRect.zero
     
