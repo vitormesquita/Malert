@@ -11,7 +11,7 @@ import UIKit
 class MalertDimissTransitioning: BaseTransitioning, UIViewControllerAnimatedTransitioning {
     
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
+        return duration
     }
     
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -19,7 +19,8 @@ class MalertDimissTransitioning: BaseTransitioning, UIViewControllerAnimatedTran
         
         let malertView = fromVC.malertView 
         let duration = transitionDuration(using: transitionContext)
-        UIView.animate(withDuration: duration, delay: 0, options: [], animations: {
+        
+        UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             fromVC.view.backgroundColor = .clear
             self.buildMalertAnimation(malertView: malertView, width: fromVC.view.bounds.size.width, height: fromVC.view.bounds.size.height)
             

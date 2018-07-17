@@ -12,11 +12,10 @@ public class MalertAction {
     
     var title: String
     var actionBlock: (() -> ())?
-    
-    public var height: CGFloat?
+
     public var tintColor: UIColor?
     public var backgroundColor: UIColor?
-    public var separetorColor: UIColor?
+    public var cornerRadius: CGFloat?
     
     public init(title: String, actionBlock: (() -> ())? = nil) {
         self.title = title

@@ -14,12 +14,13 @@ public enum MalertButtonType {
     case cancel
 }
 
-public class MalertButtonView: UIButton {
+class MalertButtonView: UIButton {
     
-    private var actionBlock: (() -> ())?
+    var actionBlock: (() -> ())?
+    weak var callback: MalertActionCallbackProtocol?
+    
     private var index = 0
     private var isHorizontalAxis = false
-    private weak var callback: MalertActionCallbackProtocol?
     
     // The separetor line on top button
     private lazy var separetor: UIView = {
@@ -37,25 +38,8 @@ public class MalertButtonView: UIButton {
         return leftSeparetorLine
     }()
     
-    // MARK: Appearence
-    
-    // Button Height
-    @objc public dynamic var height: CGFloat {
-        get { return bounds.size.height }
-        set { heightAnchor.constraint(equalToConstant: newValue).isActive = true }
-    }
-    
-    // The separator color of this button
-    @objc public dynamic var separetorColor: UIColor? {
-        get { return separetor.backgroundColor }
-        set {
-            separetor.backgroundColor = newValue
-            leftSeparetor.backgroundColor = newValue
-        }
-    }
-    
     //MARK: Action
-    @objc func buttonPressedAction(button: UIButton){
+    @objc private func buttonPressedAction(button: UIButton){
         if let actionBlock = actionBlock {
             actionBlock()
         }
@@ -71,41 +55,39 @@ extension MalertButtonView {
      *      - malertButton: Class to configure `MalertButtonView`
      **/
     
-    func initializeMalertButton(malertButton: MalertAction, index: Int, hasMargin: Bool, isHorizontalAxis: Bool, callback: MalertActionCallbackProtocol?) {
+    func setUp(index: Int, hasMargin: Bool, isHorizontalAxis: Bool) {
         self.index = index
         self.isHorizontalAxis = isHorizontalAxis
-        self.actionBlock = malertButton.actionBlock
-        self.callback = callback
         
-        if let height = malertButton.height {
-            self.height = height
+        if !hasMargin {
+            setUpSeparetorsViews()
         }
+    }
     
-        if let tintColor = malertButton.tintColor {
+    func setUpBy(action: MalertAction) {
+        self.actionBlock = action.actionBlock
+        
+        if let tintColor = action.tintColor {
             self.tintColor = tintColor
         }
         
-        if let separetorColor = malertButton.separetorColor {
-            self.separetorColor = separetorColor
-        }
-        
-        if let backgroundColor = malertButton.backgroundColor {
+        if let backgroundColor = action.backgroundColor {
             self.backgroundColor = backgroundColor
         }
         
-        if !hasMargin {
-            setUpViews()
+        if let cornerRadius = action.cornerRadius {
+            self.layer.cornerRadius = cornerRadius
         }
         
-        translatesAutoresizingMaskIntoConstraints = false
-        setTitle(malertButton.title, for: .normal)
+        setTitle(action.title, for: .normal)
         addTarget(self, action: #selector(MalertButtonView.buttonPressedAction(button:)), for: .touchUpInside)
     }
 }
 
 extension MalertButtonView {
     
-    private func setUpViews() {
+    private func setUpSeparetorsViews() {
+        translatesAutoresizingMaskIntoConstraints = false
         addSubview(separetor)
         addSubview(leftSeparetor)
         
@@ -128,6 +110,24 @@ extension MalertButtonView {
             ]
             
             NSLayoutConstraint.activate(leftSeparetorConstraints)
+        }
+    }
+}
+
+extension MalertButtonView {
+    
+    // Button Height
+    var height: CGFloat {
+        get { return bounds.size.height }
+        set { heightAnchor.constraint(equalToConstant: newValue).isActive = true }
+    }
+    
+    // The separator color of this button
+    var separetorColor: UIColor? {
+        get { return separetor.backgroundColor }
+        set {
+            separetor.backgroundColor = newValue
+            leftSeparetor.backgroundColor = newValue
         }
     }
 }

@@ -13,7 +13,7 @@ class MalertPresentTransitioning: BaseTransitioning, UIViewControllerAnimatedTra
     var originFrame = UIScreen.main.bounds
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return duration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

@@ -11,9 +11,11 @@ import UIKit
 class BaseTransitioning: NSObject {
     
     var animationType: MalertAnimationType
+    var duration: TimeInterval
     
-    init(animationType: MalertAnimationType) {
+    init(animationType: MalertAnimationType, duration: TimeInterval) {
         self.animationType = animationType
+        self.duration = duration
         super.init()
     }
     

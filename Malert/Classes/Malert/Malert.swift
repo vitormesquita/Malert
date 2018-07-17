@@ -88,6 +88,17 @@ public class Malert: BaseMalertViewController {
 
 extension Malert {
     
+    /* Animation config */
+    public var animationType: MalertAnimationType  {
+        get { return malertPresentationManager.animationType }
+        set { malertPresentationManager.animationType = newValue }
+    }
+    
+    public var duration: TimeInterval {
+        get { return malertPresentationManager.duration }
+        set { malertPresentationManager.duration = newValue }
+    }
+    
     /* Container config */
     public var margin: CGFloat {
         get { return malertView.margin }
@@ -121,6 +132,16 @@ extension Malert {
     }
     
     /* Buttons config */
+    public var buttonsHeight: CGFloat {
+        get { return malertView.buttonsHeight }
+        set { malertView.buttonsHeight = newValue }
+    }
+    
+    public var separetorColor: UIColor {
+        get { return malertView.separetorColor }
+        set { malertView.separetorColor = newValue }
+    }
+    
     public var buttonsSpace: CGFloat {
         get { return malertView.buttonsSpace }
         set { malertView.buttonsSpace = newValue }
@@ -134,11 +155,6 @@ extension Malert {
     public var buttonsAxis: UILayoutConstraintAxis {
         get { return malertView.buttonsAxis }
         set { malertView.buttonsAxis = newValue }
-    }
-    
-    public var animationType: MalertAnimationType  {
-        get { return malertPresentationManager.animationType }
-        set { malertPresentationManager.animationType = newValue }
     }
     
     public func addAction(_ malertButton: MalertAction) {

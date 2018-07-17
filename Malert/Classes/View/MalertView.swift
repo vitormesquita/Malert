@@ -25,6 +25,14 @@ public class MalertView: UIView {
         didSet { updateButtonsStackViewConstraints() }
     }
     
+    private var _buttonsHeight: CGFloat = 44 {
+        didSet { /*TODO*/ }
+    }
+    
+    private var _buttonsSeparetorColor: UIColor = UIColor(white: 0.8, alpha: 1) {
+        didSet { /*TODO*/ }
+    }
+    
     private var customView: UIView? {
         didSet {
             if let oldValue = oldValue {
@@ -96,11 +104,12 @@ extension MalertView {
     
     func addButton(_ button: MalertAction, actionCallback: MalertActionCallbackProtocol?) {
         let buttonView = MalertButtonView(type: .system)
-        buttonView.initializeMalertButton(malertButton: button,
-                                          index: buttonsStackView.arrangedSubviews.count,
-                                          hasMargin: buttonsSpace > 0,
-                                          isHorizontalAxis: buttonsAxis == .horizontal,
-                                          callback: actionCallback)
+        buttonView.height = _buttonsHeight
+        buttonView.separetorColor = _buttonsSeparetorColor
+        buttonView.callback = actionCallback
+        
+        buttonView.setUpBy(action: button)
+        buttonView.setUp(index: buttonsStackView.arrangedSubviews.count, hasMargin: buttonsSpace > 0, isHorizontalAxis: buttonsAxis == .horizontal)
         
         buttonsStackView.addArrangedSubview(buttonView)
         
@@ -234,6 +243,18 @@ extension MalertView {
     @objc public dynamic var buttonsSpace: CGFloat {
         get { return buttonsStackView.spacing }
         set { buttonsStackView.spacing = newValue }
+    }
+    
+    ///
+    @objc public dynamic var buttonsHeight: CGFloat {
+        get { return _buttonsHeight }
+        set { _buttonsHeight = newValue }
+    }
+    
+    ///
+    @objc public dynamic var separetorColor: UIColor {
+        get { return _buttonsSeparetorColor }
+        set { _buttonsSeparetorColor = newValue }
     }
 }
 
