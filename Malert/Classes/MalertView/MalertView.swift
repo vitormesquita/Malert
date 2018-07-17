@@ -257,15 +257,3 @@ extension MalertView {
         set { _buttonsSeparetorColor = newValue }
     }
 }
-
-//extension MalertView {
-//
-//    private func buildButtonsBy(buttons: [MalertButton]?, hasMargin: Bool, isHorizontalAxis: Bool) -> [MalertButtonView]? {
-//        guard let buttons = buttons else { return nil }
-//        return buttons.enumerated().map { (index, button) -> MalertButtonView in
-//            let buttonView = MalertButtonView(type: .system)
-//            buttonView.initializeMalertButton(malertButton: button, index: index, hasMargin: hasMargin, isHorizontalAxis: isHorizontalAxis)
-//            return buttonView
-//        }
-//    }
-//}
