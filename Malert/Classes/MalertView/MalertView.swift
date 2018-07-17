@@ -21,7 +21,11 @@ public class MalertView: UIView {
         didSet { refreshViews() }
     }
     
-    private var stackInset: CGFloat = 0 {
+    private var stackSideInset: CGFloat = 0 {
+        didSet { updateButtonsStackViewConstraints() }
+    }
+    
+    private var stackBottomInset: CGFloat = 0 {
         didSet { updateButtonsStackViewConstraints() }
     }
     
@@ -54,7 +58,7 @@ public class MalertView: UIView {
         textAlign = .left
         titleFont = UIFont.systemFont(ofSize: 14)
         buttonsSpace = 0
-        buttonsMargin = 0
+        buttonsSideMargin = 0
         buttonsAxis = .vertical
         //TODO Verificar se não não sobreescreve o appearence
     }
@@ -172,9 +176,9 @@ extension MalertView {
             buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
             stackConstraints = [
                 buttonsStackView.topAnchor.constraint(equalTo: customView.bottomAnchor, constant: inset),
-                buttonsStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -stackInset),
-                buttonsStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: stackInset),
-                buttonsStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -stackInset)
+                buttonsStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -stackSideInset),
+                buttonsStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: stackSideInset),
+                buttonsStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -stackBottomInset)
             ]
             
             NSLayoutConstraint.activate(stackConstraints)
@@ -233,10 +237,16 @@ extension MalertView {
         set { inset = newValue }
     }
     
-    /// Margin inset to StackView buttons
-    @objc public dynamic var buttonsMargin: CGFloat {
-        get { return stackInset }
-        set { stackInset = newValue }
+    /// Trailing and Leading margin inset to StackView buttons
+    @objc public dynamic var buttonsSideMargin: CGFloat {
+        get { return stackSideInset }
+        set { stackSideInset = newValue }
+    }
+    
+    /// Bottom margin inset to StackView buttons
+    @objc public dynamic var buttonsBottomMargin: CGFloat {
+        get { return stackBottomInset }
+        set { stackBottomInset = newValue }
     }
     
     /// Margin inset between buttons

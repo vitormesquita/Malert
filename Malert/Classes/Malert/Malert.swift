@@ -147,9 +147,14 @@ extension Malert {
         set { malertView.buttonsSpace = newValue }
     }
     
-    public var buttonsMargin: CGFloat {
-        get { return malertView.buttonsMargin }
-        set { malertView.buttonsMargin = newValue }
+    public var buttonsSideMargin: CGFloat {
+        get { return malertView.buttonsSideMargin }
+        set { malertView.buttonsSideMargin = newValue }
+    }
+
+    public var buttonsBottomMargin: CGFloat {
+        get { return malertView.buttonsBottomMargin }
+        set { malertView.buttonsBottomMargin = newValue }
     }
     
     public var buttonsAxis: UILayoutConstraintAxis {

@@ -99,6 +99,25 @@ class ListExamplesViewController: BaseViewController {
         
         present(alert, animated: true)
     }
+    
+    private func showExample3() {
+        let example3View = Example3View.instantiateFromNib()
+        
+        let alert = Malert(customView: example3View)
+        alert.animationType = .modalRight
+        alert.buttonsAxis = .horizontal
+        alert.buttonsSideMargin = 60
+        alert.buttonsBottomMargin = 16
+        alert.separetorColor = .clear
+        
+        let firstAction = MalertAction(title: "Take the tour")
+        firstAction.backgroundColor = UIColor(red:0.38, green:0.76, blue:0.15, alpha:1.0)
+        firstAction.tintColor = .white
+        firstAction.cornerRadius = 8
+        alert.addAction(firstAction)
+        
+        present(alert, animated: true)
+    }
 }
 
 extension ListExamplesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -124,7 +143,7 @@ extension ListExamplesViewController: UITableViewDelegate, UITableViewDataSource
         case .textField:
             showExample2()
         default:
-            break
+            showExample3()
         }
     }
 }
