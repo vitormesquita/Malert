@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Malert
 
 enum ExampleType {
     case withImage
@@ -62,6 +63,45 @@ class ListExamplesViewController: BaseViewController {
         
         tableView.register(UINib(nibName: "ExampleTableViewCell", bundle: nil), forCellReuseIdentifier: "ExampleTableViewCell")
     }
+    
+    private func showExample1() {
+        let firstExample = FirstCustomView.instantiateFromNib()
+        firstExample.populate(title: "Hello!", message: "There are a lot of ways to build a Malert :)")
+
+        let alert = Malert(customView: firstExample)
+        
+        let action = MalertAction(title: "CLOSE")
+        action.tintColor = UIColor(red:0.15, green:0.64, blue:0.85, alpha:1.0)
+        alert.addAction(action)
+        
+        present(alert, animated: true)
+    }
+    
+    //TODO não faz sentido coloar o height em cada botão
+    //colocar no malert
+    private func showExample2() {
+        let example2View = Example2View.instantiateFromNib()
+        
+        let alert = Malert(customView: example2View)
+        alert.backgroundColor = UIColor(red:0.47, green:0.53, blue:0.80, alpha:1.0)
+        alert.buttonsAxis = .horizontal
+        
+        let buttonsColor = UIColor(red:0.36, green:0.42, blue:0.75, alpha:1.0)
+        
+        let firstAction = MalertAction(title: "GOT IT", backgroundColor: buttonsColor)
+        firstAction.tintColor = .white
+        firstAction.separetorColor = .clear
+        firstAction.height = 60
+        alert.addAction(firstAction)
+        
+        let secondAction = MalertAction(title: "LOOK UP", backgroundColor: buttonsColor)
+        secondAction.tintColor = .white
+        secondAction.separetorColor = .clear
+        secondAction.height = 60
+        alert.addAction(secondAction)
+        
+        present(alert, animated: true)
+    }
 }
 
 extension ListExamplesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -77,13 +117,15 @@ extension ListExamplesViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
         
         let type = examples[indexPath.row]
         
         switch type {
         case .withImage:
-            navigationController?.pushViewController(ImageExamplesViewController(), animated: true)
+            showExample1()
+        case .textField:
+            showExample2()
         default:
             break
         }

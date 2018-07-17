@@ -94,12 +94,13 @@ extension MalertView {
         refreshViews()
     }
     
-    func addButton(_ button: MalertAction) {
+    func addButton(_ button: MalertAction, actionCallback: MalertActionCallbackProtocol?) {
         let buttonView = MalertButtonView(type: .system)
         buttonView.initializeMalertButton(malertButton: button,
                                           index: buttonsStackView.arrangedSubviews.count,
                                           hasMargin: buttonsSpace > 0,
-                                          isHorizontalAxis: buttonsAxis == .horizontal)
+                                          isHorizontalAxis: buttonsAxis == .horizontal,
+                                          callback: actionCallback)
         
         buttonsStackView.addArrangedSubview(buttonView)
         

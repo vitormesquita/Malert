@@ -7,13 +7,7 @@
 
 import UIKit
 
-/**
- * Class to build `MalertButtonView`
- * Parameters:
- *  - title: Title that will appear in button
- *  - type: MalertButton type which determines how the button will
- *  - actionBlock: Block which will called when click on button
- */
+/// Class to build `MalertButtonView`
 public class MalertAction {
     
     var title: String

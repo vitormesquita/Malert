@@ -15,9 +15,11 @@ public class Malert: BaseMalertViewController {
     
     // MARK: - internal
     let malertView: MalertView
-    let tapToDismiss: Bool
     var malertConstraints: [NSLayoutConstraint] = []
     var visibleViewConstraints: [NSLayoutConstraint] = []
+    
+    let tapToDismiss: Bool
+    let dismissOnActionTapped: Bool
     
     lazy var visibleView: UIView = {
         let visibleView = UIView()
@@ -25,9 +27,10 @@ public class Malert: BaseMalertViewController {
         return visibleView
     }()
     
-    public init(title: String? = nil, customView: UIView, tapToDismiss: Bool = true) {
+    public init(title: String? = nil, customView: UIView, tapToDismiss: Bool = true, dismissOnActionTapped: Bool = true) {
         self.malertView = MalertView()
         self.tapToDismiss = tapToDismiss
+        self.dismissOnActionTapped = dismissOnActionTapped
         super.init(nibName: nil, bundle: nil)
         
         self.malertView.seTitle(title)
@@ -40,10 +43,6 @@ public class Malert: BaseMalertViewController {
     
     required convenience public init?(coder aDecoder: NSCoder) {
         self.init(coder: aDecoder)
-    }
-    
-    deinit {
-        print("dealloc ---> Malert")
     }
     
     override public func loadView() {
@@ -80,6 +79,10 @@ public class Malert: BaseMalertViewController {
         super.keyboardWillHide(sender: sender)
         self.viewDidLayoutSubviews()
         view.layoutIfNeeded()
+    }
+    
+    deinit {
+        print("dealloc ---> Malert")
     }
 }
 
@@ -139,6 +142,6 @@ extension Malert {
     }
     
     public func addAction(_ malertButton: MalertAction) {
-        malertView.addButton(malertButton)
+        malertView.addButton(malertButton, actionCallback: self)
     }
 }

@@ -24,3 +24,14 @@ extension Malert {
         }
     }
 }
+
+extension Malert: MalertActionCallbackProtocol {
+    
+    func didTapOnAction() {
+        if dismissOnActionTapped {
+            dismiss(animated: true) {
+                //TODO
+            }
+        }
+    }
+}

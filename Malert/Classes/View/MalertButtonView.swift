@@ -5,6 +5,10 @@
 
 import UIKit
 
+protocol MalertActionCallbackProtocol: class {
+    func didTapOnAction()
+}
+
 public enum MalertButtonType {
     case normal
     case cancel
@@ -15,6 +19,7 @@ public class MalertButtonView: UIButton {
     private var actionBlock: (() -> ())?
     private var index = 0
     private var isHorizontalAxis = false
+    private weak var callback: MalertActionCallbackProtocol?
     
     // The separetor line on top button
     private lazy var separetor: UIView = {
@@ -54,6 +59,7 @@ public class MalertButtonView: UIButton {
         if let actionBlock = actionBlock {
             actionBlock()
         }
+        callback?.didTapOnAction()
     }
 }
 
@@ -65,10 +71,11 @@ extension MalertButtonView {
      *      - malertButton: Class to configure `MalertButtonView`
      **/
     
-    func initializeMalertButton(malertButton: MalertAction, index: Int, hasMargin: Bool, isHorizontalAxis: Bool) {
+    func initializeMalertButton(malertButton: MalertAction, index: Int, hasMargin: Bool, isHorizontalAxis: Bool, callback: MalertActionCallbackProtocol?) {
         self.index = index
         self.isHorizontalAxis = isHorizontalAxis
         self.actionBlock = malertButton.actionBlock
+        self.callback = callback
         
         if let height = malertButton.height {
             self.height = height

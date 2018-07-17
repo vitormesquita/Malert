@@ -28,7 +28,8 @@
 		FCB2052620FBEC86009EB2BC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2052520FBEC86009EB2BC /* Colors.swift */; };
 		FCB2052A20FBF09F009EB2BC /* ExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2052820FBF09F009EB2BC /* ExampleTableViewCell.swift */; };
 		FCB2052B20FBF09F009EB2BC /* ExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB2052920FBF09F009EB2BC /* ExampleTableViewCell.xib */; };
-		FCB2053120FBF8C8009EB2BC /* ImageExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2053020FBF8C8009EB2BC /* ImageExamplesViewController.swift */; };
+		FCDF1D6B20FE21C100EEBFE9 /* Example2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF1D6A20FE21C100EEBFE9 /* Example2View.swift */; };
+		FCDF1D6D20FE21EA00EEBFE9 /* Example2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCDF1D6C20FE21EA00EEBFE9 /* Example2View.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,8 @@
 		FCB2052520FBEC86009EB2BC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FCB2052820FBF09F009EB2BC /* ExampleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewCell.swift; sourceTree = "<group>"; };
 		FCB2052920FBF09F009EB2BC /* ExampleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleTableViewCell.xib; sourceTree = "<group>"; };
-		FCB2053020FBF8C8009EB2BC /* ImageExamplesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExamplesViewController.swift; sourceTree = "<group>"; };
+		FCDF1D6A20FE21C100EEBFE9 /* Example2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2View.swift; sourceTree = "<group>"; };
+		FCDF1D6C20FE21EA00EEBFE9 /* Example2View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Example2View.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +146,7 @@
 				FCA477491DE6533800AC9B3C /* util */,
 				FCB2051F20FBEB86009EB2BC /* base */,
 				FCB2052220FBEBAD009EB2BC /* listExamples */,
-				FCB2052C20FBF80A009EB2BC /* imageExamples */,
-				FCB2052D20FBF819009EB2BC /* formExamples */,
-				FCB2052E20FBF827009EB2BC /* customizableExamples */,
-				FCB2052F20FBF838009EB2BC /* expandableExamples */,
+				FCB2052C20FBF80A009EB2BC /* examples */,
 				FC21822E1DE4E970003F99AE /* view */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -242,43 +241,31 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		FCB2052C20FBF80A009EB2BC /* imageExamples */ = {
+		FCB2052C20FBF80A009EB2BC /* examples */ = {
 			isa = PBXGroup;
 			children = (
-				FCF399FF20FCFE7B00D6EB7C /* view */,
-				FCB2053020FBF8C8009EB2BC /* ImageExamplesViewController.swift */,
+				FCDF1D6920FE218500EEBFE9 /* example2 */,
+				FCDF1D6820FE20ED00EEBFE9 /* example1 */,
 			);
-			path = imageExamples;
+			path = examples;
 			sourceTree = "<group>";
 		};
-		FCB2052D20FBF819009EB2BC /* formExamples */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = formExamples;
-			sourceTree = "<group>";
-		};
-		FCB2052E20FBF827009EB2BC /* customizableExamples */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = customizableExamples;
-			sourceTree = "<group>";
-		};
-		FCB2052F20FBF838009EB2BC /* expandableExamples */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = expandableExamples;
-			sourceTree = "<group>";
-		};
-		FCF399FF20FCFE7B00D6EB7C /* view */ = {
+		FCDF1D6820FE20ED00EEBFE9 /* example1 */ = {
 			isa = PBXGroup;
 			children = (
 				FC2182311DE4EB29003F99AE /* FirstCustomView.swift */,
 				FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */,
 			);
-			path = view;
+			path = example1;
+			sourceTree = "<group>";
+		};
+		FCDF1D6920FE218500EEBFE9 /* example2 */ = {
+			isa = PBXGroup;
+			children = (
+				FCDF1D6A20FE21C100EEBFE9 /* Example2View.swift */,
+				FCDF1D6C20FE21EA00EEBFE9 /* Example2View.xib */,
+			);
+			path = example2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +365,7 @@
 				FC433B781DEDEE6A00CD9131 /* SecondCustomView.xib in Resources */,
 				FCB2052B20FBF09F009EB2BC /* ExampleTableViewCell.xib in Resources */,
 				FC5F7F431F5E028C0067D0F4 /* FiveCustomView.xib in Resources */,
+				FCDF1D6D20FE21EA00EEBFE9 /* Example2View.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,9 +494,9 @@
 				FCB2052120FBEB9C009EB2BC /* BaseViewController.swift in Sources */,
 				FCB2052420FBEBCB009EB2BC /* ListExamplesViewController.swift in Sources */,
 				FCB2052A20FBF09F009EB2BC /* ExampleTableViewCell.swift in Sources */,
+				FCDF1D6B20FE21C100EEBFE9 /* Example2View.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				FC2182321DE4EB29003F99AE /* FirstCustomView.swift in Sources */,
-				FCB2053120FBF8C8009EB2BC /* ImageExamplesViewController.swift in Sources */,
 				FCA4774D1DE6540D00AC9B3C /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,7 +24,7 @@ class FirstCustomView: UIView {
         messageLabel.text = message
     }
     
-    class func instantiateFromNib() -> FirstCustomView{
+    class func instantiateFromNib() -> FirstCustomView {
         return Bundle.main.loadNibNamed("FirstCustomView", owner: nil, options: nil)!.first as! FirstCustomView
     }
 }
