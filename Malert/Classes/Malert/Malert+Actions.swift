@@ -18,7 +18,7 @@ extension Malert {
             let isPointInMalertView = malertView.frame.contains(point)
             if !isPointInMalertView {
                 dismiss(animated: true) {
-                    //TODO
+                    print("dismissed")
                 }
             }
         }
@@ -30,7 +30,7 @@ extension Malert: MalertActionCallbackProtocol {
     func didTapOnAction() {
         if dismissOnActionTapped {
             dismiss(animated: true) {
-                //TODO
+                print("dismissed")
             }
         }
     }

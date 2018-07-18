@@ -47,7 +47,6 @@ public class Malert: BaseMalertViewController {
     
     override public func loadView() {
         super.loadView()
-        view.backgroundColor = UIColor(white: 0, alpha: 0.4)
         
         malertView.alpha = 1
         malertView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +61,16 @@ public class Malert: BaseMalertViewController {
         tapRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapRecognizer)
         listenKeyboard()
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = UIColor(white: 0, alpha: 0.4)
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.backgroundColor = .clear
     }
     
     override public func viewDidLayoutSubviews() {

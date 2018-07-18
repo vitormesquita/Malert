@@ -21,7 +21,6 @@ class MalertDimissTransitioning: BaseTransitioning, UIViewControllerAnimatedTran
         let duration = transitionDuration(using: transitionContext)
         
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
-            fromVC.view.backgroundColor = .clear
             self.buildMalertAnimation(malertView: malertView, width: fromVC.view.bounds.size.width, height: fromVC.view.bounds.size.height)
             
         }, completion: { (finished) in

@@ -9,29 +9,14 @@
 import UIKit
 import Malert
 
-enum ExampleType {
-    case withImage
-    case textField
-    case customizable
-    case expandable
-    
-    var color: UIColor {
-        switch self {
-        case .withImage:
-            return .imageExample
-        case .textField:
-            return .formExample
-        case .customizable:
-            return .customizableExample
-        case .expandable:
-            return .expandableExample
-        }
-    }
+struct Example {
+    var title: String
+    var malert: Malert
 }
 
 class ListExamplesViewController: BaseViewController {
     
-    private let examples: [ExampleType] = [.withImage, .textField, .customizable, .expandable]
+    var examples: [Example] = []
     
     override func loadView() {
         super.loadView()
@@ -40,6 +25,7 @@ class ListExamplesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addExamples()
         configureTableView()
     }
     
@@ -63,61 +49,6 @@ class ListExamplesViewController: BaseViewController {
         
         tableView.register(UINib(nibName: "ExampleTableViewCell", bundle: nil), forCellReuseIdentifier: "ExampleTableViewCell")
     }
-    
-    private func showExample1() {
-        let firstExample = FirstCustomView.instantiateFromNib()
-        firstExample.populate(title: "Hello!", message: "There are a lot of ways to build a Malert :)")
-
-        let alert = Malert(customView: firstExample)
-        
-        let action = MalertAction(title: "OK")
-        action.tintColor = UIColor(red:0.15, green:0.64, blue:0.85, alpha:1.0)
-        alert.addAction(action)
-        
-        present(alert, animated: true)
-    }
-    
-    private func showExample2() {
-        let example2View = Example2View.instantiateFromNib()
-        
-        let alert = Malert(customView: example2View)
-        alert.animationType = .modalLeft
-        alert.backgroundColor = UIColor(red:0.47, green:0.53, blue:0.80, alpha:1.0)
-        alert.buttonsAxis = .horizontal
-        alert.buttonsHeight = 60
-        alert.separetorColor = .clear
-        
-        let buttonsColor = UIColor(red:0.36, green:0.42, blue:0.75, alpha:1.0)
-        
-        let firstAction = MalertAction(title: "GOT IT", backgroundColor: buttonsColor)
-        firstAction.tintColor = .white
-        alert.addAction(firstAction)
-        
-        let secondAction = MalertAction(title: "LOOK UP", backgroundColor: buttonsColor)
-        secondAction.tintColor = .white
-        alert.addAction(secondAction)
-        
-        present(alert, animated: true)
-    }
-    
-    private func showExample3() {
-        let example3View = Example3View.instantiateFromNib()
-        
-        let alert = Malert(customView: example3View)
-        alert.animationType = .modalRight
-        alert.buttonsAxis = .horizontal
-        alert.buttonsSideMargin = 60
-        alert.buttonsBottomMargin = 16
-        alert.separetorColor = .clear
-        
-        let firstAction = MalertAction(title: "Take the tour")
-        firstAction.backgroundColor = UIColor(red:0.38, green:0.76, blue:0.15, alpha:1.0)
-        firstAction.tintColor = .white
-        firstAction.cornerRadius = 8
-        alert.addAction(firstAction)
-        
-        present(alert, animated: true)
-    }
 }
 
 extension ListExamplesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -128,22 +59,14 @@ extension ListExamplesViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExampleTableViewCell", for: indexPath) as! ExampleTableViewCell
-        cell.populateWith(type: examples[indexPath.row])
+        cell.populateWith(title: examples[indexPath.row].title)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let type = examples[indexPath.row]
-        
-        switch type {
-        case .withImage:
-            showExample1()
-        case .textField:
-            showExample2()
-        default:
-            showExample3()
-        }
+        let example = examples[indexPath.row]
+        present(example.malert, animated: true)
     }
 }
