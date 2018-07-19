@@ -29,6 +29,7 @@ class MalertPresentTransitioning: BaseTransitioning, UIViewControllerAnimatedTra
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
             malertView.alpha = 1
             malertView.transform = .identity
+            toVC.view.backgroundColor = UIColor(white: 0, alpha: 0.4)
             
         }, completion: { (finished) in
             transitionContext.completeTransition(finished)

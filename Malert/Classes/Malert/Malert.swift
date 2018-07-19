@@ -63,16 +63,6 @@ public class Malert: BaseMalertViewController {
         listenKeyboard()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        view.backgroundColor = UIColor(white: 0, alpha: 0.4)
-    }
-    
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        view.backgroundColor = .clear
-    }
-    
     override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         makeContraints()
@@ -103,9 +93,14 @@ extension Malert {
         set { malertPresentationManager.animationType = newValue }
     }
     
-    public var duration: TimeInterval {
-        get { return malertPresentationManager.duration }
-        set { malertPresentationManager.duration = newValue }
+    public var presentDuration: TimeInterval {
+        get { return malertPresentationManager.presentDuration }
+        set { malertPresentationManager.presentDuration = newValue }
+    }
+    
+    public var dismissDuration: TimeInterval {
+        get { return malertPresentationManager.dismissDuration }
+        set { malertPresentationManager.dismissDuration = newValue }
     }
     
     /* Container config */

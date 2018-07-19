@@ -45,7 +45,6 @@ class ListExamplesViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 100
-        tableView.separatorStyle = .none
         
         tableView.register(UINib(nibName: "ExampleTableViewCell", bundle: nil), forCellReuseIdentifier: "ExampleTableViewCell")
     }

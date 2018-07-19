@@ -16,3 +16,19 @@ extension UIColor {
     static let customizableExample = UIColor(red:0.75, green:0.79, blue:0.20, alpha:1.0)
     static let expandableExample = UIColor(red:0.49, green:0.30, blue:1.00, alpha:1.0)
 }
+
+// MARK: - UIImage
+extension UIImage {
+    
+    static func fromColor(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
+        
+        let img = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return img
+    }
+}

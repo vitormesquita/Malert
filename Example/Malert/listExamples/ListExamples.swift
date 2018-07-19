@@ -15,6 +15,7 @@ extension ListExamplesViewController {
         addExample1()
         addExample2()
         addExample3()
+        addExample4()
     }
 
     private func addExample1() {
@@ -70,5 +71,29 @@ extension ListExamplesViewController {
         alert.addAction(firstAction)
 
         examples.append(Example(title: "Example 3", malert: alert))
+    }
+    
+    private func addExample4() {
+        let example4View = Example4View.instantiateFromNib()
+        
+        let alert = Malert(customView: example4View, tapToDismiss: false)
+        alert.buttonsAxis = .horizontal
+        alert.separetorColor = .clear
+        alert.cornerRadius = 20
+        alert.animationType = .fadeIn
+        alert.presentDuration = 0.6
+        
+        let firstAction = MalertAction(title: "SNOOZE") {
+            print("snooze")
+        }
+        
+        firstAction.tintColor = UIColor.lightGray
+        alert.addAction(firstAction)
+        
+        let secondAction = MalertAction(title: "JOIN THE GAME")
+        secondAction.tintColor = UIColor(red:0.91, green:0.12, blue:0.39, alpha:1.0)
+        alert.addAction(secondAction)
+        
+        examples.append(Example(title: "Example 4", malert: alert))
     }
 }

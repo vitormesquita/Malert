@@ -12,7 +12,7 @@ extension Malert {
     @objc func tapOnView(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
         
-        if tapToDismiss == true {
+        if tapToDismiss {
             let point = sender.location(in: self.view)
             
             let isPointInMalertView = malertView.frame.contains(point)

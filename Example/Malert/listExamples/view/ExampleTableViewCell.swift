@@ -18,8 +18,7 @@ class ExampleTableViewCell: UITableViewCell {
     }
     
     private func applyLayout() {
-        titleLabel.font = UIFont.systemFont(ofSize: 26)
-//        titleLabel.textColor = .white
+        titleLabel.font = UIFont.systemFont(ofSize: 18)
         titleLabel.numberOfLines = 0
     }
     
