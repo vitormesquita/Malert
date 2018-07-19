@@ -63,7 +63,8 @@
 > 
 > - Added `cancelsTouchesInView=false` in MalertViewController `tapRecognizer` for not cancel subviews touch
 >
-> ## [1.0](https://github.com/vitormesquita/Malert/tree/1.0) (2017-03-03)
+
+## [1.0](https://github.com/vitormesquita/Malert/tree/1.0) (2017-03-03)
 >
 > **Implemented enhancements:**
 > 
