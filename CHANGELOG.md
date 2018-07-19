@@ -1,20 +1,32 @@
 # Change Log
 
-> ## [1.0](https://github.com/vitormesquita/Malert/tree/1.0) (2017-03-03)
+## [3.0](https://github.com/vitormesquita/Malert/tree/3.0) (2018-07-?)
+>
+>**Implemented enhancements**
+>
+>- Refactoring the way how to create an ***Malert*** to be more similar with `UIAlertController`
+>- Changing `MalertViewController` -> `Malert` to be presented as `UIViewController`
+>- Changing `MalertButtonStruct` -> `MalertAction`
+>- Removing `MalertViewConfiguration`, `MalertButtonConfiguration`
+>- Removing shared instance and all queue manager from `Malert`
+>- Add new attributes to be more and more customizable and flexible
+>- Removing `Cartography`
+>- Add `dismissOnActionTapped` to dismiss when a call to action was clicked
+>
+
+## [2.0](https://github.com/vitormesquita/Malert/tree/2.0) (2017-11-21)
 >
 > **Implemented enhancements:**
-> 
-> - Change MalertManager -> Malert
-> - Undocking Malert from `UIWindow`, and makes create malert only with other `UIViewController`
-> - Create custom dismissed from Malert according to `MalertAnimationType`
-> - Added `tapToDismiss` attribute to close MalertView when clicked
 >
-> **Fixed bugs:**
+>- Merged with [pull request](https://github.com/vitormesquita/Malert/pull/8), updating to swift 4
+>- Refactoring some unnecessary codes
 >
-> - Tap on View and Dismiss current MalertView [#3](https://github.com/vitormesquita/Malert/issues/3)
-> - Error to hide keyboard when clicked on view [#4](https://github.com/vitormesquita/Malert/issues/4)
-> 
-> ## [1.1](https://github.com/vitormesquita/Malert/tree/1.1) (2017-09-04)
+>**Fixed bugs:**
+>
+>- Fixing [bug](https://github.com/vitormesquita/Malert/issues/9)
+>
+
+## [1.1](https://github.com/vitormesquita/Malert/tree/1.1) (2017-09-04)
 > 
 > **Implemented enhancements:**
 > 
@@ -51,15 +63,18 @@
 > 
 > - Added `cancelsTouchesInView=false` in MalertViewController `tapRecognizer` for not cancel subviews touch
 >
->
-> ## [2.0](https://github.com/vitormesquita/Malert/tree/1.0) (2017-11-21)
+> ## [1.0](https://github.com/vitormesquita/Malert/tree/1.0) (2017-03-03)
 >
 > **Implemented enhancements:**
+> 
+> - Change MalertManager -> Malert
+> - Undocking Malert from `UIWindow`, and makes create malert only with other `UIViewController`
+> - Create custom dismissed from Malert according to `MalertAnimationType`
+> - Added `tapToDismiss` attribute to close MalertView when clicked
 >
->- Merged with [pull request](https://github.com/vitormesquita/Malert/pull/8), updating to swift 4
->- Refactoring some unnecessary codes
+> **Fixed bugs:**
 >
->**Fixed bugs:**
+> - Tap on View and Dismiss current MalertView [#3](https://github.com/vitormesquita/Malert/issues/3)
+> - Error to hide keyboard when clicked on view [#4](https://github.com/vitormesquita/Malert/issues/4)
 >
->- Fixing [bug](https://github.com/vitormesquita/Malert/issues/9)
->
+

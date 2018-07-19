@@ -17,6 +17,9 @@ public class MalertView: UIView {
     private var titleLabelConstraints: [NSLayoutConstraint] = []
     private var customViewConstraints: [NSLayoutConstraint] = []
     
+    private var _buttonsHeight: CGFloat = 44
+    private var _buttonsSeparetorColor: UIColor = UIColor(white: 0.8, alpha: 1)
+    
     private var inset: CGFloat = 0 {
         didSet { refreshViews() }
     }
@@ -27,14 +30,6 @@ public class MalertView: UIView {
     
     private var stackBottomInset: CGFloat = 0 {
         didSet { updateButtonsStackViewConstraints() }
-    }
-    
-    private var _buttonsHeight: CGFloat = 44 {
-        didSet { /*TODO*/ }
-    }
-    
-    private var _buttonsSeparetorColor: UIColor = UIColor(white: 0.8, alpha: 1) {
-        didSet { /*TODO*/ }
     }
     
     private var customView: UIView? {
