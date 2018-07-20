@@ -87,7 +87,7 @@ To add buttons to your malert There is a function called `addAction` that you ne
 let malert = ... 
    	 
 let action = MalertAction(title: "Take the tour") {
-	print("Closure called when action was clicked")
+   print("Closure called when action was clicked")
 }
 
 action.cornerRadius = 8
