@@ -107,9 +107,9 @@ Malert provides some attributes to cutomize it:
 
 ```swift
 /* Animation attr */
-public var animationType: MalertAnimationType
 public var presentDuration: TimeInterval
 public var dismissDuration: TimeInterval
+public var animationType: MalertAnimationType
 
 /* Container attr */
 public var margin: CGFloat
@@ -117,9 +117,9 @@ public var cornerRadius: CGFloat
 public var backgroundColor: UIColor?
 
 /* Title attr */
+public var titleFont: UIFont
 public var textColor: UIColor
 public var textAlign: NSTextAlignment
-public var titleFont: UIFont
 
 /* Buttons attr */
 public var buttonsHeight: CGFloat
@@ -140,9 +140,9 @@ let alert = Malert(customView: exampleView)
 //customizing your malert
 
 alert.animationType = .modalRight
-alert.buttonsAxis = .horizontal
 alert.buttonsSideMargin = 60
 alert.buttonsBottomMargin = 16
+alert.buttonsAxis = .horizontal
 alert.separetorColor = .clear
 ```
 
@@ -170,7 +170,5 @@ Vitor Mesquita, vitor.mesquita09@gmail.com
 ## License
 
 Malert is available under the MIT license. See the LICENSE file for more info.
-
---
 
 ### [CHANGELOG](https://github.com/vitormesquita/Malert/blob/master/CHANGELOG.md)
