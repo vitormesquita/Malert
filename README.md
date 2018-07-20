@@ -116,12 +116,12 @@ public var margin: CGFloat
 public var cornerRadius: CGFloat
 public var backgroundColor: UIColor?
 
-/* Title config */
+/* Title attr */
 public var textColor: UIColor
 public var textAlign: NSTextAlignment
 public var titleFont: UIFont
 
-/* Buttons config */
+/* Buttons attr */
 public var buttonsHeight: CGFloat
 public var separetorColor: UIColor
 public var buttonsSpace: CGFloat
@@ -163,8 +163,6 @@ If you think that we can do the Malert more powerful please contribute with this
 
 Create a pull request or let's talk about something in issues. Thanks a lot.
 
-### [CHANGELOG](https://github.com/vitormesquita/Malert/blob/master/CHANGELOG.md)
-
 ## Author
 
 Vitor Mesquita, vitor.mesquita09@gmail.com
@@ -172,3 +170,7 @@ Vitor Mesquita, vitor.mesquita09@gmail.com
 ## License
 
 Malert is available under the MIT license. See the LICENSE file for more info.
+
+--
+
+### [CHANGELOG](https://github.com/vitormesquita/Malert/blob/master/CHANGELOG.md)
