@@ -99,13 +99,13 @@ malert.addAction(action)
 ...
 ```
 
-**For more details check the examples :D **
+**For more details check the examples**
 
 ## Customize
 
 Malert provides some attributes to cutomize it:
 
-```
+```swift
 /* Animation attr */
 public var animationType: MalertAnimationType
 public var presentDuration: TimeInterval
