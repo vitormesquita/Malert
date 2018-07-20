@@ -53,11 +53,11 @@ This is a simple example. If you want to know more, check the app Example cause 
 ```swift
 import Malert
 
-	...
+...
 	
-	TODO
+TODO
 	
-	...
+...
 	
 ```
 
@@ -66,11 +66,11 @@ import Malert
 ```swift
 import Malert
 
-	...
+...
 
-   	TODO
-    
-   	...
+TODO
+
+...
    	
 ```
 
@@ -79,24 +79,23 @@ import Malert
 To add buttons to your malert There is a function called `addAction` that you need to provide a `MalertAction` object to build customizable buttons.
 
 ```swift
-    let malert = ... 
-    
-    let action = MalertAction(title: "Take the tour")
-    action.cornerRadius = 8
-    action.tintColor = .white
-    action.backgroundColor = UIColor(red:0.38, green:0.76, blue:0.15, alpha:1.0)
+let malert = ... 
+   	 
+let action = MalertAction(title: "Take the tour")
+action.cornerRadius = 8
+action.tintColor = .white
+action.backgroundColor = UIColor(red:0.38, green:0.76, blue:0.15, alpha:1.0)
+malert.addAction(action)
 	
-	malert.addAction(action)
-	
-	...
+...
 ```
 
 You can customize a button changing `MalertAction` attributes:
 
 ```swift
-    public var tintColor: UIColor
-    public var cornerRadius: CGFloat
-    public var backgroundColor: UIColor
+public var tintColor: UIColor
+public var cornerRadius: CGFloat
+public var backgroundColor: UIColor
 ```
 
 For more details check the examples :D
@@ -111,19 +110,17 @@ Malert is very customizable. There are two ways to customize your Malert:
 If all malerts in your application will be the same, malert provides a global customization option, and every malert will have the same customization.
 
 ```swift
-    var malertAppearance = MalertView.appearance()
-    malertAppearance.backgroundColor = .gray
-    malertAppearance.buttonsAxis = .horizontal
-    malertAppearance.margin = 16
+var malertAppearance = MalertView.appearance()
+malertAppearance.backgroundColor = .gray
+malertAppearance.buttonsAxis = .horizontal
+malertAppearance.margin = 16
 ```
 
 If you want to just customize one malert, you can change almost all attributes!!!
 
 ```swift
-
-    //customizing your malert
-    TODO
-    
+//customizing your malert
+TODO
 ```
 
 ## Default values
@@ -154,7 +151,7 @@ By default malert provides values:
     malertButtonAppearance.separatorColor  : UIColor = UIColor(white: 0.8, alpha: 1)
 ```
 
-###[CHANGELOG](https://github.com/vitormesquita/Malert/blob/master/CHANGELOG.md)
+### [CHANGELOG](https://github.com/vitormesquita/Malert/blob/master/CHANGELOG.md)
 
 ## Author
 

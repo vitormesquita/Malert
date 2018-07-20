@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,20 +16,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdU-F2-xgg">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RV-xc-W1P">
-                            <rect key="frame" x="16" y="92" width="343" height="21"/>
+                            <rect key="frame" x="16" y="120" width="343" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HcW-FW-YcQ">
-                            <rect key="frame" x="157" y="16" width="60" height="60"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="60" id="Xcj-2j-MH6"/>
-                                <constraint firstAttribute="width" secondItem="HcW-FW-YcQ" secondAttribute="height" multiplier="1:1" id="Yfe-eU-DRx"/>
-                            </constraints>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_ticket" translatesAutoresizingMaskIntoConstraints="NO" id="HcW-FW-YcQ">
+                            <rect key="frame" x="107" y="16" width="161" height="88"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,7 +39,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aay-cN-NKa">
-                    <rect key="frame" x="16" y="145" width="343" height="111"/>
+                    <rect key="frame" x="16" y="173" width="343" height="83"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -71,4 +66,7 @@
             <point key="canvasLocation" x="-44" y="-113"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_ticket" width="161" height="88"/>
+    </resources>
 </document>

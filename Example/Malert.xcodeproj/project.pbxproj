@@ -24,6 +24,8 @@
 		FC881B2A20FF9CB20030629F /* ListExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC881B2920FF9CB20030629F /* ListExamples.swift */; };
 		FC8F3A8F2101143700189BFC /* Example4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F3A8E2101143700189BFC /* Example4View.swift */; };
 		FC8F3A912101144000189BFC /* Example4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8F3A902101144000189BFC /* Example4View.xib */; };
+		FC8F3A942101469D00189BFC /* Example5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F3A932101469D00189BFC /* Example5View.swift */; };
+		FC8F3A96210146A600189BFC /* Example5View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8F3A95210146A600189BFC /* Example5View.xib */; };
 		FCA4774D1DE6540D00AC9B3C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA4774C1DE6540D00AC9B3C /* Helper.swift */; };
 		FCB2051E20FBEB5E009EB2BC /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2051D20FBEB5E009EB2BC /* BaseNavigationController.swift */; };
 		FCB2052120FBEB9C009EB2BC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2052020FBEB9C009EB2BC /* BaseViewController.swift */; };
@@ -76,6 +78,8 @@
 		FC881B2920FF9CB20030629F /* ListExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExamples.swift; sourceTree = "<group>"; };
 		FC8F3A8E2101143700189BFC /* Example4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example4View.swift; sourceTree = "<group>"; };
 		FC8F3A902101144000189BFC /* Example4View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Example4View.xib; sourceTree = "<group>"; };
+		FC8F3A932101469D00189BFC /* Example5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example5View.swift; sourceTree = "<group>"; };
+		FC8F3A95210146A600189BFC /* Example5View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Example5View.xib; sourceTree = "<group>"; };
 		FCA4774C1DE6540D00AC9B3C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		FCB2051D20FBEB5E009EB2BC /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		FCB2052020FBEB9C009EB2BC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +228,15 @@
 			path = example4;
 			sourceTree = "<group>";
 		};
+		FC8F3A9221013EBD00189BFC /* example5 */ = {
+			isa = PBXGroup;
+			children = (
+				FC8F3A932101469D00189BFC /* Example5View.swift */,
+				FC8F3A95210146A600189BFC /* Example5View.xib */,
+			);
+			path = example5;
+			sourceTree = "<group>";
+		};
 		FCA477491DE6533800AC9B3C /* util */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +277,7 @@
 		FCB2052C20FBF80A009EB2BC /* examples */ = {
 			isa = PBXGroup;
 			children = (
+				FC8F3A9221013EBD00189BFC /* example5 */,
 				FC8F3A8D2101141700189BFC /* example4 */,
 				FCDF1D7620FE475400EEBFE9 /* example3 */,
 				FCDF1D6920FE218500EEBFE9 /* example2 */,
@@ -393,6 +407,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				FC8F3A912101144000189BFC /* Example4View.xib in Resources */,
 				FC2182301DE4EB0B003F99AE /* FirstCustomView.xib in Resources */,
+				FC8F3A96210146A600189BFC /* Example5View.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				FCDF1D7A20FE476C00EEBFE9 /* Example3View.xib in Resources */,
 				FC433B781DEDEE6A00CD9131 /* SecondCustomView.xib in Resources */,
@@ -526,6 +541,7 @@
 				FC0EA23A1E6A2C9100F3A527 /* CHANGELOG.md in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				FCB2052120FBEB9C009EB2BC /* BaseViewController.swift in Sources */,
+				FC8F3A942101469D00189BFC /* Example5View.swift in Sources */,
 				FC8F3A8F2101143700189BFC /* Example4View.swift in Sources */,
 				FCB2052420FBEBCB009EB2BC /* ListExamplesViewController.swift in Sources */,
 				FCB2052A20FBF09F009EB2BC /* ExampleTableViewCell.swift in Sources */,

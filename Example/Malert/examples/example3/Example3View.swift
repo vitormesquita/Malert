@@ -41,12 +41,12 @@ class Example3View: UIView {
     }
     
     private func applyLayout() {
-        //TODO need to get one image to put
+        imageView.image = #imageLiteral(resourceName: "ic_ticket")
         titleLabel.font = UIFont.systemFont(ofSize: 28, weight: UIFont.Weight.thin)
         titleLabel.textColor = .white
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
-        titleLabel.text = "Congratulations,\nwelcome for work!"
+        titleLabel.text = "Congratulations,\nwelcome to cinema!"
         
         messageLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
         messageLabel.textAlignment = .center
