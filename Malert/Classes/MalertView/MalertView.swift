@@ -165,16 +165,23 @@ extension MalertView {
     }
     
     private func updateButtonsStackViewConstraints() {
-        if let customView = customView, hasButtons {
+        if hasButtons {
             
             NSLayoutConstraint.deactivate(stackConstraints)
             buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
             stackConstraints = [
-                buttonsStackView.topAnchor.constraint(equalTo: customView.bottomAnchor, constant: inset),
                 buttonsStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -stackSideInset),
                 buttonsStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: stackSideInset),
                 buttonsStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -stackBottomInset)
             ]
+            
+            if let customView = customView {
+                stackConstraints.append(buttonsStackView.topAnchor.constraint(equalTo: customView.bottomAnchor, constant: inset))
+            } else if titleLabel.isDescendant(of: self) {
+                stackConstraints.append(buttonsStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: inset))
+            } else {
+                stackConstraints.append(buttonsStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: inset))
+            }
             
             NSLayoutConstraint.activate(stackConstraints)
         }

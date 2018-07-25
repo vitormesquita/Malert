@@ -27,7 +27,7 @@ public class Malert: BaseMalertViewController {
         return visibleView
     }()
     
-    public init(title: String? = nil, customView: UIView, tapToDismiss: Bool = true, dismissOnActionTapped: Bool = true) {
+    public init(title: String? = nil, customView: UIView? = nil, tapToDismiss: Bool = true, dismissOnActionTapped: Bool = true) {
         self.malertView = MalertView()
         self.tapToDismiss = tapToDismiss
         self.dismissOnActionTapped = dismissOnActionTapped

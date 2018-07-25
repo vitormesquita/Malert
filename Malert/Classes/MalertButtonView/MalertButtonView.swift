@@ -79,6 +79,14 @@ extension MalertButtonView {
             self.layer.cornerRadius = cornerRadius
         }
         
+        if let borderColor = action.borderColor {
+            self.layer.borderColor = borderColor.cgColor
+        }
+        
+        if let borderWidth = action.borderWidth {
+            self.layer.borderWidth = borderWidth
+        }
+        
         setTitle(action.title, for: .normal)
         addTarget(self, action: #selector(MalertButtonView.buttonPressedAction(button:)), for: .touchUpInside)
     }

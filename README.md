@@ -154,6 +154,8 @@ Malert enable some attributes to customize each action:
 public var tintColor: UIColor
 public var backgroundColor: UIColor
 public var cornerRadius: CGFloat
+public var borderColor: UIColor
+public var borderWidth: CGFloat
 ```
 If you need more attributes to customize it, please let us know, create an issue or a pull request. 
 

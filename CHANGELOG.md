@@ -9,7 +9,7 @@
 >- Changing `MalertButtonStruct` -> `MalertAction`
 >- Removing `MalertViewConfiguration`, `MalertButtonConfiguration`
 >- Removing shared instance and all queue manager from `Malert`
->- Add new attributes to be more and more customizable and flexible
+>- Add new attributes to be more customizable and flexible
 >- Removing `Cartography`
 >- Add `dismissOnActionTapped` to dismiss when a call to action was clicked
 >

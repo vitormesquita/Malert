@@ -17,6 +17,7 @@ extension ListExamplesViewController {
         addExample3()
         addExample4()
         addExample5()
+        addExample6()
     }
     
     private func addExample1() {
@@ -118,5 +119,33 @@ extension ListExamplesViewController {
         alert.addAction(dismissAction)
         
         examples.append(Example(title: "Example 5", malert: alert))
+    }
+    
+    private func addExample6() {
+        let alert = Malert(title: "Would you invite me?")
+        alert.buttonsSpace = 24
+        alert.buttonsAxis = .horizontal
+        alert.textAlign = .center
+        alert.margin = 24
+        alert.buttonsSideMargin = 24
+        alert.buttonsBottomMargin = 16
+        alert.cornerRadius = 12
+        alert.titleFont = UIFont.systemFont(ofSize: 20)
+        
+        let laterAction = MalertAction(title: "Later")
+        laterAction.backgroundColor = .clear
+        laterAction.borderWidth = 1
+        laterAction.borderColor = UIColor(red:0.00, green:0.75, blue:0.65, alpha:1.0)
+        laterAction.tintColor = UIColor(red:0.00, green:0.75, blue:0.65, alpha:1.0)
+        laterAction.cornerRadius = 10
+        alert.addAction(laterAction)
+        
+        let inviteAction = MalertAction(title: "Invite")
+        inviteAction.backgroundColor = UIColor(red:0.00, green:0.75, blue:0.65, alpha:1.0)
+        inviteAction.tintColor = .white
+        inviteAction.cornerRadius = 12
+        alert.addAction(inviteAction)
+        
+        examples.append(Example(title: "Example 6", malert: alert))
     }
 }
