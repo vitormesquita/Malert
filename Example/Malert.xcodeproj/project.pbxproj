@@ -21,6 +21,8 @@
 		FC433B781DEDEE6A00CD9131 /* SecondCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */; };
 		FC5F7F411F5E02850067D0F4 /* FiveCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */; };
 		FC5F7F431F5E028C0067D0F4 /* FiveCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */; };
+		FC7A84462108EEF30043DD3B /* Example6View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7A84452108EEF30043DD3B /* Example6View.swift */; };
+		FC7A84482108EEFB0043DD3B /* Example6View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7A84472108EEFB0043DD3B /* Example6View.xib */; };
 		FC881B2A20FF9CB20030629F /* ListExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC881B2920FF9CB20030629F /* ListExamples.swift */; };
 		FC8F3A8F2101143700189BFC /* Example4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F3A8E2101143700189BFC /* Example4View.swift */; };
 		FC8F3A912101144000189BFC /* Example4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8F3A902101144000189BFC /* Example4View.xib */; };
@@ -75,6 +77,8 @@
 		FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCustomView.xib; sourceTree = "<group>"; };
 		FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveCustomView.swift; sourceTree = "<group>"; };
 		FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiveCustomView.xib; sourceTree = "<group>"; };
+		FC7A84452108EEF30043DD3B /* Example6View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example6View.swift; sourceTree = "<group>"; };
+		FC7A84472108EEFB0043DD3B /* Example6View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Example6View.xib; sourceTree = "<group>"; };
 		FC881B2920FF9CB20030629F /* ListExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExamples.swift; sourceTree = "<group>"; };
 		FC8F3A8E2101143700189BFC /* Example4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example4View.swift; sourceTree = "<group>"; };
 		FC8F3A902101144000189BFC /* Example4View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Example4View.xib; sourceTree = "<group>"; };
@@ -219,6 +223,15 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		FC7A84442108EE6D0043DD3B /* example6 */ = {
+			isa = PBXGroup;
+			children = (
+				FC7A84452108EEF30043DD3B /* Example6View.swift */,
+				FC7A84472108EEFB0043DD3B /* Example6View.xib */,
+			);
+			path = example6;
+			sourceTree = "<group>";
+		};
 		FC8F3A8D2101141700189BFC /* example4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +290,7 @@
 		FCB2052C20FBF80A009EB2BC /* examples */ = {
 			isa = PBXGroup;
 			children = (
+				FC7A84442108EE6D0043DD3B /* example6 */,
 				FC8F3A9221013EBD00189BFC /* example5 */,
 				FC8F3A8D2101141700189BFC /* example4 */,
 				FCDF1D7620FE475400EEBFE9 /* example3 */,
@@ -405,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				FC7A84482108EEFB0043DD3B /* Example6View.xib in Resources */,
 				FC8F3A912101144000189BFC /* Example4View.xib in Resources */,
 				FC2182301DE4EB0B003F99AE /* FirstCustomView.xib in Resources */,
 				FC8F3A96210146A600189BFC /* Example5View.xib in Resources */,
@@ -537,6 +552,7 @@
 				FCB2052620FBEC86009EB2BC /* Colors.swift in Sources */,
 				FC433B761DEDEE6100CD9131 /* SecondCustomView.swift in Sources */,
 				FCDF1D7820FE476600EEBFE9 /* Example3View.swift in Sources */,
+				FC7A84462108EEF30043DD3B /* Example6View.swift in Sources */,
 				FC5F7F411F5E02850067D0F4 /* FiveCustomView.swift in Sources */,
 				FC0EA23A1E6A2C9100F3A527 /* CHANGELOG.md in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,

@@ -113,7 +113,7 @@ extension ListExamplesViewController {
         firstAction.tintColor = .white
         alert.addAction(firstAction)
         
-        let dismissAction = MalertAction(title: "Cancel")
+        let dismissAction = MalertAction(title: "Cancel this booking")
         dismissAction.tintColor = .gray
         alert.addAction(dismissAction)
         

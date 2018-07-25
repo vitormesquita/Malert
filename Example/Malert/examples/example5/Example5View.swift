@@ -26,9 +26,10 @@ class Example5View: UIView {
         titleLabel.textColor = .white
         titleLabel.text = "Oops..."
         
-        descriptionLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        descriptionLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        descriptionLabel.textColor = .darkGray
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet ante ut massa dignissim feugiat. Morbi eu faucibus diam. Nunc et nisl et tellus ultrices blandit. Proin pharetra hendrerit augue sed tempus. Aliquam vel nibh laoreet tortor euismod tempus. Integer et pharetra magna."
+        descriptionLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet ante ut massa dignissim feugiat. Morbi eu faucibus diam. Nunc et nisl et tellus ultrices blandit. Proin pharetra hendrerit augue sed tempus."
     }
 
     class func instantiateFromNib() -> Example5View {
