@@ -20,7 +20,7 @@ class Example4View: UIView {
     }
     
     private func applyLayout() {
-        //TODO COLOCAR UMA IMAGEM
+        //TODO PUT AN IMAGE
         imageView.image = UIImage.fromColor(color: UIColor(red:0.91, green:0.12, blue:0.39, alpha:1.0))
         
         titleLabel.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.light)

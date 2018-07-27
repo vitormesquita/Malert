@@ -21,6 +21,7 @@ class Example5View: UIView {
     }
     
     private func applyLayout() {
+        //TODO PUT AN IMAGE
         containerView.backgroundColor = UIColor(red:1.00, green:0.44, blue:0.26, alpha:1.0)
         titleLabel.font = UIFont.systemFont(ofSize: 40, weight: .semibold)
         titleLabel.textColor = .white

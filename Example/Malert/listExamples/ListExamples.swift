@@ -18,6 +18,8 @@ extension ListExamplesViewController {
         addExample4()
         addExample5()
         addExample6()
+        addExample7()
+        addExample8()
     }
     
     private func addExample1() {
@@ -123,7 +125,7 @@ extension ListExamplesViewController {
     
     private func addExample6() {
         let alert = Malert(title: "Would you invite me?")
-        alert.buttonsSpace = 24
+        alert.buttonsSpace = 16
         alert.buttonsAxis = .horizontal
         alert.textAlign = .center
         alert.margin = 24
@@ -147,5 +149,39 @@ extension ListExamplesViewController {
         alert.addAction(inviteAction)
         
         examples.append(Example(title: "Example 6", malert: alert))
+    }
+    
+    private func addExample7() {
+        let example7View = Example7View.instantiateFromNib()
+        
+        let alert = Malert(title: "LOGIN", customView: example7View)
+        alert.textAlign = .center
+        alert.textColor = .gray
+        alert.titleFont = UIFont.systemFont(ofSize: 20)
+        alert.margin = 16
+        alert.buttonsAxis = .horizontal
+        alert.separetorColor = .clear
+        
+        let registerAction = MalertAction(title: "REGISTER", backgroundColor: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0))
+        registerAction.tintColor = .gray
+        alert.addAction(registerAction)
+        
+        let loginAction = MalertAction(title: "SIGN IN", backgroundColor: UIColor(red:0.10, green:0.14, blue:0.49, alpha:1.0))
+        loginAction.tintColor = .white
+        alert.addAction(loginAction)
+        
+        examples.append(Example(title: "Example 7", malert: alert))
+    }
+    
+    private func addExample8() {
+        let example8View = Example8View.instantiateFromNib()
+        
+        let alert = Malert(customView: example8View)
+        alert.margin = 20
+        alert.animationType = .modalRight
+        alert.backgroundColor = UIColor(red:0.36, green:0.86, blue:0.84, alpha:1.0)
+        alert.cornerRadius = 20
+        
+        examples.append(Example(title: "Example 8", malert: alert))
     }
 }
