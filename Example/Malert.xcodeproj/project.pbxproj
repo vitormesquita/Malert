@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1AE6D0AA3BDD71E0BBFBACB8 /* Pods_Malert_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEFA3CF468AD2C89AC6F2A8 /* Pods_Malert_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
@@ -60,7 +59,6 @@
 		607FACD01AFB9204008FA782 /* Malert_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Malert_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Malert_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Malert_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,7 +168,6 @@
 				FCB2052220FBEBAD009EB2BC /* listExamples */,
 				FCB2052C20FBF80A009EB2BC /* examples */,
 				FC21822E1DE4E970003F99AE /* view */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -569,7 +566,6 @@
 				FCDF1D7820FE476600EEBFE9 /* Example3View.swift in Sources */,
 				FC5F7F411F5E02850067D0F4 /* FiveCustomView.swift in Sources */,
 				FC0EA23A1E6A2C9100F3A527 /* CHANGELOG.md in Sources */,
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				FCB2052120FBEB9C009EB2BC /* BaseViewController.swift in Sources */,
 				FC8F3A942101469D00189BFC /* Example5View.swift in Sources */,
 				FC8F3A8F2101143700189BFC /* Example4View.swift in Sources */,
