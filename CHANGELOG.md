@@ -1,6 +1,6 @@
 # Change Log
 
-## [3.0](https://github.com/vitormesquita/Malert/tree/3.0) (2018-07-?)
+## [3.0](https://github.com/vitormesquita/Malert/tree/3.0) (2018-07-27)
 >
 >**Implemented enhancements**
 >
