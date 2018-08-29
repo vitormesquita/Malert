@@ -20,6 +20,7 @@ extension ListExamplesViewController {
         addExample6()
         addExample7()
         addExample8()
+        addExample9()
     }
     
     private func addExample1() {
@@ -183,5 +184,25 @@ extension ListExamplesViewController {
         alert.cornerRadius = 20
         
         examples.append(Example(title: "Example 8", malert: alert))
+    }
+
+    private func addExample9() {
+        let example9View = Example9View()
+
+        let alert = Malert(title: "Table View Example", customView: example9View)
+        alert.margin = 16
+        alert.textAlign = .center
+        alert.titleFont = UIFont.systemFont(ofSize: 20, weight: .bold)
+        alert.cornerRadius = 0
+        alert.buttonsBottomMargin = 16
+        alert.buttonsSideMargin = 16
+
+        let action = MalertAction(title: "THAT'S IT")
+        action.tintColor = .white
+        action.backgroundColor = .black
+
+        alert.addAction(action)
+
+        examples.append(Example(title: "Example 9 (UITableView)", malert: alert))
     }
 }

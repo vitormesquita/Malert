@@ -22,6 +22,9 @@
 		FC433B781DEDEE6A00CD9131 /* SecondCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */; };
 		FC5F7F411F5E02850067D0F4 /* FiveCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */; };
 		FC5F7F431F5E028C0067D0F4 /* FiveCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */; };
+		FC87D8ED213716EE0006A7EF /* Example9View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87D8EC213716EE0006A7EF /* Example9View.swift */; };
+		FC87D8F0213725990006A7EF /* Example9TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87D8EE213725990006A7EF /* Example9TableViewCell.swift */; };
+		FC87D8F1213725990006A7EF /* Example9TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC87D8EF213725990006A7EF /* Example9TableViewCell.xib */; };
 		FC881B2A20FF9CB20030629F /* ListExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC881B2920FF9CB20030629F /* ListExamples.swift */; };
 		FC8F3A8F2101143700189BFC /* Example4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F3A8E2101143700189BFC /* Example4View.swift */; };
 		FC8F3A912101144000189BFC /* Example4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8F3A902101144000189BFC /* Example4View.xib */; };
@@ -79,6 +82,9 @@
 		FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCustomView.xib; sourceTree = "<group>"; };
 		FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveCustomView.swift; sourceTree = "<group>"; };
 		FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiveCustomView.xib; sourceTree = "<group>"; };
+		FC87D8EC213716EE0006A7EF /* Example9View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example9View.swift; sourceTree = "<group>"; };
+		FC87D8EE213725990006A7EF /* Example9TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example9TableViewCell.swift; sourceTree = "<group>"; };
+		FC87D8EF213725990006A7EF /* Example9TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Example9TableViewCell.xib; sourceTree = "<group>"; };
 		FC881B2920FF9CB20030629F /* ListExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExamples.swift; sourceTree = "<group>"; };
 		FC8F3A8E2101143700189BFC /* Example4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example4View.swift; sourceTree = "<group>"; };
 		FC8F3A902101144000189BFC /* Example4View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Example4View.xib; sourceTree = "<group>"; };
@@ -233,6 +239,16 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		FC87D8EB213714900006A7EF /* example9 */ = {
+			isa = PBXGroup;
+			children = (
+				FC87D8EC213716EE0006A7EF /* Example9View.swift */,
+				FC87D8EE213725990006A7EF /* Example9TableViewCell.swift */,
+				FC87D8EF213725990006A7EF /* Example9TableViewCell.xib */,
+			);
+			path = example9;
+			sourceTree = "<group>";
+		};
 		FC8F3A8D2101141700189BFC /* example4 */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +307,7 @@
 		FCB2052C20FBF80A009EB2BC /* examples */ = {
 			isa = PBXGroup;
 			children = (
+				FC87D8EB213714900006A7EF /* example9 */,
 				FC0D8422210B7E480044EF5C /* example8 */,
 				FCD67871210A6E110012DFD2 /* example7 */,
 				FC8F3A9221013EBD00189BFC /* example5 */,
@@ -437,6 +454,7 @@
 				FCDF1D7A20FE476C00EEBFE9 /* Example3View.xib in Resources */,
 				FC433B781DEDEE6A00CD9131 /* SecondCustomView.xib in Resources */,
 				FCB2052B20FBF09F009EB2BC /* ExampleTableViewCell.xib in Resources */,
+				FC87D8F1213725990006A7EF /* Example9TableViewCell.xib in Resources */,
 				FC0D8426210B7E770044EF5C /* Example8View.xib in Resources */,
 				FCD67879210A6FB80012DFD2 /* Example7View.xib in Resources */,
 				FC5F7F431F5E028C0067D0F4 /* FiveCustomView.xib in Resources */,
@@ -570,8 +588,10 @@
 				FC8F3A942101469D00189BFC /* Example5View.swift in Sources */,
 				FC8F3A8F2101143700189BFC /* Example4View.swift in Sources */,
 				FCB2052420FBEBCB009EB2BC /* ListExamplesViewController.swift in Sources */,
+				FC87D8F0213725990006A7EF /* Example9TableViewCell.swift in Sources */,
 				FCB2052A20FBF09F009EB2BC /* ExampleTableViewCell.swift in Sources */,
 				FCDF1D6B20FE21C100EEBFE9 /* Example2View.swift in Sources */,
+				FC87D8ED213716EE0006A7EF /* Example9View.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				FC2182321DE4EB29003F99AE /* FirstCustomView.swift in Sources */,
 				FCA4774D1DE6540D00AC9B3C /* Helper.swift in Sources */,
