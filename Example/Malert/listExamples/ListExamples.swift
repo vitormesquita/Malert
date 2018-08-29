@@ -192,7 +192,7 @@ extension ListExamplesViewController {
         let alert = Malert(title: "Table View Example", customView: example9View)
         alert.margin = 16
         alert.textAlign = .center
-        alert.titleFont = UIFont.systemFont(ofSize: 20, weight: .bold)
+        alert.titleFont = UIFont.systemFont(ofSize: 30, weight: .bold)
         alert.cornerRadius = 0
         alert.buttonsBottomMargin = 16
         alert.buttonsSideMargin = 16
