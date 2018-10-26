@@ -27,6 +27,13 @@ public class Malert: BaseMalertViewController {
         return visibleView
     }()
     
+    required init?(coder aDecoder: NSCoder) {
+        self.malertView = MalertView()
+        self.tapToDismiss = false
+        self.dismissOnActionTapped = false
+        super.init(coder: aDecoder)
+    }
+    
     public init(title: String? = nil, customView: UIView? = nil, tapToDismiss: Bool = true, dismissOnActionTapped: Bool = true) {
         self.malertView = MalertView()
         self.tapToDismiss = tapToDismiss
@@ -39,10 +46,6 @@ public class Malert: BaseMalertViewController {
         self.animationType = .modalBottom
         self.modalPresentationStyle = .custom
         self.transitioningDelegate = malertPresentationManager
-    }
-    
-    public required convenience init?(coder aDecoder: NSCoder) {
-        self.init(coder: aDecoder)
     }
     
     override public func loadView() {
