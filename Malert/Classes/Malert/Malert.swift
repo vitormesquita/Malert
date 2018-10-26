@@ -169,6 +169,11 @@ extension Malert {
         set { malertView.buttonsAxis = newValue }
     }
     
+    public var buttonsFont: UIFont {
+        get { return malertView.buttonsFont }
+        set { malertView.buttonsFont = newValue }
+    }
+    
     public func addAction(_ malertButton: MalertAction) {
         malertView.addButton(malertButton, actionCallback: self)
     }

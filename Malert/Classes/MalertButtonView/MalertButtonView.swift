@@ -89,10 +89,6 @@ extension MalertButtonView {
         
         setTitle(action.title, for: .normal)
         addTarget(self, action: #selector(MalertButtonView.buttonPressedAction(button:)), for: .touchUpInside)
-        
-        if let font = action.font {
-            self.titleLabel?.font = font
-        }
     }
 }
 
@@ -141,5 +137,11 @@ extension MalertButtonView {
             separetor.backgroundColor = newValue
             leftSeparetor.backgroundColor = newValue
         }
+    }
+    
+    // Button font
+    var titleFont: UIFont? {
+        get { return titleLabel?.font }
+        set { titleLabel?.font = newValue }
     }
 }

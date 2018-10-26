@@ -19,6 +19,7 @@ public class MalertView: UIView {
     
     private var _buttonsHeight: CGFloat = 44
     private var _buttonsSeparetorColor: UIColor = UIColor(white: 0.8, alpha: 1)
+    private var _buttonsFont: UIFont = UIFont.systemFont(ofSize: 16)
     
     private var inset: CGFloat = 0 {
         didSet { refreshViews() }
@@ -104,6 +105,7 @@ extension MalertView {
     func addButton(_ button: MalertAction, actionCallback: MalertActionCallbackProtocol?) {
         let buttonView = MalertButtonView(type: .system)
         buttonView.height = _buttonsHeight
+        buttonView.titleFont = _buttonsFont
         buttonView.separetorColor = _buttonsSeparetorColor
         buttonView.callback = actionCallback
         
@@ -267,5 +269,11 @@ extension MalertView {
     @objc public dynamic var separetorColor: UIColor {
         get { return _buttonsSeparetorColor }
         set { _buttonsSeparetorColor = newValue }
+    }
+    
+    ///
+    @objc public dynamic var buttonsFont: UIFont {
+        get { return _buttonsFont }
+        set { _buttonsFont = newValue }
     }
 }

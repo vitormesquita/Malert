@@ -193,6 +193,7 @@ extension ListExamplesViewController {
         alert.margin = 16
         alert.textAlign = .center
         alert.titleFont = UIFont.systemFont(ofSize: 30, weight: .bold)
+        alert.buttonsFont = UIFont.systemFont(ofSize: 18)
         alert.cornerRadius = 0
         alert.buttonsBottomMargin = 16
         alert.buttonsSideMargin = 16

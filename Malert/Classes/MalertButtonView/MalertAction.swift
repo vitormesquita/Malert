@@ -18,7 +18,6 @@ public class MalertAction {
     public var cornerRadius: CGFloat?
     public var borderColor: UIColor?
     public var borderWidth: CGFloat?
-    public var font: UIFont?
     
     public init(title: String, actionBlock: (() -> ())? = nil) {
         self.title = title
