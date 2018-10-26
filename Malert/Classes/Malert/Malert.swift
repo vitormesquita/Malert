@@ -41,7 +41,7 @@ public class Malert: BaseMalertViewController {
         self.transitioningDelegate = malertPresentationManager
     }
     
-    required convenience public init?(coder aDecoder: NSCoder) {
+    public required convenience init?(coder aDecoder: NSCoder) {
         self.init(coder: aDecoder)
     }
     
@@ -161,7 +161,7 @@ extension Malert {
         set { malertView.buttonsBottomMargin = newValue }
     }
     
-    public var buttonsAxis: UILayoutConstraintAxis {
+    public var buttonsAxis: NSLayoutConstraint.Axis {
         get { return malertView.buttonsAxis }
         set { malertView.buttonsAxis = newValue }
     }

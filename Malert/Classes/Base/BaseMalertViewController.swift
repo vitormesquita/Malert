@@ -13,8 +13,8 @@ public class BaseMalertViewController: UIViewController {
     private(set) var keyboardRect = CGRect.zero
     
     func listenKeyboard(){
-        NotificationCenter.default.addObserver(self, selector: #selector(BaseMalertViewController.keyboardWillShow(sender:)), name: .UIKeyboardWillChangeFrame, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(BaseMalertViewController.keyboardWillHide(sender:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BaseMalertViewController.keyboardWillShow(sender:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BaseMalertViewController.keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func keyboardWillShow(sender: NSNotification){
@@ -22,7 +22,7 @@ public class BaseMalertViewController: UIViewController {
             return
         }
         
-        if let keyboardRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue{
+        if let keyboardRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue{
             self.keyboardRect = keyboardRect
         }
     }

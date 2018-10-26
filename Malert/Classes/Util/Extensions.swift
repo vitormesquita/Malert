@@ -30,7 +30,7 @@ extension UILabel {
 
 extension UIStackView {
     
-    static func defaultStack(axis: UILayoutConstraintAxis) -> UIStackView {
+    static func defaultStack(axis: NSLayoutConstraint.Axis) -> UIStackView {
         let stack = UIStackView()
         stack.distribution = .fillEqually
         stack.alignment = .fill

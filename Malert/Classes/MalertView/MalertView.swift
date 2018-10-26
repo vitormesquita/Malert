@@ -216,19 +216,19 @@ extension MalertView {
     }
     
     /// Buttons distribution in stack view
-    @objc public dynamic var buttonsDistribution: UIStackViewDistribution {
+    @objc public dynamic var buttonsDistribution: UIStackView.Distribution {
         get { return buttonsStackView.distribution }
         set { buttonsStackView.distribution = newValue }
     }
     
     /// Buttons aligns in stack view
-    @objc public dynamic var buttonsAligment: UIStackViewAlignment {
+    @objc public dynamic var buttonsAligment: UIStackView.Alignment {
         get { return buttonsStackView.alignment }
         set { buttonsStackView.alignment = newValue }
     }
     
     /// Buttons axis in stack view
-    @objc public dynamic var buttonsAxis: UILayoutConstraintAxis {
+    @objc public dynamic var buttonsAxis: NSLayoutConstraint.Axis {
         get { return buttonsStackView.axis }
         set { buttonsStackView.axis = newValue }
     }
