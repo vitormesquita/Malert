@@ -197,6 +197,10 @@ extension ListExamplesViewController {
         alert.cornerRadius = 0
         alert.buttonsBottomMargin = 16
         alert.buttonsSideMargin = 16
+        
+        alert.onDismissMalert {
+            print("dismissed")
+        }
 
         let action = MalertAction(title: "THAT'S IT")
         action.tintColor = .white

@@ -20,6 +20,7 @@ public class Malert: BaseMalertViewController {
     
     let tapToDismiss: Bool
     let dismissOnActionTapped: Bool
+    var completionBlock: (() -> Void)?
     
     lazy var visibleView: UIView = {
         let visibleView = UIView()
@@ -84,7 +85,9 @@ public class Malert: BaseMalertViewController {
     }
     
     deinit {
+        #if DEBUG
         print("dealloc ---> Malert")
+        #endif
     }
 }
 
@@ -158,7 +161,7 @@ extension Malert {
         get { return malertView.buttonsSideMargin }
         set { malertView.buttonsSideMargin = newValue }
     }
-
+    
     public var buttonsBottomMargin: CGFloat {
         get { return malertView.buttonsBottomMargin }
         set { malertView.buttonsBottomMargin = newValue }
@@ -174,7 +177,12 @@ extension Malert {
         set { malertView.buttonsFont = newValue }
     }
     
+    /* Actions */
     public func addAction(_ malertButton: MalertAction) {
         malertView.addButton(malertButton, actionCallback: self)
+    }
+    
+    public func onDismissMalert(_ block: @escaping (() -> Void)) {
+        self.completionBlock = block
     }
 }

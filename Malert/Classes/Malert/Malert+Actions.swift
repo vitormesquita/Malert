@@ -15,9 +15,7 @@ extension Malert {
             
             let isPointInMalertView = malertView.frame.contains(point)
             if !isPointInMalertView {
-                dismiss(animated: true) {
-                    print("dismissed")
-                }
+                dismiss(animated: true, completion: self.completionBlock)
             }
         } else {
             self.view.endEditing(true)
@@ -29,9 +27,7 @@ extension Malert: MalertActionCallbackProtocol {
     
     func didTapOnAction() {
         if dismissOnActionTapped {
-            dismiss(animated: true) {
-                print("dismissed")
-            }
+            dismiss(animated: true, completion: self.completionBlock)
         }
     }
 }
