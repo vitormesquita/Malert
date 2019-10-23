@@ -8,30 +8,30 @@
 import UIKit
 
 extension Malert {
-    
-    @objc func tapOnView(_ sender: UITapGestureRecognizer) {
-        if tapToDismiss && keyboardRect == .zero {
-            let point = sender.location(in: self.view)
-            
-            let isPointInMalertView = malertView.frame.contains(point)
-            if !isPointInMalertView {
-                dismiss(animated: true) {
-                    print("dismissed")
-                }
+   
+   @objc func tapOnView(_ sender: UITapGestureRecognizer) {
+      if tapToDismiss && keyboardRect == .zero {
+         let point = sender.location(in: self.view)
+         
+         let isPointInMalertView = malertView.frame.contains(point)
+         if !isPointInMalertView {
+            dismiss(animated: true) {
+               print("dismissed")
             }
-        } else {
-            self.view.endEditing(true)
-        }
-    }
+         }
+      } else {
+         self.view.endEditing(true)
+      }
+   }
 }
 
 extension Malert: MalertActionCallbackProtocol {
-    
-    func didTapOnAction() {
-        if dismissOnActionTapped {
-            dismiss(animated: true) {
-                print("dismissed")
-            }
-        }
-    }
+   
+   func didTapOnAction() {
+      if dismissOnActionTapped {
+         dismiss(animated: true) {
+            print("dismissed")
+         }
+      }
+   }
 }
