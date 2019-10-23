@@ -11,17 +11,11 @@
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		91B0ACF67A1169A2D25CD6A1 /* Pods_Malert_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49C907BCD023639C4EE8F78 /* Pods_Malert_Tests.framework */; };
 		FC0D8424210B7E6D0044EF5C /* Example8View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0D8423210B7E6D0044EF5C /* Example8View.swift */; };
 		FC0D8426210B7E770044EF5C /* Example8View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC0D8425210B7E770044EF5C /* Example8View.xib */; };
 		FC0EA23A1E6A2C9100F3A527 /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = FC0EA2391E6A2C9100F3A527 /* CHANGELOG.md */; };
 		FC2182301DE4EB0B003F99AE /* FirstCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */; };
 		FC2182321DE4EB29003F99AE /* FirstCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2182311DE4EB29003F99AE /* FirstCustomView.swift */; };
-		FC433B761DEDEE6100CD9131 /* SecondCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC433B751DEDEE6100CD9131 /* SecondCustomView.swift */; };
-		FC433B781DEDEE6A00CD9131 /* SecondCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */; };
-		FC5F7F411F5E02850067D0F4 /* FiveCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */; };
-		FC5F7F431F5E028C0067D0F4 /* FiveCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */; };
 		FC87D8ED213716EE0006A7EF /* Example9View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87D8EC213716EE0006A7EF /* Example9View.swift */; };
 		FC87D8F0213725990006A7EF /* Example9TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC87D8EE213725990006A7EF /* Example9TableViewCell.swift */; };
 		FC87D8F1213725990006A7EF /* Example9TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC87D8EF213725990006A7EF /* Example9TableViewCell.xib */; };
@@ -45,43 +39,23 @@
 		FCDF1D7A20FE476C00EEBFE9 /* Example3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCDF1D7920FE476C00EEBFE9 /* Example3View.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
-			remoteInfo = Malert;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		0DEFA3CF468AD2C89AC6F2A8 /* Pods_Malert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Malert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21083D1D6390361B30853B37 /* Malert.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Malert.podspec; path = ../Malert.podspec; sourceTree = "<group>"; };
-		356EC739D2854C14D4FE4A16 /* Pods-Malert_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Tests/Pods-Malert_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Malert_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Malert_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* Malert_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Malert_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		83E23EA6345EA39F3D02EEAE /* Pods-Malert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Example/Pods-Malert_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		98737553F911AA11740A107E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A2A84EB05579A47CCBE9BFD2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		A49C907BCD023639C4EE8F78 /* Pods_Malert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Malert_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20E16402CA0CDAB7FEB9383 /* Pods-Malert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Example/Pods-Malert_Example.release.xcconfig"; sourceTree = "<group>"; };
-		F869482DEFE00CBEDB3AF8AA /* Pods-Malert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Malert_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Malert_Tests/Pods-Malert_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FC0D8423210B7E6D0044EF5C /* Example8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example8View.swift; sourceTree = "<group>"; };
 		FC0D8425210B7E770044EF5C /* Example8View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Example8View.xib; sourceTree = "<group>"; };
 		FC0EA2391E6A2C9100F3A527 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		FC21822F1DE4EB0B003F99AE /* FirstCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstCustomView.xib; sourceTree = "<group>"; };
 		FC2182311DE4EB29003F99AE /* FirstCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCustomView.swift; sourceTree = "<group>"; };
-		FC433B751DEDEE6100CD9131 /* SecondCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCustomView.swift; sourceTree = "<group>"; };
-		FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCustomView.xib; sourceTree = "<group>"; };
-		FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveCustomView.swift; sourceTree = "<group>"; };
-		FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiveCustomView.xib; sourceTree = "<group>"; };
 		FC87D8EC213716EE0006A7EF /* Example9View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example9View.swift; sourceTree = "<group>"; };
 		FC87D8EE213725990006A7EF /* Example9TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example9TableViewCell.swift; sourceTree = "<group>"; };
 		FC87D8EF213725990006A7EF /* Example9TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Example9TableViewCell.xib; sourceTree = "<group>"; };
@@ -114,14 +88,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE21AFB9204008FA782 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				91B0ACF67A1169A2D25CD6A1 /* Pods_Malert_Tests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -130,8 +96,6 @@
 			children = (
 				83E23EA6345EA39F3D02EEAE /* Pods-Malert_Example.debug.xcconfig */,
 				E20E16402CA0CDAB7FEB9383 /* Pods-Malert_Example.release.xcconfig */,
-				356EC739D2854C14D4FE4A16 /* Pods-Malert_Tests.debug.xcconfig */,
-				F869482DEFE00CBEDB3AF8AA /* Pods-Malert_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -140,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				0DEFA3CF468AD2C89AC6F2A8 /* Pods_Malert_Example.framework */,
-				A49C907BCD023639C4EE8F78 /* Pods_Malert_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,7 +113,6 @@
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Malert */,
-				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				21AEA22EDB83CE74248F61B9 /* Pods */,
 				241EEB115E0F6A1C6BF4DBE0 /* Frameworks */,
@@ -161,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* Malert_Example.app */,
-				607FACE51AFB9204008FA782 /* Malert_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,7 +134,6 @@
 				FCB2051F20FBEB86009EB2BC /* base */,
 				FCB2052220FBEBAD009EB2BC /* listExamples */,
 				FCB2052C20FBF80A009EB2BC /* examples */,
-				FC21822E1DE4E970003F99AE /* view */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -187,23 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				607FACD41AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		607FACE81AFB9204008FA782 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -226,17 +169,6 @@
 				FC0D8425210B7E770044EF5C /* Example8View.xib */,
 			);
 			path = example8;
-			sourceTree = "<group>";
-		};
-		FC21822E1DE4E970003F99AE /* view */ = {
-			isa = PBXGroup;
-			children = (
-				FC433B751DEDEE6100CD9131 /* SecondCustomView.swift */,
-				FC433B771DEDEE6A00CD9131 /* SecondCustomView.xib */,
-				FC5F7F401F5E02850067D0F4 /* FiveCustomView.swift */,
-				FC5F7F421F5E028C0067D0F4 /* FiveCustomView.xib */,
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 		FC87D8EB213714900006A7EF /* example9 */ = {
@@ -378,27 +310,6 @@
 			productReference = 607FACD01AFB9204008FA782 /* Malert_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACE41AFB9204008FA782 /* Malert_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Malert_Tests" */;
-			buildPhases = (
-				8CEFD34A4B2E37317EA1C8CB /* [CP] Check Pods Manifest.lock */,
-				607FACE11AFB9204008FA782 /* Sources */,
-				607FACE21AFB9204008FA782 /* Frameworks */,
-				607FACE31AFB9204008FA782 /* Resources */,
-				005979D9D700D1C5AF1F1B06 /* [CP] Embed Pods Frameworks */,
-				054D9DEB3BF6889243B83E21 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
-			);
-			name = Malert_Tests;
-			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* Malert_Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -415,17 +326,11 @@
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
-					607FACE41AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = KXWH4SC5H2;
-						LastSwiftMigration = 1000;
-						TestTargetID = 607FACCF1AFB9204008FA782;
-					};
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "Malert" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -437,7 +342,6 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* Malert_Example */,
-				607FACE41AFB9204008FA782 /* Malert_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -453,56 +357,17 @@
 				FC8F3A96210146A600189BFC /* Example5View.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				FCDF1D7A20FE476C00EEBFE9 /* Example3View.xib in Resources */,
-				FC433B781DEDEE6A00CD9131 /* SecondCustomView.xib in Resources */,
 				FCB2052B20FBF09F009EB2BC /* ExampleTableViewCell.xib in Resources */,
 				FC87D8F1213725990006A7EF /* Example9TableViewCell.xib in Resources */,
 				FC0D8426210B7E770044EF5C /* Example8View.xib in Resources */,
 				FCD67879210A6FB80012DFD2 /* Example7View.xib in Resources */,
-				FC5F7F431F5E028C0067D0F4 /* FiveCustomView.xib in Resources */,
 				FCDF1D6D20FE21EA00EEBFE9 /* Example2View.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		607FACE31AFB9204008FA782 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		005979D9D700D1C5AF1F1B06 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Malert_Tests/Pods-Malert_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		054D9DEB3BF6889243B83E21 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Malert_Tests/Pods-Malert_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		40710F1BD67382F46EF36769 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -536,24 +401,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Malert_Example/Pods-Malert_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8CEFD34A4B2E37317EA1C8CB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Malert_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9F1A9335C3FCF99282245E90 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -581,9 +428,7 @@
 			files = (
 				FCB2051E20FBEB5E009EB2BC /* BaseNavigationController.swift in Sources */,
 				FCB2052620FBEC86009EB2BC /* Colors.swift in Sources */,
-				FC433B761DEDEE6100CD9131 /* SecondCustomView.swift in Sources */,
 				FCDF1D7820FE476600EEBFE9 /* Example3View.swift in Sources */,
-				FC5F7F411F5E02850067D0F4 /* FiveCustomView.swift in Sources */,
 				FC0EA23A1E6A2C9100F3A527 /* CHANGELOG.md in Sources */,
 				FCB2052120FBEB9C009EB2BC /* BaseViewController.swift in Sources */,
 				FC8F3A942101469D00189BFC /* Example5View.swift in Sources */,
@@ -602,23 +447,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		607FACE11AFB9204008FA782 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* Malert_Example */;
-			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
@@ -679,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -727,7 +556,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -752,7 +581,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -773,45 +602,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
-		607FACF31AFB9204008FA782 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 356EC739D2854C14D4FE4A16 /* Pods-Malert_Tests.debug.xcconfig */;
-			buildSettings = {
-				DEVELOPMENT_TEAM = KXWH4SC5H2;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		607FACF41AFB9204008FA782 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F869482DEFE00CBEDB3AF8AA /* Pods-Malert_Tests.release.xcconfig */;
-			buildSettings = {
-				DEVELOPMENT_TEAM = KXWH4SC5H2;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -832,15 +623,6 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Malert_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				607FACF31AFB9204008FA782 /* Debug */,
-				607FACF41AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,9 +1,7 @@
 <div style="text-align: center"> 
-	<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/Malert_brand.png">
+	<img src="./Malert/Assets/Malert_brand.png">
 </div>
 
-[![CocoaPods](https://img.shields.io/cocoapods/dt/Malert.svg?style=flat-square)](http://cocoapods.org/pods/Malert)
-[![CocoaPods](https://img.shields.io/cocoapods/at/Malert.svg?style=flat-square)](http://cocoapods.org/pods/Malert)
 [![Platform](https://img.shields.io/cocoapods/p/Malert.svg?style=flat-square)](http://cocoapods.org/pods/Malert)
 [![License](https://img.shields.io/cocoapods/l/Malert.svg?style=flat-square)](http://cocoapods.org/pods/Malert)
 [![Version](https://img.shields.io/cocoapods/v/Malert.svg?style=flat-square)](http://cocoapods.org/pods/Malert)
@@ -11,7 +9,7 @@
 ## A simple, easy and custom iOS UIAlertView written in Swift 
 
 <div style="text-align: center"> 
-	<img src="https://github.com/vitormesquita/Malert/blob/develop/Malert/Assets/mockup.png">
+	<img src="./Malert/Assets/mockup.png">
 </div>
 
 Malert came to facilitates custom alert views as `UIAlertController`. Malert allows you to personalize your alertView so that it matches your application layout
@@ -20,7 +18,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-- Xcode 9.0+
+- Xcode 10.0+
 - Swift 4.0+
 
 ## Versioning
@@ -28,6 +26,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 - *Swift 3.x*: 1.1.5
 - *Swift 4.0*: 2.0~3.0
 - *Swift 4.2*: 3.1*
+- *Swift 5*: 4.0+
 
 ## Installation
 
