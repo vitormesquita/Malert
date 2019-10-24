@@ -19,14 +19,14 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 - Xcode 10.0+
-- Swift 4.0+
+- Swift 5.0+
 
 ## Versioning
 
 - *Swift 3.x*: 1.1.5
 - *Swift 4.0*: 2.0~3.0
-- *Swift 4.2*: 3.1*
-- *Swift 5*: 4.0+
+- *Swift 4.2* 3.1*
+- *Swift 5*: 4.0
 
 ## Installation
 
@@ -172,5 +172,3 @@ Vitor Mesquita, vitor.mesquita09@gmail.com
 ## License
 
 Malert is available under the MIT license. See the LICENSE file for more info.
-
-### [CHANGELOG](https://github.com/vitormesquita/Malert/blob/master/CHANGELOG.md)
