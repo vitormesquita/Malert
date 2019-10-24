@@ -25,7 +25,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 - *Swift 3.x*: 1.1.5
 - *Swift 4.0*: 2.0~3.0
-- *Swift 4.2* 3.1*
+- *Swift 4.2*: 3.1*
 - *Swift 5*: 4.0
 
 ## Installation
