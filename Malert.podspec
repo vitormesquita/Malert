@@ -4,7 +4,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Malert'
-  s.version          = '4.0'
+  s.version          = '4.1'
   s.summary          = 'A simple, easy and very customizable alert'
   s.description      = <<-DESC
     Malert came to facilitate make custom alert views, introducing as `UIAlertController`.
