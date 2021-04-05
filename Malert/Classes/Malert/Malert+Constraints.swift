@@ -30,7 +30,7 @@ extension Malert {
          malertView.leadingAnchor.constraint(equalTo: visibleView.leadingAnchor, constant: 16)
       ]
       
-      if UIDevice.current.orientation.isLandscape {
+	if UIDevice.current.orientation.isLandscape && !preferredInterfaceOrientationForPresentation.isPortrait {
          let topContraint = malertView.topAnchor.constraint(equalTo: visibleView.topAnchor, constant: 16)
          topContraint.priority = UILayoutPriority(900)
          malertConstraints.append(topContraint)
