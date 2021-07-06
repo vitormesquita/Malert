@@ -191,4 +191,10 @@ extension Malert {
     public func onDismissMalert(_ block: @escaping (() -> Void)) {
         self.completionBlock = block
     }
+	
+	/* Overlay */
+	public var overlayColor: UIColor? {
+		get { return visibleView.backgroundColor }
+		set { visibleView.backgroundColor = newValue }
+	}
 }
