@@ -1,16 +1,16 @@
 PODS:
-  - Malert (2.1)
+  - Malert (4.1)
 
 DEPENDENCIES:
   - Malert (from `../`)
 
 EXTERNAL SOURCES:
   Malert:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Malert: 053013b14343e486a5bb9c8676766e9cf1542326
+  Malert: 682bfbf0efc1214bc0f4d4d960e457cb54ba91ba
 
-PODFILE CHECKSUM: 74b915e073dcad13b9ddf42484d1b22ace7e65e4
+PODFILE CHECKSUM: c42ea4ef2d94abf0717f32c79a175f0b91fcae17
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.9.3

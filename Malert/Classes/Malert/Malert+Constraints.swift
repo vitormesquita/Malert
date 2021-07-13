@@ -30,24 +30,33 @@ extension Malert {
     
     private func createMalertViewContraints() {
         NSLayoutConstraint.deactivate(malertConstraints)
-        malertConstraints = [
-            malertView.centerXAnchor.constraint(equalTo: visibleView.centerXAnchor),
-            malertView.centerYAnchor.constraint(equalTo: visibleView.centerYAnchor),
-            malertView.trailingAnchor.constraint(equalTo: visibleView.trailingAnchor, constant: -16),
-            malertView.leadingAnchor.constraint(equalTo: visibleView.leadingAnchor, constant: 16)
-        ]
-        
-        if UIDevice.current.orientation.isLandscape && !preferredInterfaceOrientationForPresentation.isPortrait {
-            let topContraint = malertView.topAnchor.constraint(equalTo: visibleView.topAnchor, constant: 16)
-            topContraint.priority = UILayoutPriority(900)
-            malertConstraints.append(topContraint)
-            
-            let bottomConstraint = malertView.bottomAnchor.constraint(equalTo: visibleView.bottomAnchor, constant: -16)
-            bottomConstraint.priority = UILayoutPriority(900)
-            malertConstraints.append(bottomConstraint)
-        }
-        
+        malertConstraints = isLandscapeEnable ? createMalertLandscapeConstraints() : createMalertPortraitConstraints()
         NSLayoutConstraint.activate(malertConstraints)
         malertView.layoutIfNeeded()
+    }
+    
+    private var isLandscapeEnable: Bool {
+        UIDevice.current.orientation.isLandscape &&
+            !preferredInterfaceOrientationForPresentation.isPortrait
+    }
+    
+    private func createMalertPortraitConstraints() -> [NSLayoutConstraint] {
+        return [
+            malertView.centerXAnchor.constraint(equalTo: visibleView.centerXAnchor),
+            malertView.centerYAnchor.constraint(equalTo: visibleView.centerYAnchor),
+            malertView.trailingAnchor.constraint(equalTo: visibleView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            malertView.leadingAnchor.constraint(equalTo: visibleView.safeAreaLayoutGuide.leadingAnchor, constant: 16)
+        ]
+    }
+    
+    private func createMalertLandscapeConstraints() -> [NSLayoutConstraint] {
+        return [
+            malertView.centerXAnchor.constraint(equalTo: visibleView.centerXAnchor),
+            malertView.centerYAnchor.constraint(equalTo: visibleView.centerYAnchor),
+            malertView.leadingAnchor.constraint(greaterThanOrEqualTo: visibleView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            malertView.trailingAnchor.constraint(greaterThanOrEqualTo: visibleView.safeAreaLayoutGuide.trailingAnchor, constant: 16),
+            malertView.topAnchor.constraint(greaterThanOrEqualTo: visibleView.safeAreaLayoutGuide.topAnchor, constant: 16),
+            malertView.bottomAnchor.constraint(greaterThanOrEqualTo: visibleView.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+        ]
     }
 }
