@@ -5,7 +5,7 @@
 
 import UIKit
 
-protocol MalertActionCallbackProtocol: class {
+protocol MalertActionCallbackProtocol: AnyObject {
     func didTapOnAction()
 }
 
