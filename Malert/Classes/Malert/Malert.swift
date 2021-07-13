@@ -46,11 +46,9 @@ public class Malert: BaseMalertViewController {
         self.transitioningDelegate = malertPresentationManager
     }
     
+    @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
-        self.malertView = MalertView()
-        self.tapToDismiss = false
-        self.dismissOnActionTapped = false
-        super.init(coder: aDecoder)
+        fatalError("Malert is not available to be created by this init")
     }
     
     deinit {
@@ -191,10 +189,10 @@ extension Malert {
     public func onDismissMalert(_ block: @escaping (() -> Void)) {
         self.completionBlock = block
     }
-	
-	/* Overlay */
-	public var overlayColor: UIColor? {
-		get { return visibleView.backgroundColor }
-		set { visibleView.backgroundColor = newValue }
-	}
+    
+    /* Overlay */
+    public var overlayColor: UIColor? {
+        get { return visibleView.backgroundColor }
+        set { visibleView.backgroundColor = newValue }
+    }
 }

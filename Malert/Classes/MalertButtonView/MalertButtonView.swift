@@ -38,11 +38,10 @@ class MalertButtonView: UIButton {
         return leftSeparetorLine
     }()
     
-    //MARK: Action
+    //MARK: - Action
+    
     @objc private func buttonPressedAction(button: UIButton){
-        if let actionBlock = actionBlock {
-            actionBlock()
-        }
+        actionBlock?()
         callback?.didTapOnAction()
     }
 }
